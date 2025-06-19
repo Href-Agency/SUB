@@ -1,0 +1,510 @@
+dateModified: 1750153574
+elementSources:
+  craft\elements\Entry:
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - status
+        - section
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      defaultSort:
+        - title
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: singles
+      tableAttributes:
+        - status
+        - link
+      type: native
+    -
+      heading: 'Types of Page'
+      type: heading
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:537b2696-3036-490c-bb73-69b4f398e637' # Pages
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - link
+      type: native
+
+email:
+  fromEmail: '{{COMPANY_EMAIL}}'
+  fromName: '{{COMPANY_NAME}}'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  hardDisk:
+    hasUrls: true
+    name: 'Hard Disk'
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@uploads'
+meta:
+  __names__:
+    # Entry Types
+    3fb67b16-5a13-4db3-a0bd-b370a28dda1b: Pages # Pages
+    14ebcd69-4eec-4fd1-8165-763199aa557c: 'Nav Item' # Nav Item
+    eadb2060-d0db-499d-bdff-fa41d6879a69: Post # Post
+    # Fields
+    5c1e6b6c-f11d-42c0-9506-3aeec1df72fd: Button # Button
+    10d13899-8189-48c3-9250-da714101745f: 'Nav Link' # Nav Link
+    034f333c-aeba-489f-92a2-920580346d9d: 'Text Input' # Text Input
+    443f8bcb-f41c-40d3-b1fc-f85c0f5c39cf: 'Subtext with Media' # Subtext with Media
+    537b2696-3036-490c-bb73-69b4f398e637: Pages # Pages
+    727dffef-c41f-48ef-8cf6-2747e55f6437: Heading # Heading
+    02066fa3-3504-472a-b9df-f795a8992d73: Image/Video # Image/Video
+    136014f7-4b03-4882-a502-767d68d5d198: Subtext # Subtext
+    7237097a-258e-4778-abe5-339d6c644bba: Navigation # Navigation
+    7259945b-2be7-422b-a976-3a123490c4e2: Text # Text
+    ea9bd626-1a2e-467b-aed3-7bb3cd0e5c31: Link # Link
+    edfdf431-f3cd-4069-b00d-d7b1fbbe9bb7: Content # Content
+    # Sections
+    da1b9d21-b57f-4a89-ae4a-91131165d4ed: Homepage # Homepage
+    # Global Sets
+    96cfeef3-2805-4186-9427-0dbba0f1e4ac: Header # Header
+    1950a11f-4de4-414b-9308-a24aad51dba9: Footer # Footer
+    # Volumes
+    eedb36f0-308b-4328-89bb-47da871abf6a: Images # Images
+    # CKEditor Configs
+    019a0206-fc71-468c-990c-32f66bd7776e: Simple # Simple
+    066a04b4-d239-44e8-9778-1ce84a1e56a6: 'Text Only' # Text Only
+    62f94f8c-55c3-4032-97d2-15dc6e5abc0f: 'Simple with Images' # Simple with Images
+    74a9b112-8f11-442e-880b-f57a58c6cb9b: Headings # Headings
+plugins:
+  assetrev:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  breadcrumb:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.1
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      allowedMessageFields: null
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from {{COMPANY_NAME}}'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: '{{SUPPORT_EMAIL}}'
+  contact-form-tuner:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cookie-consent-banner:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.2
+    settings:
+      allow: 'Allow cookies'
+      async_js: ''
+      auto_inject: '1'
+      decline: Decline
+      defer_js: ''
+      disable_in_live_preview: ''
+      dismiss: 'Got it!'
+      dismiss_on_scroll: '0'
+      dismiss_on_timeout: '0'
+      excluded_categories: null
+      excluded_entry_types: null
+      excluded_product_types: ''
+      expiry_days: '365'
+      honour_do_not_track_header: ''
+      layout: block
+      learn: 'Learn More'
+      learn_more_link: 'http://cookiesandyou.com/'
+      message: 'This website uses cookies to ensure you get the best experience on our website.'
+      palette: default
+      palette_banner: '292727'
+      palette_banner_text: F7F7F7
+      palette_button: FF4D00
+      palette_button_text: '292727'
+      palette_left_button_bg: FF4D00
+      palette_left_button_text: '292727'
+      palette_link: F7F7F7
+      position: bottom
+      preload_css: ''
+      revokable: ''
+      secure_only: ''
+      target: _blank
+      type: info
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  freeform:
+    edition: express
+    enabled: true
+    schemaVersion: 5.4.2
+    settings:
+      alertNotificationRecipients: null
+      allowBuilderTemplateCreation: true
+      allowDashesInFieldHandles: false
+      allowFileTemplateEdit: '1'
+      autoScroll: true
+      autoScrollToErrors: true
+      badgeType: all
+      blockedEmails: null
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: null
+      blockedKeywords: null
+      blockedKeywordsError: 'Invalid Entry Data'
+      bypassSpamCheckOnLoggedInUsers: false
+      clientDigestFrequency: 1
+      clientDigestRecipients: null
+      defaultFromEmail: "{{ craft.app.projectConfig.get('email.fromEmail') }}"
+      defaultFromName: "{{ craft.app.projectConfig.get('email.fromName') }}"
+      defaultView: forms
+      defaults:
+        __assoc__:
+          -
+            - previewHtml
+            - true
+          -
+            - twigInHtml
+            - true
+          -
+            - twigIsolation
+            - true
+          -
+            - richTextFieldToolbarConfiguration
+            - 'blocks bold italic underline forecolor backcolor | align numlist bullist | link image table | removeformat code'
+          -
+            - includeSampleTemplates
+            - true
+          -
+            - notifications
+            -
+              __assoc__:
+                -
+                  - admin
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                -
+                  - conditional
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                -
+                  - userSelect
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                -
+                  - emailField
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+          -
+            - settings
+            -
+              __assoc__:
+                -
+                  - general
+                  -
+                    __assoc__:
+                      -
+                        - formType
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - Solspace\Freeform\Form\Types\Regular
+                      -
+                        - submissionTitle
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '{{ dateCreated|date("Y-m-d H:i:s") }}'
+                      -
+                        - formattingTemplate
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - grid/index.twig
+                -
+                  - dataStorage
+                  -
+                    __assoc__:
+                      -
+                        - storeData
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - defaultStatus
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '2'
+                      -
+                        - collectIp
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                -
+                  - processing
+                  -
+                    __assoc__:
+                      -
+                        - ajax
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - showIndicator
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - showText
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - processingText
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - Processing...
+                -
+                  - successAndErrors
+                  -
+                    __assoc__:
+                      -
+                        - successBehavior
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - reload
+                      -
+                        - returnUrl
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                      -
+                        - successTemplate
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                      -
+                        - successMessage
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - 'Form has been submitted successfully!'
+                      -
+                        - errorMessage
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - 'Sorry, there was an error submitting the form. Please try again.'
+                -
+                  - limits
+                  -
+                    __assoc__:
+                      -
+                        - duplicateCheck
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - no_limit
+      digestFrequency: 1
+      digestOnlyOnProduction: false
+      digestRecipients: null
+      displayFeed: true
+      emailTemplateDefault: files
+      emailTemplateDirectory: freeform/grid
+      emailTemplateStorageType: files_database
+      exportHandlesAsNames: false
+      exportLabels: false
+      fillWithGet: false
+      footerScripts: false
+      formFieldShowOnlyAllowedForms: false
+      formSubmitDisable: true
+      formSubmitExpiration: null
+      formTemplateDirectory: ''
+      formattingTemplate: basic-light/index.twig
+      loggingLevel: error
+      minimumSubmitTime: null
+      pluginName: null
+      purgableSpamAgeInDays: null
+      purgableSubmissionAgeInDays: null
+      purgableUnfinalizedAssetAgeInMinutes: 180
+      purgeAssets: true
+      queuePriority: null
+      rememberPageSubmitOrder: true
+      removeNewlines: false
+      renderFormHtmlInCpViews: true
+      saveFormSessionLimit: 10
+      saveFormTtl: 30
+      scriptInsertLocation: footer
+      scriptInsertType: files
+      sessionContext: payload
+      sessionContextCount: 100
+      sessionContextSecret: ''
+      sessionContextTimeToLiveMinutes: 180
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: false
+      showErrorsForBlockedKeywords: false
+      sitesEnabled: false
+      spamFolderEnabled: true
+      spamProtectionBehavior: simulate_success
+      submissionThrottlingCount: null
+      submissionThrottlingTimeFrame: null
+      successTemplateDirectory: ''
+      updateSearchIndexes: true
+      useQueueForEmailNotifications: false
+      useQueueForIntegrations: false
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: '{{PROJECT_NAME}}'
+  schemaVersion: 5.7.0.3
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

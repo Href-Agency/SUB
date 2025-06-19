@@ -1,0 +1,19 @@
+{
+	"bracketSameLine": true,
+	"singleAttributePerLine": false,
+	"singleQuote": true,
+	"tabWidth": 2,
+	"useTabs": true,
+	"twigAlwaysBreakObjects": false,
+	"twigPrintWidth": 120,
+	"twigSingleQuote": true,
+	"twigMultiTags": [
+		"nav,endnav",
+		"switch,case,default,endswitch",
+		"ifchildren,endifchildren",
+		"cache,endcache",
+		"js,endjs"
+	],
+
+	"plugins": ["@zackad/prettier-plugin-twig", "prettier-plugin-tailwindcss"]
+}

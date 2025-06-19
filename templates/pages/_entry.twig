@@ -1,0 +1,9 @@
+{% extends "_layout.twig" %}
+
+{% block title %}{{ entry.title }} | {{ siteName }}{% endblock %}
+
+{% block content %}
+    <article>
+        {% include "_partials/_content-block.twig" %}
+    </article>
+{% endblock %} 

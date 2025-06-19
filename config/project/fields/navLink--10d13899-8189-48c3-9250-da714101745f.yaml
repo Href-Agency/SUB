@@ -1,0 +1,24 @@
+columnSuffix: null
+handle: navLink
+instructions: null
+name: 'Nav Link'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: 1
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: true
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

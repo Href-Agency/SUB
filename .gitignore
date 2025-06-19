@@ -1,0 +1,30 @@
+# Uploaded files
+public/uploads
+
+# Misc files
+.DS_Store
+Thumbs.db
+*.nova
+*.sublime-workspace
+*.sublime-project
+*.vscode
+
+# Craft Environment Configs
+.env
+
+# Logs
+*.log
+
+# Dependency directories
+/node_modules
+/vendor
+
+# Locally compiled CSS/JS
+public/assets
+mix-manifest.json
+
+# Turn these on to hide files on boilerplate template, but not on actual projects
+# config/license.key
+# composer.lock
+# package-lock.json
+# config/project

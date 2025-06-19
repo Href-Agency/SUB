@@ -1,0 +1,129 @@
+{% macro errorList(errors) %}
+    {% if errors %}
+        <div class="error-container">
+            <span class="error-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="11.25" fill="#FF0000" fill-opacity="0.25" stroke="#BE0000" stroke-width="1.5"/>
+                    <path d="M14.5 5.74545L13.5 15.75L10.5 15.75L9.5 5.74545V4H14.5V5.74545Z" fill="#BE0000"/>
+                    <path d="M13.5 16.7288H10.5L10.25 18.75V20H13.75V18.75L13.5 16.7288Z" fill="#BE0000"/>
+                </svg>
+            </span>
+            {{ ul(errors, {class: 'errors'}) }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% set submission = submission ?? null %}
+
+{% set servicesMenu = footer.servicesMenu %}
+{% set socials = footer.socials %}
+{% set extraBitsMenu = footer.extraBitsMenu %}
+{% set findUsText = footer.findUsText %}
+{% set address = footer.address %}
+{% set reviewsEmbed = footer.reviewsEmbed %}
+{% set copyrightText = footer.copyrightText %}
+
+
+<footer class="site-footer">
+    <div class="site-container">
+        <div class="form-container">
+            <h3 class="menu-heading">/ STAY IN THE KNOW</h3>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+                hbspt.forms.create({
+                    portalId: "19715279",
+                    formId: "fdac2996-cdc9-44b9-81d5-e5faf7d9fc32",
+                    region: "na1"
+                });
+            </script>
+        </div>
+        <div class="top-container">
+            <div class="left-container">
+                <h3 class="menu-heading">/ SERVICES</h3>
+                <ul class="menu-list">
+                    {% for item in servicesMenu %}
+                        <li class="menu-item">
+                            <a href="{{ item.linkField.url }}" 
+                                target="{{ item.linkField.target }}"
+                                class="menu-link large-link">
+                                {{ item.linkField.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="right-container">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3 class="menu-heading">/ FOLLOW US</h3>
+                        <ul class="menu-list">
+                            {% for item in socials %}
+                                <li class="menu-item">
+                                    <a href="{{ item.linkField.url }}" 
+                                        target="{{ item.linkField.target }}"
+                                        class="menu-link">
+                                        {{ item.linkField.label }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="grid-item desktop-only">
+                        <h3 class="menu-heading">/ FIND US</h3>
+                        <div class="find-us-container subtext">
+                            {{ findUsText }}
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <h3 class="menu-heading">/ EXTRA BITS</h3>
+                        <ul class="menu-list">
+                            {% for item in extraBitsMenu %}
+                                <li class="menu-item">
+                                    <a href="{{ item.linkField.url }}" 
+                                        target="{{ item.linkField.target }}"
+                                        class="menu-link">
+                                        {{ item.linkField.label }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="grid-item mobile-only">
+                        <h3 class="menu-heading">/ FIND US</h3>
+                        <div class="find-us-container subtext">
+                            {{ findUsText }}
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="address-container subtext">
+                            {{ address }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-container">
+                    <h3 class="menu-heading">/ STAY IN THE KNOW</h3>
+                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                    <script>
+                        hbspt.forms.create({
+                            portalId: "19715279",
+                            formId: "fdac2996-cdc9-44b9-81d5-e5faf7d9fc32",
+                            region: "na1"
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="reviews-container">
+                <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script> <div class="clutch-widget" data-url="https://widget.clutch.co" data-widget-type="1" data-height="40" data-nofollow="true" data-expandifr="true" data-primary-color="#E62415" data-secondary-color="#E62415" data-clutchcompany-id="414702"></div>
+            </div>
+            <div class="copyright-container">
+                {{ copyrightText }}
+            </div>
+        </div>
+        
+        
+
+    </div>
+
+</footer>

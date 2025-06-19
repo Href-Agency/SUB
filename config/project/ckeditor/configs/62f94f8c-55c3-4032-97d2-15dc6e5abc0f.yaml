@@ -1,0 +1,20 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: 'Simple with Images'
+toolbar:
+  - heading
+  - '|'
+  - bold
+  - italic
+  - underline
+  - link
+  - bulletedList
+  - numberedList
+  - fontColor
+  - insertImage
+  - mediaEmbed

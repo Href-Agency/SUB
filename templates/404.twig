@@ -1,0 +1,15 @@
+{% extends '_layout' %}
+
+{% block title %}404 - Page Not Found | {{ siteName }}{% endblock %}
+
+{% block content %}
+    <div class="error-page">
+        <div class="site-container">
+            <div class="error-content">
+                <h1 class="heading">404</h1>
+                <h2 class="subheading">Oops, something went wrong</h2>
+                <a href="{{ siteUrl }}" class="btn">Back to home</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

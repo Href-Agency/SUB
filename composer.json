@@ -1,0 +1,82 @@
+{
+	"name": "{{AUTHOR_NAME}}/{{PROJECT_HANDLE}}",
+	"description": "Craft CMS",
+	"keywords": [
+		"craft",
+		"cms",
+		"craftcms",
+		"project"
+	],
+	"license": "0BSD",
+	"homepage": "https://craftcms.com/",
+	"type": "project",
+	"support": {
+		"email": "support@craftcms.com",
+		"issues": "https://github.com/craftcms/cms/issues",
+		"forum": "https://craftcms.stackexchange.com/",
+		"source": "https://github.com/craftcms/cms",
+		"docs": "https://craftcms.com/docs",
+		"rss": "https://craftcms.com/changelog.rss"
+	},
+	"require": {
+		"clubstudioltd/craft-asset-rev": "8.0.0",
+		"craftcms/ckeditor": "4.9.0",
+		"craftcms/cms": "5.7.10",
+		"nystudio107/craft-templatecomments": "^5.0.4",
+		"nystudio107/craft-vite": "^5.0",
+		"solspace/craft-freeform": "5.10.17",
+		"topshelfcraft/environment-label": "^5.0.0",
+		"vlucas/phpdotenv": "^5.6.2",
+		"youandmedigital/breadcrumb": "3.0.0"
+	},
+	"require-dev": {
+		"craftcms/generator": "^2.1.0",
+		"craftcms/phpstan": "dev-main",
+		"craftcms/rector": "dev-main",
+		"yiisoft/yii2-shell": "^2.0.6"
+	},
+	"config": {
+		"allow-plugins": {
+			"craftcms/plugin-installer": true,
+			"yiisoft/yii2-composer": true
+		},
+		"sort-packages": true,
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "8.2"
+		}
+	},
+	"scripts": {
+		"craft-update": [
+			"@php craft install/check && php craft clear-caches/all --interactive=0 || exit 0",
+			"@php craft install/check && php craft up --interactive=0 || exit 0"
+		],
+		"post-install-cmd": [
+			"@craft-update"
+		],
+		"post-update-cmd": [
+			"@craft-update"
+		],
+		"post-root-package-install": [
+			"@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+			"@php -r \"file_exists('scripts/.env.sh') || copy('scripts/example.env.sh', 'scripts/.env.sh');\""
+		],
+		"post-create-project-cmd": [
+			"@php craft install"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://composer.craftcms.com",
+			"canonical": false
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"modules\\filters\\": "modules/filters/"
+		}
+	}
+}

@@ -1,0 +1,131 @@
+fieldLayouts:
+  68e921d7-9a32-46f4-a61a-6c8bd8d0ed89:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-09T09:43:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 537a93da-d69a-496e-bb68-5505cd5aa61d # Links
+            handle: servicesMenu
+            includeInCards: false
+            instructions: null
+            label: 'Services Menu'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a695adfe-3f8c-4b3d-a75e-78a918902659
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-09T09:43:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 645061a2-efae-4071-8c51-feb27833ce11 # Socials
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 99ced7e7-27e0-40ae-b6cd-576d3efac6f0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-09T09:55:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: abc12098-50d8-4f6d-98ca-2e2b709c7aab # Extra Bits Menu
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b78f94df-06c9-45d6-aa67-a7b50fef4d7f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-09T09:55:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 136014f7-4b03-4882-a502-767d68d5d198 # Subtext
+            handle: findUsText
+            includeInCards: false
+            instructions: null
+            label: 'Find Us Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6aae2f68-abdd-4d53-8bfb-5c677e7fcd8e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-09T09:55:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 136014f7-4b03-4882-a502-767d68d5d198 # Subtext
+            handle: address
+            includeInCards: false
+            instructions: null
+            label: Address
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f08e028b-4022-4425-b48f-77d9d376b813
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-09T11:24:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 034f333c-aeba-489f-92a2-920580346d9d # Text Input
+            handle: reviewsEmbed
+            includeInCards: false
+            instructions: null
+            label: 'Reviews Embed'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e76b57b3-a4e7-48d7-bf6e-0af75e459b47
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-09T09:55:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 136014f7-4b03-4882-a502-767d68d5d198 # Subtext
+            handle: copyrightText
+            includeInCards: false
+            instructions: null
+            label: 'Copyright Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed86bf25-1fca-4a4e-8779-651418b62040
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0216903d-3596-4d44-91b5-e6475c7b3c5d
+        userCondition: null
+handle: footer
+name: Footer
+sortOrder: 2

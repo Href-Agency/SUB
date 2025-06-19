@@ -1,0 +1,22 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@import "swiper/css/bundle";
+@import "aos/dist/aos.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$black: #292727;
+$orange: #FF4D00;
+$white: #fff;
+$theme-white: #F7F7F7;
+
+// Import globals
+@import "./globals/**/*";
+
+// Import templates
+@import "./templates/**/*";
+
+// Import blocks
+@import "./blocks/**/*";

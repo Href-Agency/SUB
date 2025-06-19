@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "{{PROJECT_NAME}}",
+    "description": "{{PROJECT_DESCRIPTION}}",
+    "url": "{{PROJECT_URL}}",
+    "handle": "{{PROJECT_HANDLE}}"
+  },
+  "branding": {
+    "companyName": "{{COMPANY_NAME}}",
+    "companyEmail": "{{COMPANY_EMAIL}}",
+    "supportEmail": "{{SUPPORT_EMAIL}}"
+  },
+  "author": {
+    "name": "{{AUTHOR_NAME}}",
+    "email": "{{AUTHOR_EMAIL}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{{REPOSITORY_URL}}"
+  },
+  "environments": {
+    "development": {
+      "url": "{{DEV_URL}}",
+      "email": "{{DEV_EMAIL}}"
+    },
+    "staging": {
+      "url": "{{STAGING_URL}}",
+      "email": "{{STAGING_EMAIL}}"
+    },
+    "production": {
+      "url": "{{PRODUCTION_URL}}",
+      "email": "{{PRODUCTION_EMAIL}}"
+    }
+  }
+} 

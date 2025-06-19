@@ -1,0 +1,292 @@
+@import url("https://use.typekit.net/lwn2ehc.css");
+body {
+    font-family: "degular", sans-serif;
+    font-weight: 400;
+    @include fluid-type(18px, 18px, 500px, 1512px);
+}
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0;
+    p {
+        all: inherit;
+    }
+}
+
+h1, .h1, .gform_title{
+    @include fluid-type(55px, 100px, 500px, 1512px);
+    line-height: 0.8;
+    font-weight: 400;
+}
+
+h2, .h2{
+    @include fluid-type(25px, 55px, 500px, 1512px);
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+h3, .h3{
+    @include fluid-type(18px, 18px, 500px, 1512px);
+    line-height: 1.15;
+    font-weight: 400;
+
+}
+.large-link {
+    @include fluid-type(32px, 60px, 500px, 1512px);
+    line-height: 1;
+    font-weight: 400;
+
+}
+
+h4, .h4{
+    @include fluid-type(16px, 16px, 500px, 1512px);
+    line-height: 1;
+    font-weight: 400;
+}
+
+h5, .h5{
+    @include fluid-type(25px, 25px, 500px, 1512px);
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+h6, .h6{
+    @include fluid-type(24px, 24px, 500px, 1512px);
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.service-label {
+    @include fluid-type(25px, 100px, 500px, 1512px);
+    line-height: 0.8;
+    @media only screen and (max-width: 767px) {
+        line-height: 1.4;
+    }
+}
+
+p {
+    margin-top: 0;
+}
+.subtext, p{
+    @include fluid-type(18px, 18px, 500px, 1512px);
+    line-height: 1.15;
+    font-weight: 400;
+    
+    p, p a:not(.btn), li, td{
+        font-size: inherit;
+    }
+
+    &.sm{
+        p, p a:not(.btn), li, td{
+            @include fluid-type(12px, 14px, 500px, 1512px);
+        }
+    }
+
+    &.lg{
+        @include fluid-type(18px, 20px, 500px, 1512px);
+    }
+
+    > h1, > h2, > h3, > h4, > h5, > h6{
+        margin-bottom: 24px;
+
+        &:not(:first-child){
+
+        }
+    }
+
+    p{
+        &:not(:last-child){
+            margin-bottom: 1.5em !important
+        }
+    }
+
+    //default list
+    ul{
+        list-style: disc;
+        margin-bottom: 24px;
+        padding-left: 20px;
+
+        li{
+            position: relative;
+            margin-bottom: 3px;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+
+			&::marker{
+				color: #333;
+			}
+        }
+    }
+    
+
+	//numbered list
+    ol{
+        list-style: none;
+        padding-left: 35px;
+        margin-bottom: 24px !important;
+		counter-set: count;
+
+        li{
+            padding-left: 0px;
+            position: relative;
+            margin-bottom: 3px;
+            margin-bottom: 10px !important;
+			counter-increment: count;
+
+			&::before{
+				content: counter(count);
+				display: block;
+				position: absolute;
+				left: -35px;
+				top: 1px;
+				background-color: #333;
+				color: #fff;
+				width: 24px;
+				height: 24px;
+				border-radius: 9999px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			&:last-child{
+				margin-bottom: 0;
+			}
+        }
+    }
+
+    > *:last-child{
+        margin-bottom: 0 !important;
+
+        img{
+            margin-bottom: 0
+        }
+    }
+
+    //default form styling
+    img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    blockquote {
+        @include fluid-type(24px, 24px, 500px, 1512px);
+        line-height: 1.2;
+        font-weight: 400;
+        padding-left: 56px;
+        position: relative;
+        &:before {
+            content: '';
+            width: 10px;
+            height: 100%;
+            background-color: #74D4D3;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+
+article {
+
+    a:not(.btn, .project-card) {
+        font-size: inherit;
+        text-underline-offset: 3px;
+        width: fit-content;
+        color: inherit;
+        font-weight: 400;
+        background-image: linear-gradient(transparent, transparent),
+            linear-gradient(currentColor, currentColor);
+        background-size: 100% 2px, 0 2px;
+        background-position: 100% 100%, 0 100%;
+        background-repeat: no-repeat;
+        transition: background-size .4s ease;
+        
+        &:hover{
+            background-size: 0 2px, 100% 2px;
+        }
+
+        &.link {
+            display: flex;
+            padding: 5px;
+            align-items: center;
+            svg {
+                margin-left: 4px;
+                width: 20px;
+                height: 20px;
+                padding: 2px;
+                transition: margin-left .3s ease-in-out;
+            }
+
+            &:hover {
+                svg {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+table, table.tablepress {
+    width: 100%;
+    border-collapse: collapse;
+    outline: unset;
+    thead, tbody {
+
+    
+        th, td {
+            padding: 16px;
+            border: unset;
+            text-align: center;
+            border: solid 4px #fff;
+    
+        }
+    }
+    thead {
+        th {
+            background-color: #897229;
+            color: #fff;
+            font-weight: 400;
+        }
+    }
+    tbody {
+        td {
+            background-color: #FFFFFF !important;
+            color: #000000;
+        }
+    }
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Split Text Animation Styles
+.split-text {
+    .split-char {
+        opacity: 0;
+        transition: opacity 0.1s ease;
+    }
+    
+    &.active {
+        .split-char {
+            opacity: 1;
+        }
+    }
+}
+
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    display: block;
+}

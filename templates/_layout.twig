@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="index,follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% if entry is defined %}{{ entry.title }} | {% endif %}{{ siteName }}{% endblock %}</title>
+	{% include '_partials/favicons' %}
+	{# Load our main CSS file in dev mode to avoid FOUC #}
+	{% if craft.vite.devServerRunning() %}
+		<link rel="stylesheet" href="{{ craft.vite.asset("assets/sass/app.scss") }}">
+
+	{% endif %}
+		{{ craft.vite.script('assets/javascript/app.js', false) }}
+
+</head>
+
+<body>
+
+{% include '_partials/nav' %}
+
+<main>
+	{% block content %}
+	{% endblock %}
+</main>
+
+{% include '_partials/footer' %}
+
+</body>
+</html>

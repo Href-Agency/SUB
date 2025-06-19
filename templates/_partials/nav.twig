@@ -1,0 +1,44 @@
+{% set logo = header.logo.one() %}
+{% set button = header.button %}
+{% set isBlogListing = craft.app.request.segments|first == 'blog' and craft.app.request.segments|length == 1 %}
+{% set isArchivePage = craft.app.request.segments|first == 'projects' and craft.app.request.segments|length == 1 %}
+
+{% if isBlogListing or isArchivePage %}
+    {% set darkHeader = true %}
+{% else %}
+    {% if entry is defined and entry is not null %}
+        {% set darkHeader = entry.darkHeader %}
+    {% else %}
+        {% set darkHeader = false %}
+    {% endif %}
+{% endif %}
+
+
+<header class="site-header {% if darkHeader %}is-dark{% endif %}">
+    <div class="site-container">
+        <nav class="site-header__nav">
+            <ul class="site-header__nav--menu ">
+                {% for link in header.navigation %}
+                    {% include '_partials/components/_nav-link' with {
+                        data: link
+                    } %}
+                {% endfor %}
+            </ul>
+        </nav>
+        <div class="site-header__burger">
+            <span class="line line--top"></span>
+            <span class="line line--bottom"></span>
+        </div>
+        <a href="/" class="header-logo {% if darkHeader %}is-dark{% endif %}">
+            {% if logo %}
+                <img src="{{ logo.url }}" alt="{{ logo.title }}">
+                <span class="image-overlay" style="mask-image: url({{ logo.url }})"></span>
+            {% else %}
+                {{ siteName }}
+            {% endif %}
+        </a>
+        {% include '_partials/components/_button' with {
+            data: button
+        } %}
+    </div>
+</header>

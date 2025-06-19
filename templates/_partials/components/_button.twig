@@ -1,0 +1,14 @@
+{% if button %}
+    <a href="{{ button.url }}" 
+        class="btn"
+        {% if button.download %}
+            download="{{ button.fileName }}"
+        {% endif %}
+        {% if button.target %}
+            target="{{ button.target }}"
+        {% endif %}
+    >
+        <span class="label">{{ button.label }}</span>
+        <span class="arrow"></span>
+    </a>
+{% endif %}
