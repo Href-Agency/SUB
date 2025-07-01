@@ -1,0 +1,29 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set fiftyFiftyRepeater = singleBlock.fiftyFiftyRepeater %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        {% for fiftyFiftyCard in fiftyFiftyRepeater %}
+            {% set imageVideo = fiftyFiftyCard.imageVideo.one() %}
+            {% set subtext = fiftyFiftyCard.subtext %}
+            {% set button = fiftyFiftyCard.button %}
+            {% set flip = fiftyFiftyCard.flip %}
+            <div class="fifty-fifty-card {{ flip ? 'flip' : '' }}">
+                <div class="image-container">
+                    {% include '_partials/components/_imageVideo.twig' with {
+                        media: imageVideo
+                    } %}
+                </div>
+                <div class="text-container">
+                    <div class="subtext">{{ subtext }}</div>
+                    {% include '_partials/components/_button.twig' with {
+                        button: button,
+                        buttonClasses: 'btn btn-arrow'
+                    } %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

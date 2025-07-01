@@ -1,4 +1,4 @@
-{% for singleBlock in entry.content.all() %}
+{% for singleBlock in entry.mainContent.all() %}
     {% set blockPath = 'blocks/_' ~ singleBlock.type %}
     {% include blockPath with {
         data: singleBlock

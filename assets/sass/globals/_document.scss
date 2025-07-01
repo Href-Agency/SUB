@@ -1,21 +1,18 @@
 body {
-	color: $black;
 	background-color: $theme-white;
 	margin: 0;
 	width: 100%;
 	max-width: 100vw;
 	overflow-x: hidden;
-	letter-spacing: -0.02em;
 	::-moz-selection {
 		text-shadow: none;
-		background: black;
-		color: white;
+		background: $light-blue;
+		color: $white;
 	}
-
 	::selection {
 		text-shadow: none;
-		background: black;
-		color: white;
+		background: $light-blue;
+		color: $white;
     }
 }
 
@@ -51,6 +48,8 @@ img {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	width: 100%;
+	max-width: 100%;
 }
 
 input[type='search']::-webkit-search-decoration,
@@ -194,4 +193,26 @@ section {
             }
         }
     }
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+	font-size: 12px;
+	font-weight: 700;
+	font-family: "din-2014", sans-serif;
+	text-transform: uppercase;
+	gap: 3px;
+    a {
+        text-decoration: none;
+        color: $black;
+		text-decoration: underline;
+    }
+	.spacer {
+		color: $orange;
+	}
+	.current {
+		font-weight: 400;
+	}
 }

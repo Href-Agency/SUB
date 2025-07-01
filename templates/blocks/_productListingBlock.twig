@@ -1,0 +1,337 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{# Get enquiry list from cookie for initial state #}
+{% set enquiriesCookie = craft.app.request.cookies.get('enquiries') %}
+{% set enquiriesData = {} %}
+{% if enquiriesCookie and enquiriesCookie.value %}
+    {% set enquiriesData = enquiriesCookie.value|json_decode %}
+{% endif %}
+
+
+
+{% set currentPage = craft.app.request.getParam('page') ?? 1 %}
+{% set currentOrder = craft.app.request.getParam('order') %}
+{% set cardLimit = 3 %}
+
+{% set allProductsQuery = craft.entries.section('equipmentListPages').equipmentPageType('productIndividualPage') %}
+{% if currentOrder == 'oldest' %}
+    {% set allProducts = allProductsQuery.orderBy('dateCreated asc').all() %}
+{% elseif currentOrder == 'latest' %}
+    {% set allProducts = allProductsQuery.orderBy('dateCreated desc').all() %}
+{% else %}
+    {# No filter - use default Craft ordering #}
+    {% set allProducts = allProductsQuery.all() %}
+{% endif %}
+{% set products = allProducts|slice(cardLimit * (currentPage - 1), cardLimit) %}
+
+{% set totalProducts = allProducts|length %}
+{% set totalPages = (totalProducts / cardLimit)|round(0, 'ceil') %}
+
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        <div class="categories-container">
+            <div class="filter-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </div>
+            <div class="categories-list">
+            {% set currentCategory = entry.parent() ?? entry %}
+            {% if currentCategory.equipmentPageType == 'categoryListingPage' %}
+                {% set categories = [currentCategory] %}
+            {% else %}
+                {# If we're on a product page, get its category parent #}
+                {% set categories = currentCategory.ancestors().equipmentPageType('categoryListingPage').all() %}
+                {% if categories|length == 0 %}
+                    {% set categories = [currentCategory] %}
+                {% endif %}
+            {% endif %}
+            
+            {% for category in categories %}
+                <div class="category-item">
+                    <h5 class="category-header">
+                        <a href="{{ category.url }}">{{ category.title }}</a>
+                    </h5>
+                    
+                    {% set children = category.children().all() %}
+                    {% if children|length %}
+                        <div class="subcategories">
+                            {% for child in children %}
+                                <div class="subcategory-item">
+                                    <div class="subcategory-header">
+                                        <a href="{{ child.url }}">{{ child.title }}</a>
+                                        {% set grandChildren = child.children().all() %}
+                                        {% if grandChildren|length %}
+                                            <span class="toggle-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8">
+                                                    <path d="M1.41.59L6 5.17 10.59.59 12 2 6 8 0 2z"/>
+                                                </svg>
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    {% if grandChildren|length %}
+                                        <div class="subcategory-children">
+                                            {% for grandChild in grandChildren %}
+                                                <a href="{{ grandChild.url }}" class="subcategory-link">
+                                                    {{ grandChild.title }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        
+        <div class="products-section">
+            <div class="products-header">
+                <div class="filter-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.239" height="15.239" viewBox="0 0 15.239 15.239">
+                        <path id="tune_FILL0_wght400_GRAD0_opsz24" d="M126.773-824.761v-5.08h1.693v1.693h6.773v1.693h-6.773v1.693ZM120-826.454v-1.693h5.08v1.693Zm3.386-3.386v-1.693H120v-1.693h3.386v-1.693h1.693v5.08Zm3.386-1.693v-1.693h8.466v1.693Zm3.386-3.386V-840h1.693v1.693h3.386v1.693h-3.386v1.693ZM120-836.614v-1.693h8.466v1.693Z" transform="translate(-120 840)"/>
+                    </svg>
+                    <span>Filter</span>
+                </div>
+                <div class="products-count">
+                    {% if allProducts|length > cardLimit %}
+                        {% if currentPage == 1 %}
+                            Showing 1 - {{ cardLimit }} of {{ allProducts|length }}
+                        {% else %}
+                            Showing {{ (currentPage - 1) * cardLimit + 1 }} - {{ currentPage * cardLimit }} of {{ allProducts|length }}
+                        {% endif %}
+                    {% else %}
+                        Showing all {{ allProducts|length }} products
+                    {% endif %}
+                </div>
+                <div class="sort-dropdown">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select" name="order">
+                        <option value=""{% if not currentOrder %} selected{% endif %}>No Filter</option>
+                        <option value="latest"{% if currentOrder == 'latest' %} selected{% endif %}>Latest</option>
+                        <option value="oldest"{% if currentOrder == 'oldest' %} selected{% endif %}>Oldest</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+            {% for product in products %}
+            
+                {% set title = product.title %}
+                {% set thumbImage = product.thumbImage.one() %}
+                {% set productPageDetails = product.productPageDetails %}
+                {% set referenceNumber = product.referenceNumber %}
+                {% set listingCardTag = product.listingCardTag %}
+                {% set productDescription = product.productDescription %}
+                
+                <div class="product-card" data-product-id="{{ product.id }}">
+                    <div class="product-image">
+                        <a href="{{ product.url }}">
+                            <img src="{{ thumbImage.getUrl() }}" alt="{{ title }}">
+                        </a>
+                        {% if listingCardTag %}
+                            <div class="tags">
+                                {% for tag in listingCardTag %}
+                                    <div class="tag">{{ tag }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    
+                        {% set inEnquiry = enquiriesData[product.id] is defined %}
+                        <div class="enquiry-button{{ inEnquiry ? ' in-enquiry' : '' }}">
+                            <span>{{ inEnquiry ? 'REMOVE FROM ENQUIRY LIST' : 'ADD TO ENQUIRY LIST' }}</span>
+                            <span class="plus-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                    <path id="add_FILL0_wght400_GRAD0_opsz48" d="M17.143,26V18.857H10V17.143h7.143V10h1.714v7.143H26v1.714H18.857V26Z" transform="translate(-10 -10)" fill="#fff"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-content">
+
+                        <h3 class="product-title">{{ title }}</h3>
+
+                        {% if referenceNumber %}
+                            <div class="product-reference">{{ referenceNumber }}</div>
+                        {% endif %}
+
+                        {% if productDescription %}
+                            <div class="product-description">{{ productDescription }}</div>
+                        {% endif %}
+                        
+                        <span class="section-end"></span>
+                        
+                        <div class="product-specs">
+                            {% for productPageDetail in productPageDetails %}
+                                <div class="product-spec">
+                                    {{ productPageDetail.label }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="product-actions">
+                            <a href="{{ product.url }}" class="btn btn-primary">View details</a>
+                            <a href="#" class="btn quick-enquiry-button" 
+                               data-product-title="{{ title }}" 
+                               data-product-reference="{{ referenceNumber }}" 
+                               data-product-image="{{ thumbImage.getUrl() }}">Quick enquire</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="pagination-container">
+                {% if totalPages > 1 %}
+                    <div class="desktop-pagination">
+                        {# Previous arrow #}
+                        {% if currentPage > 1 %}
+                            <a href="?page={{ currentPage - 1 }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link pagination-arrow prev" aria-label="Previous page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12.523" viewBox="0 0 13 12.523">
+                                    <path id="arrow_forward_24dp_1F1F1F_FILL0_wght700_GRAD0_opsz24" d="M134.883-800.547H127.2a1.156,1.156,0,0,1-.848-.353,1.156,1.156,0,0,1-.353-.848,1.156,1.156,0,0,1,.353-.848,1.157,1.157,0,0,1,.848-.353h7.682l-2.993-2.993a1.172,1.172,0,0,1-.362-.858,1.172,1.172,0,0,1,.362-.858,1.2,1.2,0,0,1,.858-.343,1.172,1.172,0,0,1,.858.362l5.032,5.032a1.227,1.227,0,0,1,.267.4,1.181,1.181,0,0,1,.1.457,1.181,1.181,0,0,1-.1.457,1.229,1.229,0,0,1-.267.4l-5.051,5.051a1.162,1.162,0,0,1-.848.362,1.162,1.162,0,0,1-.848-.362,1.172,1.172,0,0,1-.362-.858,1.172,1.172,0,0,1,.362-.858Z" transform="translate(139 -795.477) rotate(180)" fill="#041c2a"/>
+                                </svg>
+                            </a>
+                        {% endif %}
+
+                        {# Smart pagination logic #}
+                        {% set showRange = 1 %} {# How many pages to show on each side of current #}
+                        {% set startPage = (currentPage - showRange) > 1 ? (currentPage - showRange) : 1 %}
+                        {% set endPage = (currentPage + showRange) < totalPages ? (currentPage + showRange) : totalPages %}
+
+                        {# Always show first page #}
+                        {% if startPage > 1 %}
+                            <a href="?page=1{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link">1</a>
+                            {% if startPage > 2 %}
+                                <span class="pagination-ellipsis">...</span>
+                            {% endif %}
+                        {% endif %}
+
+                        {# Show page range around current page #}
+                        {% for page in startPage..endPage %}
+                            <a href="?page={{ page }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link {% if page == currentPage %}active{% endif %}">{{ page }}</a>
+                        {% endfor %}
+
+                        {# Always show last page #}
+                        {% if endPage < totalPages %}
+                            {% if endPage < (totalPages - 1) %}
+                                <span class="pagination-ellipsis">...</span>
+                            {% endif %}
+                            <a href="?page={{ totalPages }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link">{{ totalPages }}</a>
+                        {% endif %}
+
+                        {# Next arrow #}
+                        {% if currentPage < totalPages %}
+                            <a href="?page={{ currentPage + 1 }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link pagination-arrow next" aria-label="Next page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12.523" viewBox="0 0 13 12.523">
+                                    <path id="arrow_forward_24dp_1F1F1F_FILL0_wght700_GRAD0_opsz24" d="M134.883-800.547H127.2a1.156,1.156,0,0,1-.848-.353,1.156,1.156,0,0,1-.353-.848,1.156,1.156,0,0,1,.353-.848,1.157,1.157,0,0,1,.848-.353h7.682l-2.993-2.993a1.172,1.172,0,0,1-.362-.858,1.172,1.172,0,0,1,.362-.858,1.2,1.2,0,0,1,.858-.343,1.172,1.172,0,0,1,.858.362l5.032,5.032a1.227,1.227,0,0,1,.267.4,1.181,1.181,0,0,1,.1.457,1.181,1.181,0,0,1-.1.457,1.229,1.229,0,0,1-.267.4l-5.051,5.051a1.162,1.162,0,0,1-.848.362,1.162,1.162,0,0,1-.848-.362,1.172,1.172,0,0,1-.362-.858,1.172,1.172,0,0,1,.362-.858Z" transform="translate(-126 808)" fill="#041c2a"/>
+                                </svg>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="mobile-pagination">
+                        {% if currentPage > 1 %}
+                            <a href="?page=1{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link pagination-arrow first" aria-label="First page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.55" height="12.824" viewBox="0 0 16.55 12.824">
+                                    <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(1.411 1.411)">
+                                        <path id="Path_339" data-name="Path 339" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12228.743 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Path_340" data-name="Path 340" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12220.341 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                    </g>
+                                </svg>
+                            </a>
+                        {% else %}
+                            <span class="pagination-link pagination-arrow first disabled" aria-label="First page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.55" height="12.824" viewBox="0 0 16.55 12.824">
+                                    <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(1.411 1.411)">
+                                        <path id="Path_339" data-name="Path 339" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12228.743 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Path_340" data-name="Path 340" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12220.341 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        {% endif %}
+
+                        {% if currentPage > 1 %}
+                            <a href="?page={{ currentPage - 1 }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link pagination-arrow prev" aria-label="Previous page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8.147" height="12.824" viewBox="0 0 8.147 12.824">
+                                    <path id="Path_341" data-name="Path 341" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12221.752 2850.909)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+                            </a>
+                        {% else %}
+                            <span class="pagination-link pagination-arrow prev disabled" aria-label="Previous page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8.147" height="12.824" viewBox="0 0 8.147 12.824">
+                                    <path id="Path_341" data-name="Path 341" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12221.752 2850.909)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        {% endif %}
+
+                        <span class="pagination-link active">{{ currentPage }}</span>
+
+                        {% if currentPage < totalPages %}
+                            <a href="?page={{ currentPage + 1 }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link pagination-arrow next" aria-label="Next page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8.147" height="12.824" viewBox="0 0 8.147 12.824">
+                                    <path id="Path_341" data-name="Path 341" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12221.752 2850.909)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+                            </a>
+                        {% else %}
+                            <span class="pagination-link pagination-arrow next disabled" aria-label="Next page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8.147" height="12.824" viewBox="0 0 8.147 12.824">
+                                    <path id="Path_341" data-name="Path 341" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12221.752 2850.909)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        {% endif %}
+
+                        {% if currentPage < totalPages %}
+                            <a href="?page={{ totalPages }}{% if currentOrder %}&order={{ currentOrder }}{% endif %}" class="pagination-link pagination-arrow last" aria-label="Last page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.55" height="12.824" viewBox="0 0 16.55 12.824">
+                                    <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(1.411 1.411)">
+                                        <path id="Path_339" data-name="Path 339" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12228.743 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Path_340" data-name="Path 340" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12220.341 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                    </g>
+                                </svg>
+                            </a>
+                        {% else %}
+                            <span class="pagination-link pagination-arrow last disabled" aria-label="Last page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.55" height="12.824" viewBox="0 0 16.55 12.824">
+                                    <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(1.411 1.411)">
+                                        <path id="Path_339" data-name="Path 339" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12228.743 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Path_340" data-name="Path 340" d="M-12220.341-2849.5l5.737,5-5.737,5" transform="translate(12220.341 2849.499)" fill="none" stroke="#041c2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="quick-enquiry-modal">
+    <div class="quick-enquiry-modal-content">
+        <div class="close-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+        <h2>Quick Enquiry</h2>
+        <div class="enquiry-preview">
+            <div class="preview-label">Enquire about:</div>
+            <div class="preview-content">
+                <div class="preview-image">
+                    <img src="" alt="" id="preview-product-image">
+                </div>
+                <div class="preview-details">
+                    <h3 id="preview-product-title"></h3>
+                    <p id="preview-product-reference"></p>
+                </div>
+            </div>
+        </div>
+        {{ freeform.form("quickEnquireForm", {
+                formattingTemplate: "grid/index.twig"
+        }).render() }}
+    </div>
+</div>

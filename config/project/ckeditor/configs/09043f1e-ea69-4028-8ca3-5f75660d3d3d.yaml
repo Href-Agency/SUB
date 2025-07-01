@@ -1,0 +1,18 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: Subtext
+toolbar:
+  - heading
+  - '|'
+  - underline
+  - bulletedList
+  - numberedList
+  - bold
+  - italic
+  - link
+  - fontColor

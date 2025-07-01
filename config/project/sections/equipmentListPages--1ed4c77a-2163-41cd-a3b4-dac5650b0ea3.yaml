@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: e6ecaa86-d570-4965-b85f-62c9ff23b0d7 # Equipment Page Content
+handle: equipmentListPages
+maxAuthors: 1
+name: 'Equipment List Pages'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  8c5c2d88-d621-448b-81ae-1f21849e4f56: # Sub
+    enabledByDefault: true
+    hasUrls: true
+    template: equipment-list/_entry.twig
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: null
+  uid: c20f52ad-af4e-477b-937d-cb457c3c7108
+type: structure

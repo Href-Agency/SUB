@@ -1,0 +1,72 @@
+color: null
+fieldLayouts:
+  c544b1c1-a22d-4262-9987-b89dc498ff14:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T10:50:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: backgroundImage
+            includeInCards: false
+            instructions: null
+            label: 'Background Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce108292-a428-4690-8c1a-18857f118010
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T10:50:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: logo
+            includeInCards: false
+            instructions: null
+            label: Logo
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 455e3759-a800-4724-9708-7c9be2a69c23
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T10:50:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Link
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f00ec96-6c2a-4c18-8826-cf60eaae44fb
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5d324fa7-833e-4b79-8563-ecab4ce6b961
+        userCondition: null
+handle: equipmentCard
+hasTitleField: false
+icon: screwdriver-wrench
+name: 'Equipment Card'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

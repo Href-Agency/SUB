@@ -1,0 +1,30 @@
+color: null
+fieldLayouts:
+  1dd9fdad-9e1e-44d5-a52b-ca1577dc641f:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-27T13:44:51+00:00'
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'This wil automatically be populated with all products which are descendants of this product listing page'
+            type: craft\fieldlayoutelements\Tip
+            uid: 2f1b436b-0440-4ada-b673-1dd526b362c4
+            userCondition: null
+        name: Content
+        uid: 87546aef-f46f-4ced-91ba-a93587df688c
+        userCondition: null
+handle: productListingBlock
+hasTitleField: false
+icon: product-hunt
+name: 'Product Listing Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

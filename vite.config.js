@@ -35,13 +35,13 @@ export default defineConfig(({ command, mode }) => {
       // It's the same as continer_port in .ddev/config.yaml
       port: HTTP_PORT,
       // Set origin to match the HTTPS proxy that Craft expects
-      origin: `https://ideal-insights.ddev.site:${HTTPS_PORT}`,
+      origin: `https://sub.ddev.site:${HTTPS_PORT}`,
       // Enable CORS for DDEV
       cors: true,
       // Enable HMR - Use HTTPS port with nginx WebSocket proxying
       hmr: {
         port: HTTP_PORT,
-        host: 'ideal-insights.ddev.site',
+        host: 'sub.ddev.site',
         clientPort: HTTPS_PORT
       }
     },

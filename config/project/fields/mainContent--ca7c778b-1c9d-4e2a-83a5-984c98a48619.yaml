@@ -1,0 +1,56 @@
+columnSuffix: null
+handle: mainContent
+instructions: null
+name: 'Main Content'
+searchable: true
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: true
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 20033fea-bd0d-4a3e-ad47-9f84788a37db # CTA With Background
+    -
+      __assoc__:
+        -
+          - uid
+          - 674fb744-b160-444b-af35-72f3a327afbf # Two Column Card Block
+    -
+      __assoc__:
+        -
+          - uid
+          - cdb88818-0242-4279-92e9-21a22e0931cb # 50/50 Image Text Repeater
+    -
+      __assoc__:
+        -
+          - uid
+          - f9651f2a-e0c5-420e-bcd0-60892652fbcd # Newsletter Signup Banner
+    -
+      __assoc__:
+        -
+          - uid
+          - e1d477b7-f94e-41e1-94f9-0a657534d3eb # Equipment Category Grid
+    -
+      __assoc__:
+        -
+          - uid
+          - e2e75496-e9a6-4b2c-9f2f-3e9ea139a3b1 # Hero with Breadcrumbs
+    -
+      __assoc__:
+        -
+          - uid
+          - d4e7a80b-80bb-4ab2-a2f1-c58e7d49ed90 # Product Listing Block
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

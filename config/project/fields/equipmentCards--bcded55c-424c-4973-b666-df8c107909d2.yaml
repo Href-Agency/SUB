@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: equipmentCards
+instructions: null
+name: 'Equipment Cards'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - f0170a2a-3987-4b96-a0b8-e2f4c9b4f177 # Equipment Card
+  includeTableView: false
+  maxEntries: 2
+  minEntries: 2
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

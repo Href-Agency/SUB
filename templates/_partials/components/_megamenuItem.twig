@@ -1,0 +1,35 @@
+{% set menuLink = data.menuLink %}
+{% set linkLabel = menuLink.label %}
+{% set itemClass = 'menu-item megamenu-item' %}
+{% set isActive = craft.app.request.segments|join('/') == menuLink.url|replace({(siteUrl): ''})|trim('/') %}
+
+{% if isActive %}
+    {% set itemClass = itemClass ~ ' menu-item--active' %}
+{% endif %}
+
+<li class="{{ itemClass }}">
+    <a href="{{ menuLink.url }}">{{ linkLabel }}</a>
+    {% if data.megamenuContent.count() != 0 %}
+        <button class="megamenu-toggle" type="button" aria-label="Toggle submenu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="arrow-icon">
+                <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M16,24l-1.05-1.075,6.175-6.175H8v-1.5H21.125L14.95,9.075,16,8l8,8Z" transform="translate(-8 -8)" fill="currentColor"/>
+            </svg>
+        </button>
+        <ul class="submenu">
+            <div class="site-container">
+                {% for menuItem in data.megamenuContent %}
+                    <li class="submenu-list">
+                        <h3 class="submenu-list__title">{{ menuItem.title }}</h3>
+                        <ul class="submenu-list__items">
+                            {% for singleEntry in menuItem.linkList %}
+                                <li class="submenu-list__item">
+                                    <a href="{{ singleEntry.url }}">{{ singleEntry.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </div>
+        </ul>
+    {% endif %}
+</li>

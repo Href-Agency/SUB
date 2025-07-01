@@ -1,0 +1,12 @@
+{% set singleLink = data.singleLink %}
+{% set linkLabel = singleLink.label %}
+{% set itemClass = 'menu-item' %}
+{% set isActive = craft.app.request.segments|join('/') == singleLink.url|replace({(siteUrl): ''})|trim('/') %}
+
+{% if isActive %}
+    {% set itemClass = itemClass ~ ' menu-item--active' %}
+{% endif %}
+
+<li class="{{ itemClass }}">
+    <a href="{{ singleLink.url }}">{{ linkLabel }}</a>
+</li>

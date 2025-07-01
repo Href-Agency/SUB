@@ -1,0 +1,114 @@
+fieldLayouts:
+  6ab3f5b4-a069-448c-9b20-3466fc9c8c52:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-25T10:23:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 29bba45c-c45c-474a-838b-7a067938dbfc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T10:23:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e7076da7-39d5-4fe9-bca1-588f96d22b04 # Label
+            handle: phone
+            includeInCards: false
+            instructions: null
+            label: 'Phone Number'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e291860f-f448-434b-8f78-bc0e1c17df7e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T10:23:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e7076da7-39d5-4fe9-bca1-588f96d22b04 # Label
+            handle: email
+            includeInCards: false
+            instructions: null
+            label: 'Email Address'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2d85da6-ced2-45aa-b62a-7d9b0e4fadaa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T10:23:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: linkedin
+            includeInCards: false
+            instructions: null
+            label: 'Linkedin Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6c6ef557-332f-4c2a-bea1-e778ea21504a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T10:26:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: address
+            includeInCards: false
+            instructions: null
+            label: Address
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1908e11-e036-4f70-a023-67f5f10e0f9b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T10:23:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0b7df609-3386-44d6-8dec-9236996e999a # Link List
+            handle: policies
+            includeInCards: false
+            instructions: null
+            label: 'Policies Menu'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4d1fcd6b-bb05-4628-b5fc-8c9eaa417c7e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 4ebd74a0-2ef1-4f04-987c-15c10f7c3e77
+        userCondition: null
+handle: footer
+name: Footer
+sortOrder: 2

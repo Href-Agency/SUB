@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: listingCardTag
+instructions: 'Shows the tag in the top left of images for "New", "Reduced" etc.'
+name: 'Listing Card Tag'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'taggroup:f676a57e-2621-4ec0-809a-0ad087bb9878' # Product Tag
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Tags

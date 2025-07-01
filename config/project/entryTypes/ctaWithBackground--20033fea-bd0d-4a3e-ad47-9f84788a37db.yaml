@@ -1,0 +1,97 @@
+color: null
+fieldLayouts:
+  a0302802-ac4a-406f-8196-59d50a1fee9b:
+    cardView:
+      - 'layoutElement:64bbab36-2b23-4734-a7c5-f9c3f950dc5c'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T09:36:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4b6fba43-00e6-42e9-bd5d-df5a7c0e6d77
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T09:36:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 64bbab36-2b23-4734-a7c5-f9c3f950dc5c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T09:36:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: btn
+            includeInCards: false
+            instructions: null
+            label: Button
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 30e3f980-7c9d-4871-a5d3-137315080327
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 933b5979-c167-4cb3-805e-500465ee69cc
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T09:36:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ecbc199d-cba2-4043-96f9-babcda7e9d8f
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Block Options'
+        uid: a8418181-87cc-46c6-8d5c-472b46a37826
+        userCondition: null
+handle: ctaWithBackground
+hasTitleField: false
+icon: address-card
+name: 'CTA With Background'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

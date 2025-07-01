@@ -1,0 +1,264 @@
+color: null
+fieldLayouts:
+  a5fa8273-9c26-4652-a2dc-7fc9c7ee4168:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-06-25T11:36:20+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3072ce11-1aee-4e6d-91f0-61fbe833f89f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T11:37:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9a743120-33d4-4879-96fd-896218a7bd14
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T13:30:06+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\LevelConditionRule
+                  maxValue: ''
+                  operator: '='
+                  step: 1
+                  uid: 30ef45c1-f5b5-44b9-b938-f66d265f7579
+                  value: '3'
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: catThumbnail
+            includeInCards: false
+            instructions: null
+            label: 'Category List Thumbnail'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4da7212b-b18b-4781-897d-15da4c3d2e9b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-25T11:37:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ca7c778b-1c9d-4e2a-83a5-984c98a48619 # Main Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae048562-06fd-49b7-9e60-b3c9bb5b6a39
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 10660604-256e-4d24-8d61-fe82fc1abc6d
+        userCondition: null
+      -
+        elementCondition:
+          class: craft\elements\conditions\entries\EntryCondition
+          conditionRules:
+            -
+              class: craft\fields\conditions\OptionsFieldConditionRule
+              fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+              layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+              operator: in
+              uid: 812bf1a2-c741-4533-ade5-721055391df1
+              values:
+                - productIndividualPage
+          elementType: craft\elements\Entry
+          fieldContext: global
+        elements:
+          -
+            dateAdded: '2025-06-26T10:29:03+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: dd0424f1-c10c-4067-b7c4-847439d84190
+                  values:
+                    - productIndividualPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 312021f4-e37c-4cd4-a5cc-948fec2a9862 # Product Page Details
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 67e80838-7d59-49a0-86e2-d6345b1e7594
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-06-26T10:40:08+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: c3de64df-a6fc-4076-b79b-99ded5e930f1
+                  values:
+                    - productIndividualPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e7076da7-39d5-4fe9-bca1-588f96d22b04 # Label
+            handle: referenceNumber
+            includeInCards: false
+            instructions: null
+            label: 'Reference Number'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c0aff1fc-61ef-4bee-b12f-bb693eed278a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-06-26T10:40:08+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: 9af7e6aa-5709-49b2-89b9-eb6c8398a1aa
+                  values:
+                    - productIndividualPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 3a4016c0-b8ce-4030-a761-17bbd4cb565f # Listing Card Tag
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c79378b2-dd84-4882-9383-59c5e791c139
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-06-26T10:31:59+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: e850474c-6e5c-4ce6-a906-5f2576f19333
+                  values:
+                    - productIndividualPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: thumbImage
+            includeInCards: false
+            instructions: null
+            label: 'Thumbnail Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f404100f-09a7-4455-af8e-fe0535c7e962
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-06-30T09:26:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: productDescription
+            includeInCards: false
+            instructions: null
+            label: 'Product Description'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 69337f1e-9b4b-4299-a7ce-9be8d7181f23
+            userCondition: null
+            warning: null
+            width: 100
+        name: Options
+        uid: 06027d14-6704-4373-8955-85a5e12578f4
+        userCondition: null
+handle: equipmentPageContent
+hasTitleField: true
+icon: anchor
+name: 'Equipment Page Content'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

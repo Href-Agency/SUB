@@ -1,0 +1,9 @@
+<div class="breadcrumbs">
+    <a href="/">Home</a> 
+    <span class="spacer"> > </span>
+    {% for crumb in entry.getAncestors() %}
+        <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+        <span class="spacer"> > </span>
+    {% endfor %}
+    <span class="current">{{ entry.title }}</span>
+</div>

@@ -1,0 +1,38 @@
+color: null
+fieldLayouts:
+  fb6b36de-9001-450e-85b4-e0194f0ee43f:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T14:55:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 741d13d8-7c1b-4440-a507-1b6478eb6736 # Fifty Fifty Repeater
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b52e2eda-b831-4172-a8b4-7e3a035063c1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0722613a-bae3-4c08-ab5e-29f9ee36252c
+        userCondition: null
+handle: fiftyFiftyImageTextRepeater
+hasTitleField: false
+icon: credit-card-front
+name: '50/50 Image Text Repeater'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

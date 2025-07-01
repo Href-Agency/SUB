@@ -4,57 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0752c37397341d790eff5d583759f03a",
+    "content-hash": "b57666441aee89dfab2f083baa796b9d",
     "packages": [
-        {
-            "name": "adigital/cookie-consent-banner",
-            "version": "3.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/a-digital/cookie-consent-banner/zipball/3411d5fe7fbe5fc38ecadf290b4262e664aa97ee",
-                "reference": "3411d5fe7fbe5fc38ecadf290b4262e664aa97ee",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^5.0.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Cookie Consent Banner",
-                "handle": "cookie-consent-banner",
-                "hasCpSettings": true,
-                "hasCpSection": false,
-                "changelogUrl": "https://github.com/a-digital/cookie-consent-banner/blob/master/CHANGELOG.md",
-                "class": "adigital\\cookieconsentbanner\\CookieConsentBanner"
-            },
-            "autoload": {
-                "psr-4": {
-                    "adigital\\cookieconsentbanner\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "A Digital",
-                    "homepage": "https://adigital.agency"
-                }
-            ],
-            "description": "Add a configurable cookie consent banner to the website.",
-            "keywords": [
-                "cms",
-                "cookie consent banner",
-                "craft",
-                "craft-plugin",
-                "craftcms"
-            ],
-            "support": {
-                "docs": "https://github.com/a-digital/cookie-consent-banner/blob/master/README.md",
-                "issues": "https://github.com/a-digital/cookie-consent-banner/issues"
-            },
-            "time": "2025-06-09T15:00:55+00:00"
-        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.8",
@@ -631,11 +582,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "5.7.10",
+            "version": "5.7.11",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/1e9ce75675834ab04b0d9770efe9c0d620ad3db6",
-                "reference": "1e9ce75675834ab04b0d9770efe9c0d620ad3db6",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/175d6def25bc53ed431e7bd8a23a6c893a80f77e",
+                "reference": "175d6def25bc53ed431e7bd8a23a6c893a80f77e",
                 "shasum": ""
             },
             "require": {
@@ -685,7 +636,7 @@
                 "web-auth/webauthn-lib": "~4.9.0",
                 "webonyx/graphql-php": "~14.11.10",
                 "yiisoft/yii2": "~2.0.52.0",
-                "yiisoft/yii2-debug": "~2.1.26.0",
+                "yiisoft/yii2-debug": "~2.1.27.0",
                 "yiisoft/yii2-queue": "~2.3.2",
                 "yiisoft/yii2-symfonymailer": "^4.0.0"
             },
@@ -732,60 +683,7 @@
                 "docs": "https://craftcms.com/docs/5.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2025-06-04T22:57:17+00:00"
-        },
-        {
-            "name": "craftcms/contact-form",
-            "version": "3.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/contact-form/zipball/1cfc5cfeb137e868d094ea15c90c6b9c4bf02ea5",
-                "reference": "1cfc5cfeb137e868d094ea15c90c6b9c4bf02ea5",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0-beta.1|^5.0.0-beta.1",
-                "php": "^8.0.2"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Contact Form",
-                "handle": "contact-form",
-                "documentationUrl": "https://github.com/craftcms/contact-form/blob/v2/README.md",
-                "components": {
-                    "mailer": "craft\\contactform\\Mailer"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "craft\\contactform\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pixel & Tonic",
-                    "homepage": "https://pixelandtonic.com/"
-                }
-            ],
-            "description": "Add a simple contact form to your Craft CMS site",
-            "keywords": [
-                "cms",
-                "contact",
-                "craftcms",
-                "form",
-                "yii2"
-            ],
-            "support": {
-                "email": "support@craftcms.com",
-                "issues": "https://github.com/craftcms/contact-form/issues?state=open",
-                "source": "https://github.com/craftcms/contact-form",
-                "docs": "https://github.com/craftcms/contact-form/blob/v2/README.md",
-                "rss": "https://github.com/craftcms/contact-form/commits/v2.atom"
-            },
-            "time": "2024-03-11T22:40:47+00:00"
+            "time": "2025-06-24T16:52:05+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -1528,42 +1426,6 @@
             ],
             "description": "An SVG sanitizer for PHP",
             "time": "2024-06-18T10:27:15+00:00"
-        },
-        {
-            "name": "ether/seo",
-            "version": "5.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ethercreative/seo/zipball/aa23f778c5d54e8ff387ba36f624cc7b4f23b3d7",
-                "reference": "aa23f778c5d54e8ff387ba36f624cc7b4f23b3d7",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^5.0",
-                "php": "^8.2"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "handle": "seo",
-                "name": "SEO",
-                "developer": "Ether Creative",
-                "developerUrl": "https://ethercreative.co.uk",
-                "class": "ether\\seo\\Seo"
-            },
-            "autoload": {
-                "psr-4": {
-                    "ether\\seo\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "SEO utilities including a unique field type, sitemap, & redirect manager",
-            "support": {
-                "issues": "https://github.com/ethercreative/seo",
-                "docs": "https://github.com/ethercreative/seo/blob/v3/README.md"
-            },
-            "time": "2024-10-09T10:52:49+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2692,56 +2554,6 @@
             "time": "2023-04-19T08:25:22+00:00"
         },
         {
-            "name": "miranj/craft-contact-form-tuner",
-            "version": "1.2.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/miranj/craft-contact-form-tuner/zipball/446ec764a759b48127abcee9cf5920177142a21e",
-                "reference": "446ec764a759b48127abcee9cf5920177142a21e",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0 || ^4.0 || ^5.0",
-                "craftcms/contact-form": "^2.0 || ^3.0",
-                "php": "^7.2.5 || ^8.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Contact Form Tuner",
-                "handle": "contact-form-tuner",
-                "hasCpSettings": true,
-                "changelogUrl": "https://raw.githubusercontent.com/miranj/craft-contact-form-tuner/master/CHANGELOG.md",
-                "class": "miranj\\contactformtuner\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "miranj\\contactformtuner\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Miranj",
-                    "homepage": "https://miranj.in/"
-                }
-            ],
-            "description": "Adds a bunch of additional controls (cc, bcc, reply-to, templates, plain text control) to the Craft CMS Contact Form plugin.",
-            "keywords": [
-                "contact",
-                "craft",
-                "craftcms",
-                "email",
-                "form"
-            ],
-            "support": {
-                "docs": "https://github.com/miranj/craft-contact-form-tuner/blob/master/README.md",
-                "issues": "https://github.com/miranj/craft-contact-form-tuner/issues"
-            },
-            "time": "2024-04-22T11:10:22+00:00"
-        },
-        {
             "name": "ml/iri",
             "version": "1.1.4",
             "target-dir": "ML/IRI",
@@ -3016,16 +2828,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.10.0",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "c1397390dd0a7e0f11660f0ae20f753d88c1f3d9"
+                "reference": "1fd1935b2d90aef2f093c5e35f7ae1257c448d00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/c1397390dd0a7e0f11660f0ae20f753d88c1f3d9",
-                "reference": "c1397390dd0a7e0f11660f0ae20f753d88c1f3d9",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/1fd1935b2d90aef2f093c5e35f7ae1257c448d00",
+                "reference": "1fd1935b2d90aef2f093c5e35f7ae1257c448d00",
                 "shasum": ""
             },
             "require": {
@@ -3117,7 +2929,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-06-12T10:24:28+00:00"
+            "time": "2025-06-21T15:19:35+00:00"
         },
         {
             "name": "nystudio107/craft-code-editor",
@@ -3186,54 +2998,6 @@
                 }
             ],
             "time": "2025-05-17T20:38:20+00:00"
-        },
-        {
-            "name": "nystudio107/craft-cookies",
-            "version": "5.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-cookies/zipball/2cb17a056e68beea24ebabedb0215b8725ad71f5",
-                "reference": "2cb17a056e68beea24ebabedb0215b8725ad71f5",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^5.0.0",
-                "php": "^8.2"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "class": "nystudio107\\cookies\\Cookies",
-                "handle": "cookies",
-                "name": "Cookies"
-            },
-            "autoload": {
-                "psr-4": {
-                    "nystudio107\\cookies\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "nystudio107",
-                    "homepage": "https://nystudio107.com/"
-                }
-            ],
-            "description": "A simple plugin for setting and getting cookies from within Craft CMS templates.",
-            "keywords": [
-                "cms",
-                "cookies",
-                "craft",
-                "craft-plugin",
-                "craftcms"
-            ],
-            "support": {
-                "docs": "https://nystudio107.com/docs/cookies/",
-                "issues": "https://nystudio107.com/plugins/cookies/support",
-                "source": "https://github.com/nystudio107/craft-cookies"
-            },
-            "time": "2024-04-15T17:55:45+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-vite",
@@ -3725,16 +3489,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "4.3.1",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "d0ac70d610fb62ccad38c2696569ae1ad42acc70"
+                "reference": "747ccd1b443e85e0cfc0d52acf50e4d15ef959eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/d0ac70d610fb62ccad38c2696569ae1ad42acc70",
-                "reference": "d0ac70d610fb62ccad38c2696569ae1ad42acc70",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/747ccd1b443e85e0cfc0d52acf50e4d15ef959eb",
+                "reference": "747ccd1b443e85e0cfc0d52acf50e4d15ef959eb",
                 "shasum": ""
             },
             "require": {
@@ -3825,9 +3589,9 @@
             ],
             "support": {
                 "issues": "https://github.com/PHPOffice/PhpSpreadsheet/issues",
-                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.3.1"
+                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.4.0"
             },
-            "time": "2025-05-26T18:51:08+00:00"
+            "time": "2025-06-23T01:23:23+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -4697,11 +4461,11 @@
         },
         {
             "name": "solspace/craft-freeform",
-            "version": "5.10.17",
+            "version": "5.11.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/solspace/craft-freeform/zipball/cf130dcdf033ce50432c876922c7676131bd8710",
-                "reference": "cf130dcdf033ce50432c876922c7676131bd8710",
+                "url": "https://api.github.com/repos/solspace/craft-freeform/zipball/21500f35f29ce956185bf93ede5745c033ba4459",
+                "reference": "21500f35f29ce956185bf93ede5745c033ba4459",
                 "shasum": ""
             },
             "require": {
@@ -4727,7 +4491,7 @@
             },
             "type": "craft-plugin",
             "extra": {
-                "schemaVersion": "5.4.2",
+                "schemaVersion": "5.6.1",
                 "handle": "freeform",
                 "class": "Solspace\\Freeform\\Freeform",
                 "name": "Freeform",
@@ -4750,7 +4514,7 @@
                 }
             ],
             "description": "The most flexible and user-friendly form building plugin!",
-            "time": "2025-06-11T15:09:15+00:00"
+            "time": "2025-06-26T03:09:12+00:00"
         },
         {
             "name": "spomky-labs/cbor-php",
@@ -9178,16 +8942,16 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.26",
+            "version": "2.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "e4b28a1d295fc977d8399db544336dd5b2764397"
+                "reference": "44e158914911ef81cd7111fd6d46b918f65fae7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/e4b28a1d295fc977d8399db544336dd5b2764397",
-                "reference": "e4b28a1d295fc977d8399db544336dd5b2764397",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/44e158914911ef81cd7111fd6d46b918f65fae7c",
+                "reference": "44e158914911ef81cd7111fd6d46b918f65fae7c",
                 "shasum": ""
             },
             "require": {
@@ -9265,7 +9029,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-13T21:27:29+00:00"
+            "time": "2025-06-08T13:32:11+00:00"
         },
         {
             "name": "yiisoft/yii2-queue",

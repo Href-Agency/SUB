@@ -1,0 +1,34 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set backgroundImage = singleBlock.media.one() %}
+{% set heading = singleBlock.heading %}
+{% set subtext = singleBlock.subtext %}
+{% set button = singleBlock.btn %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="background-image">
+        {% include '_partials/components/_imageVideo.twig' with {
+            media: backgroundImage,
+        } %}
+        <div aria-hidden="true" class="overlay"></div>
+    </div>
+    <div class="site-container">
+        <div class="cta-content">
+            {% if heading %}
+                <div class="heading-container">
+                    {{ heading }}
+                </div>
+            {% endif %}
+            {% if subtext %}
+                <div class="subtext">{{ subtext }}</div>
+            {% endif %}
+            {% if button %}
+                {% include '_partials/components/_button.twig' with {
+                    button: button,
+                    buttonClasses: 'btn btn-arrow'
+                } %}
+            {% endif %}
+        </div>
+    </div>
+</section>

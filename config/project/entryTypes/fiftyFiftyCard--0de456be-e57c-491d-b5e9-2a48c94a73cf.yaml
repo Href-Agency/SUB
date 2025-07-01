@@ -1,0 +1,97 @@
+color: null
+fieldLayouts:
+  b801ff03-6c29-460d-81ef-1a77bc941a3a:
+    cardView:
+      - 'layoutElement:f20db730-adb1-464a-a81d-a7b1f4561641'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T14:51:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: imageVideo
+            includeInCards: false
+            instructions: null
+            label: Image/Video
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 115b6113-df2d-45fb-ba86-d52c1d7796d0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T14:51:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f20db730-adb1-464a-a81d-a7b1f4561641
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T14:51:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: button
+            includeInCards: false
+            instructions: null
+            label: Button
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1410e061-f3a6-4c61-ac0a-88c4559a2caf
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 13513093-6ebb-4768-a358-8bdc4518ee56
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T14:51:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: fab0c052-2ecc-4fb3-b50c-072289e0957f # True/False
+            handle: flip
+            includeInCards: false
+            instructions: 'Toggle between showing the image on the left and text on the right, to image on the right and text on the left.'
+            label: 'Flip Option'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6c5af9fb-885b-4a4a-8994-f75bb36d71bf
+            userCondition: null
+            warning: null
+            width: 100
+        name: Options
+        uid: b4e1f01a-4465-4d6f-918c-d7ceb7b226aa
+        userCondition: null
+handle: fiftyFiftyCard
+hasTitleField: false
+icon: align-left
+name: 'Fifty Fifty Card'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

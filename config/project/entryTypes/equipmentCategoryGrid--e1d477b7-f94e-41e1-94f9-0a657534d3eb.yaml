@@ -1,0 +1,38 @@
+color: null
+fieldLayouts:
+  78273fc3-2482-4451-975e-d9d390d2b9a1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-27T11:29:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 361094fd-54f2-4b6d-8afa-65918b120a09
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e299e312-9824-463f-bcc5-9a5a7ac72f8c
+        userCondition: null
+handle: equipmentCategoryGrid
+hasTitleField: false
+icon: grid-2
+name: 'Equipment Category Grid'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

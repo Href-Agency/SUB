@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: megamenuContent
+instructions: null
+name: 'Megamenu Content'
+searchable: false
+settings:
+  createButtonLabel: 'New Column'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - a92e5168-e1b1-4553-88ea-8b38892b8c65 # Megamenu List
+  includeTableView: false
+  maxEntries: null
+  minEntries: 1
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

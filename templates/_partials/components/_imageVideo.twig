@@ -1,9 +1,7 @@
 {% if media is defined and media is not empty %}
-    {% set isVideo = media.kind('video').one() %}
-    {% set isImage = media.kind('image').one() %}
-    {% if isVideo %}
-        <video src="{{ isVideo.url() }}" autoplay muted loop playsinline></video>
-    {% elseif isImage %}
-        {{ isImage.getImg() }}
+    {% if media.kind == 'video' %}
+        <video src="{{ media.url() }}" autoplay muted loop playsinline></video>
+    {% elseif media.kind == 'image' %}
+        {{ media.getImg() }}
     {% endif %}
 {% endif %}

@@ -1,0 +1,48 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set heading = singleBlock.heading %}
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        {% if heading %}
+            <div class="heading-container">
+                <h2>{{ heading }}</h2>
+            </div>
+        {% endif %}
+        <div class="grid-container">
+            {% for child in entry.children() %}
+            {% set title = child.title %}
+            {% set thumbnail = child.catThumbnail.one() %}
+            {% set url = child.url %}
+            {% set subChildren = child.children() %}
+            <div class="single-card">
+                <div class="single-card-image">
+                    {% include "_partials/components/_imageVideo.twig" with {
+                        media: thumbnail,
+                    } only %}
+                </div>
+                <div class="single-card-content">
+                    <h5>{{ child.title }}</h5>
+                    <div class="list-container">
+                        {% if subChildren %}
+                            {% for subChild in subChildren %}
+                                {% if subChild.equipmentPageType == "productListingPage" %}
+                                    <a href="{{ subChild.url }}">
+                                        {{ subChild.title }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">
+                                            <path id="arrow_back_FILL0_wght500_GRAD0_opsz24" d="M158.479-803.007l-3,3,.89.876,4.5-4.5-4.5-4.5-.89.876,3,3h-6.61v1.248Z" transform="translate(-151.869 808.131)"/>
+                                        </svg>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <a href="{{ url }}" class="btn btn-arrow">
+                        View all equipment
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

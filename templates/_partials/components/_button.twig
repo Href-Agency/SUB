@@ -1,6 +1,6 @@
 {% if button %}
     <a href="{{ button.url }}" 
-        class="btn"
+        class="{{ buttonClasses }}"
         {% if button.download %}
             download="{{ button.fileName }}"
         {% endif %}
@@ -8,7 +8,6 @@
             target="{{ button.target }}"
         {% endif %}
     >
-        <span class="label">{{ button.label }}</span>
-        <span class="arrow"></span>
+        {{ button.label }}
     </a>
 {% endif %}

@@ -1,0 +1,14 @@
+.error-page {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+	background-color: $black;
+	color: $theme-white;
+	padding: 100px 0;
+
+    .error-content {
+        
+    }
+}

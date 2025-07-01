@@ -1,0 +1,57 @@
+color: null
+fieldLayouts:
+  1f03596e-310a-46ef-a0e6-84311287c787:
+    cardView:
+      - 'layoutElement:83e91fbf-b380-46f8-82ff-2d8c80358adb'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-23T10:24:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: menuLink
+            includeInCards: true
+            instructions: null
+            label: 'Menu Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 83e91fbf-b380-46f8-82ff-2d8c80358adb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-20T15:56:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 69332d09-4481-4eaf-9f75-241fbd7f5211 # Megamenu Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b58cf50d-0130-48e0-8993-4270d9cb20b4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 638a2d33-78e2-497d-a596-37e41ba4c249
+        userCondition: null
+handle: megamenuItem
+hasTitleField: false
+icon: null
+name: 'Megamenu Item'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

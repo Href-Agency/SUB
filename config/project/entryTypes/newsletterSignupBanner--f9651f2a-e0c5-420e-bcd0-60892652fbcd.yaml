@@ -1,0 +1,38 @@
+color: null
+fieldLayouts:
+  afd1c876-bda0-441a-83f6-4af85c23cc16:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-25T09:14:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7eb799bd-8348-499e-a883-7fbf7837d421
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e9315285-489c-4511-aab3-8b7a252046ee
+        userCondition: null
+handle: newsletterSignupBanner
+hasTitleField: false
+icon: envelope-open-text
+name: 'Newsletter Signup Banner'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

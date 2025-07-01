@@ -1,44 +1,62 @@
 {% set logo = header.logo.one() %}
-{% set button = header.button %}
-{% set isBlogListing = craft.app.request.segments|first == 'blog' and craft.app.request.segments|length == 1 %}
-{% set isArchivePage = craft.app.request.segments|first == 'projects' and craft.app.request.segments|length == 1 %}
 
-{% if isBlogListing or isArchivePage %}
-    {% set darkHeader = true %}
-{% else %}
-    {% if entry is defined and entry is not null %}
-        {% set darkHeader = entry.darkHeader %}
-    {% else %}
-        {% set darkHeader = false %}
-    {% endif %}
-{% endif %}
-
-
-<header class="site-header {% if darkHeader %}is-dark{% endif %}">
-    <div class="site-container">
-        <nav class="site-header__nav">
-            <ul class="site-header__nav--menu ">
-                {% for link in header.navigation %}
-                    {% include '_partials/components/_nav-link' with {
-                        data: link
-                    } %}
-                {% endfor %}
-            </ul>
-        </nav>
-        <div class="site-header__burger">
-            <span class="line line--top"></span>
-            <span class="line line--bottom"></span>
+<header class="site-header">
+    <div class="inner-container">
+        <div class="site-container">
+            <a href="/" class="header-logo">
+                {% if logo %}
+                    <img src="{{ logo.url }}" alt="{{ logo.title }}">
+                {% else %}
+                    {{ siteName }}
+                {% endif %}
+            </a>
+            <nav class="site-header__nav">
+                <ul class="site-header__nav--menu ">
+                    {% for menuItem in header.navigation.all() %}
+                        {% set componentPath = '_partials/components/_' ~ menuItem.type ~ '.twig' %}
+                        {% include componentPath with {
+                            data: menuItem
+                        } %}
+                    {% endfor %}
+                    {% set enquiriesCookie = craft.app.request.cookies.get('enquiries') %}
+                    {% set enquiriesData = {} %}
+                    {% if enquiriesCookie and enquiriesCookie.value %}
+                        {% set enquiriesData = enquiriesCookie.value|json_decode %}
+                    {% endif %}
+                    {% set enquiriesCount = enquiriesData ? enquiriesData|length : 0 %}
+                    <li class="menu-item enquiry-list-item">
+                        <a href="/enquiry-list">
+                            Equipment List 
+                            <span class="enquiry-count" data-enquiry-count>{{ enquiriesCount }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <a class="site-header__search btn btn-border btn-border--white" id="search-toggle">
+                <span class="not-active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <path id="search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24" d="M138.444-820l-7-7a6.621,6.621,0,0,1-1.917,1.056,6.772,6.772,0,0,1-2.306.389,6.972,6.972,0,0,1-5.125-2.1,6.972,6.972,0,0,1-2.1-5.125,6.972,6.972,0,0,1,2.1-5.125,6.972,6.972,0,0,1,5.125-2.1,6.972,6.972,0,0,1,5.125,2.1,6.972,6.972,0,0,1,2.1,5.125,6.773,6.773,0,0,1-.389,2.306A6.622,6.622,0,0,1,133-828.556l7,7Zm-11.222-7.778a4.822,4.822,0,0,0,3.542-1.458,4.822,4.822,0,0,0,1.458-3.542,4.822,4.822,0,0,0-1.458-3.542,4.822,4.822,0,0,0-3.542-1.458,4.822,4.822,0,0,0-3.542,1.458,4.822,4.822,0,0,0-1.458,3.542,4.822,4.822,0,0,0,1.458,3.542A4.822,4.822,0,0,0,127.222-827.778Z" transform="translate(-120 840)" fill="#fff"/>
+                    </svg>
+                    <span class="text">Search</span>
+                </span>
+                <span class="active">
+                    <span class="text">Close</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path id="close_FILL0_wght400_GRAD0_opsz24" d="M201.6-744l-1.6-1.6,6.4-6.4-6.4-6.4,1.6-1.6,6.4,6.4,6.4-6.4,1.6,1.6-6.4,6.4,6.4,6.4-1.6,1.6-6.4-6.4Z" transform="translate(-200 760)" fill="#fff"/>
+                    </svg>
+                </span>
+            </a>
+            <div class="site-header__burger">
+                <span class="line line--top"></span>
+                <span class="line line--middle"></span>
+                <span class="line line--bottom"></span>
+            </div>
         </div>
-        <a href="/" class="header-logo {% if darkHeader %}is-dark{% endif %}">
-            {% if logo %}
-                <img src="{{ logo.url }}" alt="{{ logo.title }}">
-                <span class="image-overlay" style="mask-image: url({{ logo.url }})"></span>
-            {% else %}
-                {{ siteName }}
-            {% endif %}
-        </a>
-        {% include '_partials/components/_button' with {
-            data: button
-        } %}
+        <div class="search-container">
+            <form action="/" method="get">
+                <input type="text" name="q" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </div>
 </header>

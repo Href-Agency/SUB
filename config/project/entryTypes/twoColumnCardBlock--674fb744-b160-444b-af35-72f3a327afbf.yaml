@@ -1,0 +1,72 @@
+color: null
+fieldLayouts:
+  d25bc3cd-c8d5-42ea-8f97-43a5ac4ea951:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-24T10:52:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d8701d55-4e96-4975-8a83-ca39387151dd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T10:52:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aa3ffb32-22c5-462f-9335-8dd735a45e07
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-24T10:52:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: bcded55c-424c-4973-b666-df8c107909d2 # Equipment Cards
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 46c34e0e-9ed3-4c44-b48d-11be0ac69af6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ce15fc4d-4671-47a8-8476-d4ae78279148
+        userCondition: null
+handle: twoColumnCardBlock
+hasTitleField: false
+icon: table-columns
+name: 'Two Column Card Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

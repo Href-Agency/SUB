@@ -1,5 +1,5 @@
 {
-	"name": "{{AUTHOR_NAME}}/{{PROJECT_HANDLE}}",
+	"name": "dev/sub",
 	"description": "Craft CMS",
 	"keywords": [
 		"craft",
@@ -21,10 +21,10 @@
 	"require": {
 		"clubstudioltd/craft-asset-rev": "8.0.0",
 		"craftcms/ckeditor": "4.9.0",
-		"craftcms/cms": "5.7.10",
+		"craftcms/cms": "5.7.11",
 		"nystudio107/craft-templatecomments": "^5.0.4",
 		"nystudio107/craft-vite": "^5.0",
-		"solspace/craft-freeform": "5.10.17",
+		"solspace/craft-freeform": "5.11.3",
 		"topshelfcraft/environment-label": "^5.0.0",
 		"vlucas/phpdotenv": "^5.6.2",
 		"youandmedigital/breadcrumb": "3.0.0"

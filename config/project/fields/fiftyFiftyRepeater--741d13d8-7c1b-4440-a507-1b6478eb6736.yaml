@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: fiftyFiftyRepeater
+instructions: null
+name: 'Fifty Fifty Repeater'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 0de456be-e57c-491d-b5e9-2a48c94a73cf # Fifty Fifty Card
+  includeTableView: false
+  maxEntries: null
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

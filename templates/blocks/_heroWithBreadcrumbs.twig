@@ -1,0 +1,21 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set backgroundImage = singleBlock.backgroundImage.one() %}
+{% set subtext = singleBlock.subtext %}
+
+
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="background-container">
+        {% include '_partials/components/_imageVideo.twig' with {
+            media: backgroundImage
+        } %}
+    </div>
+    <div class="site-container">
+        {% include "_partials/components/_breadcrumbs.twig" %}
+        <div class="subtext">
+            <p>{{ subtext }}</p>
+        </div>
+    </div>
+</section>

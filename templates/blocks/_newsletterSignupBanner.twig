@@ -1,0 +1,17 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set subtext = singleBlock.subtext %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        <div class="subtext">
+            {{ singleBlock.subtext }}
+        </div>
+        <div class="form-container">
+            {{ freeform.form("newsletterForm", {
+                    formattingTemplate: "grid/index.twig"
+            }).render() }}
+        </div>
+    </div>
+</section>
