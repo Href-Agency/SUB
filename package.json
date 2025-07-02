@@ -1,16 +1,16 @@
 {
-	"name": "{{PROJECT_HANDLE}}",
+	"name": "craft-boilerplate",
 	"version": "1.0.0",
-	"description": "{{PROJECT_DESCRIPTION}}",
+	"description": "This project is based on the official [Craft 3 starter project](https://github.com/craftcms/craft/)",
 	"repository": {
 		"type": "git",
-		"url": "{{REPOSITORY_URL}}"
+		"url": "github.com:jmcgaha/craft-boilerplate.git"
 	},
-	"author": "{{AUTHOR_NAME}}",
+	"author": "Jonathan McGaha",
 	"bugs": {
-		"url": "{{REPOSITORY_URL}}/issues"
+		"url": "https://github.com/jmcgaha/craft-boilerplate/issues"
 	},
-	"homepage": "{{REPOSITORY_URL}}#readme",
+	"homepage": "https://github.com/jmcgaha/craft-boilerplate#readme",
 	"dependencies": {
 		"@splidejs/splide": "^4.1.4",
 		"aos": "^2.3.4",
