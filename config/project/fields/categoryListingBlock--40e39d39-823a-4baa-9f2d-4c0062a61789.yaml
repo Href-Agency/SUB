@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: categoryListingBlock
+instructions: null
+name: 'Category Listing Block'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - e1d477b7-f94e-41e1-94f9-0a657534d3eb # Equipment Category Grid
+  includeTableView: false
+  maxEntries: 1
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

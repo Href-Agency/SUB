@@ -36,7 +36,9 @@ form {
         position: absolute;
         top: -5px;
         left: -5px;
-        background-color: $black;
+        background-color: $dark-blue;
+        color: $white;
+        border-radius: 10px;
         width: calc(100% + 10px);
         height: calc(100% + 10px);
         z-index: 100;
@@ -56,5 +58,142 @@ form {
             font-weight: 400;
         }
 
+    }
+
+    position: relative;
+    display: grid;
+    gap: 15px;
+    
+    @media only screen and (max-width: 767px) {
+        gap: 10px;
+    }
+    .freeform-row{
+        margin: 0;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        @media only screen and (max-width: 767px) {
+            gap: 10px;
+            flex-direction: column;
+        }
+        &:after {
+            content: unset;
+        }
+        
+        .freeform-column {
+            padding: 0;
+            margin: 0;
+            &.freeform-column-6 {
+                width: calc(50% - 7.5px);
+                margin: 0;
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                }
+            }
+            label {
+                // display: none;
+                font-weight: 400 !important;
+                font-size: 18px;
+                margin-bottom: 10px;
+                a:not(.btn, .project-card) {
+                    font-size: inherit;
+                    text-underline-offset: 3px;
+                    width: fit-content;
+                    color: inherit;
+                    font-weight: inherit;
+                    background-image: linear-gradient(transparent, transparent),
+                        linear-gradient(currentColor, currentColor);
+                    background-size: 100% 2px, 0 2px;
+                    background-position: 100% 100%, 0 100%;
+                    background-repeat: no-repeat;
+                    transition: background-size .4s ease;
+                    
+                    &:hover{
+                        background-size: 0 2px, 100% 2px;
+                    }
+                }
+            }
+            input, textarea {
+                // height: 84px;
+                padding: 17px 26px 18px;
+                border: 1px solid $light-blue;
+                border-radius: 5px;
+                @include fluid-type(14px, 20px, 500px, 1920px);
+                @media only screen and (max-width: 767px) {
+                    padding: 10px 15px;
+                }
+            }
+            &.freeform-fieldtype-checkbox {
+                label {
+                    position: relative;
+                    padding-left: 26px;
+                    font-size: 14px;
+                    line-height: 18px;
+                    font-weight: 400;
+                    margin: 0;
+                    &:after {
+                        content: unset;
+                    }
+                }
+                input {
+                    display: block;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    min-width: 16px;
+                    min-height: 16px;
+                    padding: unset;
+                    border: 4px solid $white;
+                    border-radius: 4px;
+                    background-color: $white;
+                    outline: solid 1px #707070;
+                    margin: 1px 9px 1px 1px;
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    transition: background-color .2s ease-in-out;
+                    &:checked {
+                        background-color: $light-blue;
+                    }
+                }
+            }
+            &.freeform-fieldtype-html {
+                margin-bottom: 40px;
+                display: grid;
+                gap: 10px;
+                p {
+                    margin-bottom: 0 !important;
+                }
+                &:after {
+                    content: unset;
+                }
+            }
+        }
+    }
+    .freeform-button-column {
+        &:not(:last-child, :first-child) {
+            width: 100%;
+        }
+        width: fit-content;
+        &:empty {
+            display: none;
+        }
+        .freeform-button-wrapper {
+            width: 100%
+        }
+    }
+    .freeform-button-submit {
+        @extend .btn;
+        background-color: $light-blue;
+        min-width: unset;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+        border-color: $light-blue;
+        border: solid 2px $light-blue;
+        &:hover {
+            background-color: $white;
+            color: $light-blue;
+        }
     }
 }

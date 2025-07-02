@@ -23,6 +23,7 @@
         justify-content: space-between;
         width: calc(100% - 60px);
         max-width: 1466px;
+        gap: 20px;
         @media only screen and (max-width: 1200px) {
             height: 85px;
         }
@@ -45,7 +46,7 @@
     }
     &__burger {
         display: none;
-        @media only screen and (max-width: 1024px) {
+        @media only screen and (max-width: 1200px) {
             display: block
         }
         position: relative;
@@ -95,7 +96,8 @@
     }
     &__nav {
         margin: unset;
-        @media only screen and (max-width: 1024px) {
+        margin-left: auto;
+        @media only screen and (max-width: 1200px) {
             position: fixed;
             top: 85px;
             left: 0;
@@ -120,7 +122,10 @@
             gap: 0 60px;
             align-items: center;
             margin: unset;
-            @media only screen and (max-width: 1024px) {
+            @media only screen and (max-width: 1400px) {
+                gap: 0 40px;
+            }
+            @media only screen and (max-width: 1200px) {
                 flex-direction: column;
                 gap: 0;
                 align-items: flex-start;
@@ -130,7 +135,7 @@
             >.menu-item {
                 padding: 44px 0 40px;
                 font-weight: 500;
-                @media only screen and (max-width: 1024px) {
+                @media only screen and (max-width: 1200px) {
                     padding: 15px 0;
                     width: 100%;
                     border-bottom: 1px solid rgba($theme-white, 0.2);
@@ -326,27 +331,62 @@
 
                 }
             }
+        }
+    }
             
-            // Enquiry list item styling
-            .enquiry-list-item {
-                .enquiry-count {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    min-width: 20px;
-                    height: 20px;
-                    background-color: $orange;
-                    color: $white;
-                    font-size: 12px;
-                    font-weight: 600;
-                    border-radius: 10px;
-                    margin-left: 8px;
-                    padding: 2px 6px;
-                    
-                    @media only screen and (max-width: 1024px) {
-                        background-color: rgba($orange, 0.9);
-                    }
-                }
+    // Enquiry list item styling
+    .enquiry-list-item {
+        margin-left: auto;
+        a {
+            font-size: 13px;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: $theme-white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .enquiry-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            background-color: $orange;
+            color: $white;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 10px;
+            margin-left: 8px;
+            padding: 2px 6px;
+            
+            @media only screen and (max-width: 1024px) {
+                background-color: rgba($orange, 0.9);
+            }
+        }
+        .text {
+            @media only screen and (max-width: 767px) {
+                display: none;
+            }
+        }
+        .enquiry-count-text {
+            position: relative;
+            width: 18px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg {
+                width: 18px;
+                height: 20px;
+            }
+            .enquiry-count {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translate(50%, -50%);
             }
         }
     }
@@ -381,6 +421,20 @@
                 }
                 &.active {
                     top: 50%;
+                }
+            }
+        }
+    }
+    &__search {
+        @media only screen and (max-width: 767px) {
+            padding: 0;
+            height: 35px;
+            width: 35px;
+            span {
+                padding: 0 !important;
+
+                .text {
+                    display: none !important;
                 }
             }
         }

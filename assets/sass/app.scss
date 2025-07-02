@@ -2,6 +2,7 @@
 @use 'mixins' as *;
 @import "swiper/css/bundle";
 @import "aos/dist/aos.css";
+@import "glightbox/dist/css/glightbox.min.css";
 
 @tailwind base;
 @tailwind components;

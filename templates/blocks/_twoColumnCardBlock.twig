@@ -7,18 +7,20 @@
 
 <section id="{{ blockId }}" class="{{ className }}">
     <div class="site-container">
-        <div class="text-container">
-            {% if heading %}
-                <div class="heading-container split-text">
-                    {{ heading }}
-                </div>
-            {% endif %}
-            {% if subtext %}
-                <div class="subtext">
-                    {{ subtext }}
-                </div>
-            {% endif %}
-        </div>
+        {% if heading is not null or subtext is not null %}
+            <div class="text-container">
+                {% if heading %}
+                    <div class="heading-container split-text">
+                        {{ heading }}
+                    </div>
+                {% endif %}
+                {% if subtext %}
+                    <div class="subtext">
+                        {{ subtext }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
         <div class="cards-container">
             {% for card in cards %}
                 {% set backgroundImage = card.backgroundImage.one() %}

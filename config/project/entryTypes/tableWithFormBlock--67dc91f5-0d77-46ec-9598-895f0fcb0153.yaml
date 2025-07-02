@@ -1,0 +1,72 @@
+color: null
+fieldLayouts:
+  b43fc554-d2e5-4ab1-b92e-a267a0c928dd:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-02T09:02:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 33f145f4-d678-448b-a3f0-d3175c86d222
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-02T09:02:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6e678c67-681a-4c23-bcb6-a67780aa5008 # Table
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f4ae665d-a3ba-49b8-aba2-03ea551c1c90
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-02T09:02:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 01ce057f-6e39-430f-9d43-c40aa57cb04c # Image Carousel
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 336c0e72-652e-4e89-b7c6-a790ecbd50bf
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 4d9feb5d-c606-48ff-b976-f0081d33172a
+        userCondition: null
+handle: tableWithFormBlock
+hasTitleField: false
+icon: table
+name: 'Table with Form Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,60 @@
+columnSuffix: null
+handle: equipmentSinglePages
+instructions: null
+name: 'Equipment Single Pages'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: 1
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+      -
+        - conditionRules
+        -
+          -
+            __assoc__:
+              -
+                - class
+                - craft\fields\conditions\OptionsFieldConditionRule
+              -
+                - uid
+                - 053fd0f0-414d-43e9-b38b-f9e1218e3eb5
+              -
+                - operator
+                - in
+              -
+                - values
+                -
+                  - productIndividualPage
+              -
+                - fieldUid
+                - 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+              -
+                - layoutElementUid
+                - 929d512f-14b2-4a4b-81bb-b58c7fd2e5dd
+  selectionLabel: null
+  showCardsInGrid: true
+  showSiteMenu: false
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources:
+    - 'section:1ed4c77a-2163-41cd-a3b4-dac5650b0ea3' # Equipment List Pages
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

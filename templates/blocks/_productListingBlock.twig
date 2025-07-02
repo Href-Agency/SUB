@@ -1,26 +1,19 @@
-{% set className = singleBlock.type %}
-{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
-
-{# Get enquiry list from cookie for initial state #}
-{% set enquiriesCookie = craft.app.request.cookies.get('enquiries') %}
-{% set enquiriesData = {} %}
-{% if enquiriesCookie and enquiriesCookie.value %}
-    {% set enquiriesData = enquiriesCookie.value|json_decode %}
-{% endif %}
-
-
+{% set className = "productListingBlock" %}
+{% set blockId = "productListingBlock" %}
 
 {% set currentPage = craft.app.request.getParam('page') ?? 1 %}
 {% set currentOrder = craft.app.request.getParam('order') %}
-{% set cardLimit = 3 %}
+{% set cardLimit = 12 %}
 
-{% set allProductsQuery = craft.entries.section('equipmentListPages').equipmentPageType('productIndividualPage') %}
+{% set allProductsQuery = craft.entries.section('equipmentListPages')
+    .equipmentPageType('productIndividualPage')
+    .descendantOf(entry) %}
+
 {% if currentOrder == 'oldest' %}
     {% set allProducts = allProductsQuery.orderBy('dateCreated asc').all() %}
 {% elseif currentOrder == 'latest' %}
     {% set allProducts = allProductsQuery.orderBy('dateCreated desc').all() %}
 {% else %}
-    {# No filter - use default Craft ordering #}
     {% set allProducts = allProductsQuery.all() %}
 {% endif %}
 {% set products = allProducts|slice(cardLimit * (currentPage - 1), cardLimit) %}
@@ -121,69 +114,7 @@
             
             <div class="products-grid">
             {% for product in products %}
-            
-                {% set title = product.title %}
-                {% set thumbImage = product.thumbImage.one() %}
-                {% set productPageDetails = product.productPageDetails %}
-                {% set referenceNumber = product.referenceNumber %}
-                {% set listingCardTag = product.listingCardTag %}
-                {% set productDescription = product.productDescription %}
-                
-                <div class="product-card" data-product-id="{{ product.id }}">
-                    <div class="product-image">
-                        <a href="{{ product.url }}">
-                            <img src="{{ thumbImage.getUrl() }}" alt="{{ title }}">
-                        </a>
-                        {% if listingCardTag %}
-                            <div class="tags">
-                                {% for tag in listingCardTag %}
-                                    <div class="tag">{{ tag }}</div>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    
-                        {% set inEnquiry = enquiriesData[product.id] is defined %}
-                        <div class="enquiry-button{{ inEnquiry ? ' in-enquiry' : '' }}">
-                            <span>{{ inEnquiry ? 'REMOVE FROM ENQUIRY LIST' : 'ADD TO ENQUIRY LIST' }}</span>
-                            <span class="plus-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                    <path id="add_FILL0_wght400_GRAD0_opsz48" d="M17.143,26V18.857H10V17.143h7.143V10h1.714v7.143H26v1.714H18.857V26Z" transform="translate(-10 -10)" fill="#fff"/>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="product-content">
-
-                        <h3 class="product-title">{{ title }}</h3>
-
-                        {% if referenceNumber %}
-                            <div class="product-reference">{{ referenceNumber }}</div>
-                        {% endif %}
-
-                        {% if productDescription %}
-                            <div class="product-description">{{ productDescription }}</div>
-                        {% endif %}
-                        
-                        <span class="section-end"></span>
-                        
-                        <div class="product-specs">
-                            {% for productPageDetail in productPageDetails %}
-                                <div class="product-spec">
-                                    {{ productPageDetail.label }}
-                                </div>
-                            {% endfor %}
-                        </div>
-                        
-                        <div class="product-actions">
-                            <a href="{{ product.url }}" class="btn btn-primary">View details</a>
-                            <a href="#" class="btn quick-enquiry-button" 
-                               data-product-title="{{ title }}" 
-                               data-product-reference="{{ referenceNumber }}" 
-                               data-product-image="{{ thumbImage.getUrl() }}">Quick enquire</a>
-                        </div>
-                    </div>
-                </div>
+                {% include "_partials/components/_equipmentSingleCard.twig" %}
             {% endfor %}
             </div>
             <div class="pagination-container">
@@ -309,29 +240,3 @@
         </div>
     </div>
 </section>
-
-<div class="quick-enquiry-modal">
-    <div class="quick-enquiry-modal-content">
-        <div class="close-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-            </svg>
-        </div>
-        <h2>Quick Enquiry</h2>
-        <div class="enquiry-preview">
-            <div class="preview-label">Enquire about:</div>
-            <div class="preview-content">
-                <div class="preview-image">
-                    <img src="" alt="" id="preview-product-image">
-                </div>
-                <div class="preview-details">
-                    <h3 id="preview-product-title"></h3>
-                    <p id="preview-product-reference"></p>
-                </div>
-            </div>
-        </div>
-        {{ freeform.form("quickEnquireForm", {
-                formattingTemplate: "grid/index.twig"
-        }).render() }}
-    </div>
-</div>

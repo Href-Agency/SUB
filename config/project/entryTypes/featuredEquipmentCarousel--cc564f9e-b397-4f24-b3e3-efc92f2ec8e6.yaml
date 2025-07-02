@@ -1,0 +1,72 @@
+color: null
+fieldLayouts:
+  161854f7-6998-492f-a37b-2e96be89d6ac:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-01T17:49:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2532fd8b-6f8a-49b8-9f85-829f0eaff61e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-01T17:49:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: button
+            includeInCards: false
+            instructions: null
+            label: Button
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a63245c7-35e8-4527-a1de-da203e3753b9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-01T17:49:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 75863d2f-136d-4a26-9a25-513b18592b4c # Equipment Single Pages
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9be37ce9-fe23-4934-a37e-ca58bdb16fd9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 47f99351-bcf0-4b88-bed0-1e0ce3ad66ab
+        userCondition: null
+handle: featuredEquipmentCarousel
+hasTitleField: false
+icon: gallery-thumbnails
+name: 'Featured Equipment Carousel'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

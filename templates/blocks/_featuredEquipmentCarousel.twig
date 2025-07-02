@@ -1,0 +1,29 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set heading = singleBlock.heading %}
+{% set button = singleBlock.button %}
+{% set equipmentSinglePages = singleBlock.equipmentSinglePages %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        <div class="heading-container">
+            <h2>{{ heading }}</h2>
+            {% if button %}
+                <a href="{{ button.url }}" target="{{ button.target }}" class="btn btn-border btn-border--dark-blue">{{ button.label }}</a>
+            {% endif %}
+        </div>
+        <div class="equipment-carousel swiper">
+            <div class="swiper-wrapper">
+                {% for equipmentSinglePage in equipmentSinglePages %}
+                    <div class="swiper-slide">
+                        {% include "_partials/components/_equipmentSingleCard" with {
+                            product: equipmentSinglePage,
+                            hasAddButton: false,
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

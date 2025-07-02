@@ -53,6 +53,113 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-06-25T11:37:41+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: d50eaf47-cc4b-43f1-ae10-8f6d12cf99e4
+                  values:
+                    - mainParent
+                    - productIndividualPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: ca7c778b-1c9d-4e2a-83a5-984c98a48619 # Main Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae048562-06fd-49b7-9e60-b3c9bb5b6a39
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-02T11:27:22+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: de11d01f-4c9f-400b-99a5-0f0fe1b2f9ce
+                  values:
+                    - categoryListingPage
+                    - productListingPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: eac6a48a-439c-456f-b037-4f29d8ca838c # Single Hero Block
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: afd033b2-e461-40e5-a7c3-c208bc709548
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-02T11:27:22+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: 1aa3a7bc-4534-447a-90f4-a273b4a8a8f2
+                  values:
+                    - categoryListingPage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 40e39d39-823a-4baa-9f2d-4c0062a61789 # Category Listing Block
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9a3ecd12-9f44-4230-812d-c33ffa5a60c3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 10660604-256e-4d24-8d61-fe82fc1abc6d
+        userCondition: null
+      -
+        elementCondition:
+          class: craft\elements\conditions\entries\EntryCondition
+          conditionRules:
+            -
+              class: craft\fields\conditions\OptionsFieldConditionRule
+              fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+              layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+              operator: in
+              uid: 812bf1a2-c741-4533-ade5-721055391df1
+              values:
+                - productIndividualPage
+          elementType: craft\elements\Entry
+          fieldContext: global
+        elements:
+          -
             dateAdded: '2025-06-25T13:30:06+00:00'
             editCondition: null
             elementCondition:
@@ -80,41 +187,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            dateAdded: '2025-06-25T11:37:41+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: ca7c778b-1c9d-4e2a-83a5-984c98a48619 # Main Content
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: ae048562-06fd-49b7-9e60-b3c9bb5b6a39
-            userCondition: null
-            warning: null
-            width: 100
-        name: Content
-        uid: 10660604-256e-4d24-8d61-fe82fc1abc6d
-        userCondition: null
-      -
-        elementCondition:
-          class: craft\elements\conditions\entries\EntryCondition
-          conditionRules:
-            -
-              class: craft\fields\conditions\OptionsFieldConditionRule
-              fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
-              layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
-              operator: in
-              uid: 812bf1a2-c741-4533-ade5-721055391df1
-              values:
-                - productIndividualPage
-          elementType: craft\elements\Entry
-          fieldContext: global
-        elements:
           -
             dateAdded: '2025-06-26T10:29:03+00:00'
             editCondition: null
@@ -234,7 +306,19 @@ fieldLayouts:
           -
             dateAdded: '2025-06-30T09:26:24+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
+                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
+                  operator: in
+                  uid: 37080dfa-2870-40e9-8da8-1bcbae544b6a
+                  values:
+                    - productIndividualPage
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
             handle: productDescription
             includeInCards: false

@@ -1,0 +1,74 @@
+{% set title = product.title %}
+{% set thumbImage = product.thumbImage.one() %}
+{% set productPageDetails = product.productPageDetails %}
+{% set referenceNumber = product.referenceNumber %}
+{% set listingCardTag = product.listingCardTag %}
+{% set productDescription = product.productDescription %}
+
+{% if hasAddButton is not defined %}
+    {% set hasAddButton = true %}
+{% endif %}
+
+<div class="product-card" data-product-id="{{ product.id }}">
+    <div class="product-image">
+        <a href="{{ product.url }}">
+            <img src="{{ thumbImage.getUrl() }}" alt="{{ title }}">
+        </a>
+        {% if listingCardTag %}
+            <div class="tags">
+                {% for tag in listingCardTag %}
+                    <div class="tag">{{ tag }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    
+        {% set inEnquiry = enquiriesData[product.id] is defined %}
+        {% if hasAddButton %}
+        <div class="enquiry-button{{ inEnquiry ? ' in-enquiry' : '' }}" data-product-id="{{ product.id }}">
+            <span class="add-to-enquiry-text"{{ inEnquiry ? ' style="display:none;"' : '' }}>
+                ADD TO ENQUIRY LIST
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <path id="add_FILL0_wght400_GRAD0_opsz48" d="M17.143,26V18.857H10V17.143h7.143V10h1.714v7.143H26v1.714H18.857V26Z" transform="translate(-10 -10)" fill="#fff"/>
+                </svg>
+            </span>
+            <span class="in-enquiry-text"{{ not inEnquiry ? ' style="display:none;"' : '' }}>
+                REMOVE FROM ENQUIRY LIST
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <path d="M8,16A8,8,0,1,1,16,8,8,8,0,0,1,8,16ZM8,2A6,6,0,1,0,14,8,6,6,0,0,0,8,2ZM11,7H5V9H11Z" fill="#fff"/>
+                </svg>
+            </span>
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="product-content">
+
+        <h3 class="product-title">{{ title }}</h3>
+
+        {% if referenceNumber %}
+            <div class="product-reference">{{ referenceNumber }}</div>
+        {% endif %}
+
+        {% if productDescription %}
+            <div class="product-description">{{ productDescription }}</div>
+        {% endif %}
+        
+        <span class="section-end"></span>
+        
+        <div class="product-specs">
+            {% for productPageDetail in productPageDetails %}
+                <div class="product-spec">
+                    {{ productPageDetail.label }}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="product-actions">
+            <a href="{{ product.url }}" class="btn btn-primary">View details</a>
+            <a href="#" class="btn quick-enquiry-button" 
+                data-product-title="{{ title }}" 
+                data-product-reference="{{ referenceNumber }}" 
+                data-product-image="{{ thumbImage.getUrl() }}">Quick enquire</a>
+        </div>
+    </div>
+</div>

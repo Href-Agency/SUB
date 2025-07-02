@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: singleHeroBlock
+instructions: null
+name: 'Single Hero Block'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - e2e75496-e9a6-4b2c-9f2f-3e9ea139a3b1 # Hero with Breadcrumbs
+  includeTableView: false
+  maxEntries: 1
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

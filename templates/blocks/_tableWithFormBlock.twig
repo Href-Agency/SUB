@@ -1,0 +1,76 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set subtext = singleBlock.subtext %}
+{% set table = singleBlock.table %}
+{% set carousel = singleBlock.imageCarousel %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        <div class="left-container">
+            <div class="subtext lg">
+                {{ subtext }}
+            </div>
+            <div class="table ">
+            {% for row in table %}
+                {% set leftColumn = row.leftColumn %}
+                {% set rightColumn = row.rightColumn %}
+                <div class="row">
+                        <p class="cell left-column lg">
+                            {{ leftColumn }}
+                        </p>
+                        <p class="cell right-column lg">
+                            {{ rightColumn }}
+                        </p>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="carousel swiper">
+                <div class="swiper-wrapper">
+                    {% for image in carousel %}
+                        {% set media = image.media.one() %}
+                        <div class="swiper-slide">
+                            <div class="slide-content">
+                                {% include "_partials/components/_imageVideo.twig" with {
+                                    media: media,
+                                } %}
+                                <a class="expand-button glightbox-el"
+                                   data-gallery="tableWithFormGallery"
+                                   {% if media.kind == 'video' %}
+                                       href="{{ media.url() }}"
+                                       data-type="video"
+                                   {% else %}
+                                       href="{{ media.url() }}"
+                                   {% endif %}
+                                   >
+                                    <svg id="Component_7_1" data-name="Component 7 – 1" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+                                        <rect id="Rectangle_1029" data-name="Rectangle 1029" width="35" height="35" rx="4" fill="#fff"/>
+                                        <path id="expand_content_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24" d="M200-739v-9h3v6h6v3Zm18-12v-6h-6v-3h9v9Z" transform="translate(-193 767)" fill="#041c2a"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-btn-prev">
+                    <svg id="Component_6_1" data-name="Component 6 – 1" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+                        <rect id="Rectangle_1033" data-name="Rectangle 1033" width="35" height="35" rx="4" fill="#fff"/>
+                        <path id="arrow_forward_30dp_1F1F1F_FILL0_wght600_GRAD0_opsz24" d="M146.474-808.236H159.78V-811.2H146.474l5.925-5.925-2.119-2.091-9.5,9.5,9.5,9.5,2.119-2.091Z" transform="translate(-132.78 827.22)" fill="#041c2a"/>
+                    </svg>
+                </div>
+                <div class="swiper-btn-next">
+                    <svg id="Component_5_1" data-name="Component 5 – 1" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+                        <rect id="Rectangle_1031" data-name="Rectangle 1031" width="35" height="35" rx="4" fill="#fff"/>
+                        <path id="arrow_forward_30dp_1F1F1F_FILL0_wght600_GRAD0_opsz24" d="M154.086-808.236H140.78V-811.2h13.306l-5.925-5.925,2.119-2.091,9.5,9.5-9.5,9.5-2.119-2.091Z" transform="translate(-132.779 827.22)" fill="#041c2a"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="right-container">
+            {{ freeform.form("singleItemEnquiry", {
+                formattingTemplate: "grid/index.twig"
+            }).render() }}
+        </div>
+    </div>
+</section>
