@@ -122,6 +122,10 @@ form {
                 @media only screen and (max-width: 767px) {
                     padding: 10px 15px;
                 }
+                &::placeholder {
+                    color: #7c878e;
+                    opacity: 0.9;
+                }
             }
             &.freeform-fieldtype-checkbox {
                 label {
@@ -191,6 +195,10 @@ form {
         margin-top: 10px;
         border-color: $light-blue;
         border: solid 2px $light-blue;
+        &:before, &.after {
+            content: unset !important;
+            display: none !important;
+        }
         &:hover {
             background-color: $white;
             color: $light-blue;
