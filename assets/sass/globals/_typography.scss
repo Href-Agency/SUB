@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-    @include fluid-type(50px, 80px, 500px, 1920px);
+    @include fluid-type(50px, 84px, 500px, 1920px);
     line-height: 1.05;
     font-weight: 300;
 }
@@ -63,6 +63,9 @@ p {
     @include fluid-type(16px, 18px, 500px, 1920px);
     line-height: 1.15;
     font-weight: 350;
+    @media only screen and (max-width: 767px) {
+        line-height: 1.3;
+    }
     
     p, p a:not(.btn), li, td{
         font-size: inherit;
