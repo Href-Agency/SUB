@@ -505,7 +505,11 @@
             max-width: 1364px;
             margin: 0 auto;
             border-bottom: 1px solid #b3c6d9;
-            width: calc(100% - 60px)
+            width: calc(100% - 60px);
+            @media only screen and (max-width: 1024px) {
+                width: calc(100% - 70px);
+                flex-direction: column;
+            }
         }
 
         .search-icon {
