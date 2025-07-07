@@ -526,7 +526,7 @@
             background: transparent;
             border: none;
             color: #fff;
-            @include fluid-type(18px, 20px, 500px, 1920px);
+            @include fluid-type(16px, 20px, 500px, 1920px);
             outline: none;
             padding: 0.5rem 0;
             &::placeholder {
