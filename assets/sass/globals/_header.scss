@@ -400,6 +400,10 @@
         min-width: unset;
         overflow: hidden;
         font-weight: 400;
+        &:hover {
+            background-color: unset;
+            opacity: 0.5;
+        }
         span {
             display: flex;
             gap: 10px;
@@ -516,7 +520,7 @@
             background: transparent;
             border: none;
             color: #fff;
-            font-size: 1.2rem;
+            @include fluid-type(18px, 20px, 500px, 1920px);
             outline: none;
             padding: 0.5rem 0;
             &::placeholder {
