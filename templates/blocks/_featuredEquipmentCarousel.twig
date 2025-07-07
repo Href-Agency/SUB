@@ -8,7 +8,11 @@
 <section id="{{ blockId }}" class="{{ className }}">
     <div class="site-container">
         <div class="heading-container">
-            <h2>{{ heading }}</h2>
+            {% if heading %}
+                <div class="heading-container split-text">
+                    {{ heading }}
+                </div>
+            {% endif %}
             {% if button %}
                 <a href="{{ button.url }}" target="{{ button.target }}" class="btn btn-border btn-border--dark-blue">{{ button.label }}</a>
             {% endif %}
