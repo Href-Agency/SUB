@@ -35,7 +35,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-    @include fluid-type(30px, 54px, 500px, 1920px);
+    @include fluid-type(30px, 52px, 500px, 1920px);
     line-height: 1.1;
     font-weight: 300;
 }
