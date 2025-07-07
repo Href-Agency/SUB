@@ -540,6 +540,7 @@
             padding: 0.5rem 0;
             @media only screen and (max-width: 1024px) {
                 border-bottom: 1px solid $white;
+                width: 100%;
             }
             &::placeholder {
                 color: $white;
