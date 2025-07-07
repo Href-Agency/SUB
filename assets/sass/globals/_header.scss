@@ -38,6 +38,9 @@
                 width: 195px;
                 height: auto;
                 transition: opacity 0.3s ease;
+                @media only screen and (max-width: 767px) {
+                    width: 140px;
+                }
             }
             &:hover {
                 opacity: 0.5;
