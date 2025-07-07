@@ -1,18 +1,80 @@
 .productListingBlock {
-    padding: 100px 0;
     background-color: $white;
     
     .search-container {
+        background-color: $orange;
+        color: $white;
+        padding: 10px 0;
+        .site-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
+        }
+        .search-form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .input-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-grow: 1;
+                >* {
+                    display: block;
+                    svg {
+                        display: block;
+                        path {
+                            fill: $white;
+                        }
+                    }
+                }
+                .before-icon {
+                    padding-right: 3px;
+                    border-right: 2px solid $white;
+                    margin-right: 5px;
+                }
+                input {
+                    background-color: transparent;
+                    border: none;
+                    color: $white;
+                    font-size: 16px;
+                    color: $white;
+                    flex-grow: 1;
+                    font-weight: 500;
+                    &::placeholder {
+                        color: rgba($white, 0.8);
+                        font-style: italic;
+                    }
+                }
+            }
+            button {
+                background-color: $orange;
+                color: $white;
+                border: solid 1px $white;
+                padding: 3px 10px 5px;
+                transition: all 0.3s ease-in-out;
+                border-radius: 5px;
+                &:hover {
+                    background: $white;
+                    color: $orange;
+                }
+            }
+        }
     }
     
-    .site-container {
+    >.site-container {
+        padding: 100px 0;
         display: grid;
         grid-template-columns: 370px 1fr;
         gap: 40px;
         align-items: flex-start;
         @media only screen and (max-width: 1200px) {
             grid-template-columns: 1fr;
+        }
+        @media (max-width: 768px) {
+            padding: 50px 0;
         }
                 
         .filter-close {
@@ -420,9 +482,6 @@
                 }
             }
         }
-    }
-    @media (max-width: 768px) {
-        padding: 50px 0;
     }
 }
 
