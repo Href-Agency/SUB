@@ -510,6 +510,9 @@
             border-right: solid 1px $white;
             padding-right: 10px;
             padding-top: 3px;
+            @media only screen and (max-width: 767px) {
+                display: none;
+            }
             svg {
                 width: 24px;
                 height: 24px;
