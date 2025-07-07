@@ -488,6 +488,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @media only screen and (max-wid7th: 1024px) {
+            height: 250px;
+        }
 
         &.is-active {
             opacity: 1;
