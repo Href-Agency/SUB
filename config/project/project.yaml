@@ -1,4 +1,4 @@
-dateModified: 1751875873
+dateModified: 1751884873
 email:
   fromEmail: dev@in-testing.co.uk
   fromName: Sub
@@ -94,7 +94,336 @@ plugins:
     licenseKey: 4G1UNMER53QINOPYWGLDLNZT
     schemaVersion: 5.6.1
     settings:
+      alertNotificationRecipients: null
+      allowBuilderTemplateCreation: true
+      allowDashesInFieldHandles: false
+      allowFileTemplateEdit: true
+      autoScroll: true
+      autoScrollToErrors: true
+      badgeType: all
+      blockedEmails: null
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: null
+      blockedKeywords: null
+      blockedKeywordsError: 'Invalid Entry Data'
+      bypassSpamCheckOnLoggedInUsers: false
+      clientDigestFrequency: 1
+      clientDigestRecipients: null
+      csrfRefresh: none
+      defaultFromEmail: '{{ general.systemEmail }}'
+      defaultFromName: '{{ general.systemName }}'
+      defaultView: forms
+      defaults:
+        __assoc__:
+          -
+            - previewHtml
+            - true
+          -
+            - twigInHtml
+            - true
+          -
+            - twigIsolation
+            - true
+          -
+            - richTextFieldToolbarConfiguration
+            - 'blocks bold italic underline forecolor backcolor | align numlist bullist | link image table | removeformat code'
+          -
+            - includeSampleTemplates
+            - true
+          -
+            - notifications
+            -
+              __assoc__:
+                -
+                  - admin
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                -
+                  - conditional
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                -
+                  - userSelect
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                -
+                  - emailField
+                  -
+                    __assoc__:
+                      -
+                        - template
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+          -
+            - settings
+            -
+              __assoc__:
+                -
+                  - general
+                  -
+                    __assoc__:
+                      -
+                        - formType
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - Solspace\Freeform\Form\Types\Regular
+                      -
+                        - submissionTitle
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '{{ dateCreated|date("Y-m-d H:i:s") }}'
+                      -
+                        - formattingTemplate
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - basic-light/index.twig
+                -
+                  - dataStorage
+                  -
+                    __assoc__:
+                      -
+                        - storeData
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - defaultStatus
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '2'
+                      -
+                        - collectIp
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                -
+                  - processing
+                  -
+                    __assoc__:
+                      -
+                        - ajax
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - showIndicator
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - showText
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - '1'
+                      -
+                        - processingText
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - Processing...
+                -
+                  - successAndErrors
+                  -
+                    __assoc__:
+                      -
+                        - successBehavior
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - redirect-return-url
+                      -
+                        - returnUrl
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                      -
+                        - successTemplate
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - ''
+                      -
+                        - successMessage
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - 'Form has been submitted successfully!'
+                      -
+                        - errorMessage
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - 'Sorry, there was an error submitting the form. Please try again.'
+                -
+                  - limits
+                  -
+                    __assoc__:
+                      -
+                        - duplicateCheck
+                        -
+                          __assoc__:
+                            -
+                              - locked
+                              - false
+                            -
+                              - value
+                              - no_limit
+      digestFrequency: 1
+      digestOnlyOnProduction: false
+      digestRecipients: null
+      displayFeed: true
+      emailNotificationToolbarConfiguration: 'blocks bold italic underline forecolor backcolor | align numlist bullist | link image table | removeformat code'
+      emailTemplateDefault: database
+      emailTemplateDirectory: null
       emailTemplateMethod: global
+      emailTemplateStorageType: files_database
+      exportHandlesAsNames: false
+      exportLabels: false
+      fillWithGet: false
+      footerScripts: false
+      formFieldShowOnlyAllowedForms: false
+      formSubmitDisable: true
+      formSubmitExpiration: null
+      formTemplateDirectory: null
+      formattingTemplate: basic-light/index.twig
+      loggingLevel: error
+      minimumSubmitTime: null
+      pluginName: null
+      purgableSpamAgeInDays: null
+      purgableSubmissionAgeInDays: null
+      purgableUnfinalizedAssetAgeInMinutes: 180
+      purgeAssets: true
+      queuePriority: null
+      rememberPageSubmitOrder: true
+      removeNewlines: false
+      renderFormHtmlInCpViews: true
+      saveFormSessionLimit: 10
+      saveFormTtl: 30
+      scriptInsertLocation: footer
+      scriptInsertType: files
+      sessionContext: payload
+      sessionContextCount: 100
+      sessionContextSecret: ''
+      sessionContextTimeToLiveMinutes: 180
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: false
+      showErrorsForBlockedKeywords: false
+      sitesEnabled: false
+      spamFolderEnabled: true
+      spamProtectionBehavior: simulate_success
+      submissionThrottlingCount: null
+      submissionThrottlingTimeFrame: null
+      successTemplateDirectory: null
+      updateSearchIndexes: true
+      useQueueForEmailNotifications: false
+      useQueueForIntegrations: false
   templatecomments:
     edition: standard
     enabled: false

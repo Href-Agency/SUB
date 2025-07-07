@@ -661,6 +661,122 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     })();
 
+    // Wanted Equipment Modal functionality
+    (function initWantedEquipmentModal() {
+        const $modal = $('.wanted-equipment-modal');
+        const $modalContent = $modal.find('.wanted-equipment-modal-content');
+        const $closeButton = $modal.find('.close-button');
+        const $previewImage = $('#preview-wanted-equipment-image');
+        const $previewTitle = $('#preview-wanted-equipment-title');
+        const $previewReference = $('#preview-wanted-equipment-reference');
+        
+        // Open modal when wanted equipment modal button is clicked
+        $(document).on('click', '.wanted-equipment-modal-button', function(e) {
+            e.preventDefault();
+            
+            const $button = $(this);
+            const productTitle = $button.data('product-title');
+            const productReference = $button.data('product-reference');
+            const productImage = $button.data('product-image');
+            
+            // Update modal content
+            $previewTitle.text(productTitle);
+            $previewReference.text(productReference);
+            if (productImage) {
+                $previewImage.attr('src', productImage);
+                $previewImage.attr('alt', productTitle);
+            }
+            
+            // Add hidden fields to the form for productReference and productName
+            const $form = $modal.find('form');
+            
+            
+            if ($form.find('input#form-input-productName').length) {
+                $form.find('input#form-input-productName').val(productTitle);
+            }
+
+            if ($form.find('input#form-input-productReference').length) {
+                $form.find('input#form-input-productReference').val(productReference);
+            }
+            
+            // Show modal
+            $modal.addClass('is-active');
+            $('body').addClass('modal-open');
+            
+            // Initialize file uploads after modal content is loaded
+            setTimeout(function() {
+                initWantedEquipmentFileUploads();
+            }, 100);
+        });
+
+        // Close modal when close button is clicked
+        $closeButton.on('click', function() {
+            $modal.removeClass('is-active');
+            $('body').removeClass('modal-open');
+        });
+
+        // Close modal when clicking outside
+        $modal.on('click', function(e) {
+            if (e.target === this) {
+                $modal.removeClass('is-active');
+                $('body').removeClass('modal-open');
+            }
+        });
+
+        // Close modal with Escape key
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' && $modal.hasClass('is-active')) {
+                $modal.removeClass('is-active');
+                $('body').removeClass('modal-open');
+            }
+        });
+
+        // Initialize file upload functionality for wanted equipment modal
+        function initWantedEquipmentFileUploads() {
+            // Find all file inputs inside the wanted equipment modal
+            $modal.find('input[type="file"]').each(function() {
+                const fileInput = this;
+                
+                // Check if this file input is already wrapped
+                if (fileInput.parentNode && fileInput.parentNode.classList.contains('custom-file-upload')) {
+                    return; // Skip if already initialized
+                }
+                
+                // Create wrapper div
+                const wrapper = document.createElement('div');
+                wrapper.className = 'custom-file-upload';
+                
+                // Create placeholder div
+                const placeholder = document.createElement('div');
+                placeholder.className = 'file-upload-placeholder';
+                placeholder.textContent = 'Drag file(s) here or click to select from your device';
+                
+                // Insert wrapper before file input
+                fileInput.parentNode.insertBefore(wrapper, fileInput);
+                
+                // Move file input and placeholder into wrapper
+                wrapper.appendChild(fileInput);
+                wrapper.appendChild(placeholder);
+                
+                // File input styling is handled by CSS classes
+                
+                // Update placeholder on file select
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files && fileInput.files.length > 0) {
+                        const fileNames = Array.from(fileInput.files).map(function(f) { 
+                            return f.name; 
+                        }).join(', ');
+                        placeholder.textContent = fileNames;
+                    } else {
+                        placeholder.textContent = 'Drag file(s) here or click to select from your device';
+                    }
+                });
+            });
+        }
+
+
+    })();
+
     
 
     (function featuredEquipmentCarousel() {

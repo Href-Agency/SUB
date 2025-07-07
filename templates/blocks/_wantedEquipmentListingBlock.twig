@@ -72,7 +72,10 @@
                                 </div>
                             </div>
                             <div class="btn-container">
-                                <a href="#" class="btn btn-primary btn-blue">
+                                <a href="#" class="btn btn-primary btn-blue wanted-equipment-modal-button" 
+                                   data-product-title="{{ title }}"
+                                   data-product-reference="{{ title }}"
+                                   data-product-image="{{ media ? media.getUrl() : '' }}">
                                     I have this item
                                 </a>
                             </div>
@@ -83,3 +86,29 @@
         </div>
     </div>
 </section>
+
+<!-- Wanted Equipment Modal -->
+<div class="wanted-equipment-modal">
+    <div class="wanted-equipment-modal-content">
+        <div class="close-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+        <div class="enquiry-preview">
+            <div class="preview-label">You're offering:</div>
+            <div class="preview-content">
+                <div class="preview-image">
+                    <img src="" alt="" id="preview-wanted-equipment-image">
+                </div>
+                <div class="preview-details">
+                    <h3 id="preview-wanted-equipment-title"></h3>
+                    <p id="preview-wanted-equipment-reference"></p>
+                </div>
+            </div>
+        </div>
+        {{ freeform.form("wantedEquipment", {
+                formattingTemplate: "grid/index.twig"
+        }).render() }}
+    </div>
+</div>
