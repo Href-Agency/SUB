@@ -509,6 +509,7 @@
             @media only screen and (max-width: 1024px) {
                 width: calc(100% - 70px);
                 flex-direction: column;
+                border-bottom: unset;
             }
         }
 
@@ -536,6 +537,9 @@
             @include fluid-type(16px, 20px, 500px, 1920px);
             outline: none;
             padding: 0.5rem 0;
+            @media only screen and (max-width: 1024px) {
+                border-bottom: 1px solid $white;
+            }
             &::placeholder {
                 color: $white;
                 opacity: 0.8;
