@@ -132,12 +132,14 @@
             }
             
             .categories-list {
+                height: calc(100% + 40px);
                 a {
                     text-decoration: none;
                 }
                 .category-item {
                     background-color: $white;
                     max-width: 500px;
+                    height: 100%;
                     @media only screen and (max-width: 1200px) {
                         margin: -20px 0 -20px -20px;
                         padding: 40px;
@@ -210,6 +212,9 @@
                                         fill: currentColor;
                                     }
                                 }
+                                a {
+                                    font-size: 20px;
+                                }
                             }
                             &:hover, &.is-active {
                                 background-color: rgba(#9D9D9C, 0.1);
@@ -278,6 +283,7 @@
                 }
                 
                 .products-count {
+                    font-size: 16px;
                     @media only screen and (max-width: 1200px) {
                         display: none;
                     }
@@ -348,7 +354,7 @@
             flex: 1;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 32px 16px;
             margin-top: 30px;
             @media only screen and (max-width: 1440px) {
                 grid-template-columns: repeat(2, 1fr);
