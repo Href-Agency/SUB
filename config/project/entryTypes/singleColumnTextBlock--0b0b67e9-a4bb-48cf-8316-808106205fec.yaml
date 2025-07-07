@@ -1,0 +1,38 @@
+color: null
+fieldLayouts:
+  f0f1b8b7-70ef-40a8-bd06-3908841ab477:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-07T08:11:06+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d5bb4d27-0faa-4ca7-a117-29d8cf469c4e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a92716ff-3be3-4dd5-9fb5-959cdaf002e0
+        userCondition: null
+handle: singleColumnTextBlock
+hasTitleField: false
+icon: align-left
+name: 'Single Column Text Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

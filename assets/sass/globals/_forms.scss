@@ -196,4 +196,25 @@ form {
             color: $light-blue;
         }
     }
+    .freeform-form-errors {
+        position: absolute;
+        bottom: calc(100% + 20px);
+        left: 0;
+        width: 100%;
+    }
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1; 
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .freeform-form-errors {
+        animation: fadeOut 3s forwards;
+    }
 }

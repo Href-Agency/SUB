@@ -1,0 +1,91 @@
+{% extends "_layout.twig" %}
+
+{% set query = craft.app.request.getParam('q') %}
+{% set entryType = craft.app.request.getParam('entryType') %}
+
+{% block title %}Search results for {{ query }} | {{ siteName }}{% endblock %}
+
+{% block content %}
+
+{% if query %}
+    {% set searchQuery = craft.entries.search(query) %}
+    {% if entryType %}
+        {% set searchQuery = searchQuery.section(entryType) %}
+    {% else %}
+        {% set searchQuery = searchQuery.section('pages').section('equipmentListPages') %}
+    {% endif %}
+    {% set searchResults = searchQuery.status('live').all() %}
+{% endif %}
+
+
+<div class="search-results site-container">
+    <aside class="search-sidebar">
+        <p class="search-query">Search results for</p>
+        <h1 class="search-count">
+            {{ query }}
+            <span class="search-count-number">
+                {% if searchResults is defined %}
+                    ({{ searchResults|length }})
+                {% endif %}
+            </span>
+        </h1>
+    </aside>
+    <section class="search-main">
+        <div class="search-results-header" style="display:none;">{# Hidden, handled in sidebar #}</div>
+        <div class="search-results-content">
+            {% if query %}
+                {% if searchResults|length > 0 %}
+                    <div class="search-results-list">
+                        {% for result in searchResults %}
+                            <a href="{{ result.url }}" class="search-result-card">
+                                <div class="result-tags">
+                                    {# Try to show all tag fields that might exist on the entry #}
+                                    {% set tags = [] %}
+                                    {% if result.listingCardTag is defined and result.listingCardTag|length %}
+                                        {% set tags = tags|merge(result.listingCardTag) %}
+                                    {% endif %}
+                                    {% if result.wantedEquipmentTags is defined and result.wantedEquipmentTags|length %}
+                                        {% set tags = tags|merge(result.wantedEquipmentTags) %}
+                                    {% endif %}
+                                    {% for tag in tags %}
+                                        <span class="tag">{{ tag.title ?? tag }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="result-title">{{ result.title }}</div>
+                                <div class="result-excerpt">
+                                    {% if result.productDescription is defined and result.productDescription %}
+                                        {{ result.productDescription|striptags|truncate(120) }}
+                                    {% elseif result.subtext is defined and result.subtext %}
+                                        {{ result.subtext|striptags|truncate(120) }}
+                                    {% elseif result.mainContent is defined and result.mainContent %}
+                                        {% set excerpt = '' %}
+                                        {% for block in result.mainContent %}
+                                            {% if block.type == 'detailText' and block.label and excerpt == '' %}
+                                                {% set excerpt = block.label %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {{ excerpt|striptags|truncate(120) }}
+                                    {% endif %}
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="no-results" style="padding:40px 0; text-align:center;">
+                        <h2>No results found</h2>
+                        <p>Sorry, we couldn't find any results for "{{ query }}".</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="no-query" style="padding:40px 0; text-align:center;">
+                    <h2>Enter a search term</h2>
+                    <form method="get" class="search-form">
+                        <input type="text" name="q" placeholder="Search..." value="{{ query }}" required style="padding:10px 18px; border-radius:3px; border:1px solid #ccc;">
+                        <button type="submit" class="btn btn-primary" style="margin-left:10px;">Search</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %} 

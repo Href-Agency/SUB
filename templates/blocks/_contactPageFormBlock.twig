@@ -1,0 +1,72 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set subtext = singleBlock.subtext %}
+{% set ctaHeading = singleBlock.ctaHeading %}
+{% set ctaImage = singleBlock.image.one() %}
+{% set address = singleBlock.address %}
+{% set link1 = singleBlock.link1 %}
+{% set link2 = singleBlock.link2 %}
+{% set linkedInLink = singleBlock.linkedInLink %}
+
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        <div class="left-container">
+            {% if subtext %}
+                <div class="subtext">
+                    {{ subtext }}
+                </div>
+            {% endif %}
+            <div class="cta-container">
+                <div class="image-container">
+                    {% include "_partials/components/_imageVideo.twig" with {
+                        media: ctaImage,
+                    } %}
+                </div>
+                {% if ctaHeading or address or link1 or link2 or linkedInLink %}
+                    <div class="content-container">
+                        {% if ctaHeading %}
+                            <h6 class="cta-heading">
+                                {{ ctaHeading }}
+                            </h6>
+                        {% endif %}
+                        {% if address %}
+                            <p class="address lg">
+                                {{ address }}
+                            </p>
+                        {% endif %}
+                        <span class="separator"></span>
+                        <div class="links-container subtext lg">
+                            {% if link1 %}
+                                <a href="{{ link1.url }}" target="_blank" class="link-item email-link">
+                                    {{ link1.label }}
+                                </a>
+                            {% endif %}
+                            {% if link2 %}
+                                <a href="{{ link2.url }}" target="_blank" class="link-item phone-link">
+                                    {{ link2.label }}
+                                </a>
+                            {% endif %}
+                            {% if linkedInLink %}
+                                <a href="{{ linkedInLink.url }}" target="_blank" class="link-item linkedin-link">
+                                    {{ linkedInLink.label }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+                                        <path id="north_east_24dp_5F6368_FILL0_wght400_GRAD0_opsz24" d="M161.213-747,160-748.213l10.053-10.053h-5.72V-760H173v8.667h-1.733v-5.72Z" transform="translate(-160 760)" fill="#fff"/>
+                                    </svg>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="form-container">
+                {{ freeform.form("contactPageForm", {
+                        formattingTemplate: "grid/index.twig"
+                }).render() }}
+            </div>
+        </div>
+    </div>
+</section>

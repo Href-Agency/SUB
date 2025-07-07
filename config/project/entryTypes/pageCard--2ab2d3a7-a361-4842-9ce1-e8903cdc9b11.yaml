@@ -1,0 +1,89 @@
+color: null
+fieldLayouts:
+  c34126f8-ab83-475a-802d-b8d91259e384:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-04T14:46:48+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0f2bdf53-8a43-4a44-8ef8-f08026a0b5e1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-04T14:46:48+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: subheading
+            includeInCards: false
+            instructions: null
+            label: Subheading
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f5da387c-cc1c-4800-ad0c-5720f45c2502
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-04T14:46:48+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: heading
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 37286acf-8641-4ea1-9ed0-8000e8e496f5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-04T14:46:48+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Link
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0892b6b-878c-4e7e-b3f5-964e345c1492
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 27d7e095-f331-404c-9490-585a751185db
+        userCondition: null
+handle: pageCard
+hasTitleField: false
+icon: null
+name: 'Page Card'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

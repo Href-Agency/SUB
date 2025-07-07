@@ -1,0 +1,142 @@
+color: null
+fieldLayouts:
+  de70e558-51d9-4865-bcc0-84fcacf081f6:
+    cardView:
+      - 'layoutElement:9fd9c97d-f809-42ab-9314-1084965e11a9'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9fd9c97d-f809-42ab-9314-1084965e11a9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e7076da7-39d5-4fe9-bca1-588f96d22b04 # Label
+            handle: ctaHeading
+            includeInCards: false
+            instructions: null
+            label: 'CTA Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dd92ef49-fe92-4cdc-bdc2-39d7153449b0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: image
+            includeInCards: false
+            instructions: null
+            label: 'CTA Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 28001e85-9815-4593-943a-985bb2191d6d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e7076da7-39d5-4fe9-bca1-588f96d22b04 # Label
+            handle: address
+            includeInCards: false
+            instructions: null
+            label: Address
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 491703f5-8dd8-4af6-9a2f-e610d37f1d50
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: link1
+            includeInCards: false
+            instructions: 'Used for email link'
+            label: 'Link 1'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 083b3485-7d71-4fd8-85ed-a0a521689de3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: link2
+            includeInCards: false
+            instructions: 'Used for phone number link'
+            label: 'Link 2'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2611156-5264-4bdd-8df6-a9c3a93a9b4e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-03T15:54:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: linkedInLink
+            includeInCards: false
+            instructions: null
+            label: 'LinkedIn Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4c21640a-cae4-44ae-80f9-9d744496bade
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 11bf59c3-6acf-427f-a11f-43c5596d3da9
+        userCondition: null
+handle: contactPageFormBlock
+hasTitleField: false
+icon: envelope
+name: 'Contact Page Form Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

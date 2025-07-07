@@ -53,6 +53,26 @@ settings:
         -
           - uid
           - 67dc91f5-0d77-46ec-9598-895f0fcb0153 # Table with Form Block
+    -
+      __assoc__:
+        -
+          - uid
+          - 596d6ee6-2460-4cb0-b5ca-5c9470c79049 # Wanted Equipment Listing Block
+    -
+      __assoc__:
+        -
+          - uid
+          - bb77f789-9d4a-4f63-a6a1-dc3102e8e063 # Contact Page Form Block
+    -
+      __assoc__:
+        -
+          - uid
+          - eb464430-cc3f-4bba-8db7-7ba6d63af07e # Text with CTA Cards
+    -
+      __assoc__:
+        -
+          - uid
+          - 0b0b67e9-a4bb-48cf-8316-808106205fec # Single Column Text Block
   includeTableView: false
   maxEntries: null
   minEntries: null

@@ -1,0 +1,14 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set subtext = singleBlock.subtext %}
+
+{% if subtext %}
+    <section id="{{ blockId }}" class="{{ className }}">
+        <div class="site-container">
+            <div class="subtext lg">
+                {{ subtext }}
+            </div>
+        </div>
+    </section>
+{% endif %}

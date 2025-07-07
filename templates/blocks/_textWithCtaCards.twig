@@ -1,0 +1,46 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set subtext = singleBlock.subtext %}
+{% set pageCards = singleBlock.pageCards %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        {% if subtext %}
+            <div class="subtext lg">
+                {{ subtext }}
+            </div>
+        {% endif %}
+        {% if pageCards %}
+            <div class="cards-container">
+                {% for card in pageCards %}
+                    {% set media = card.media.one() %}
+                    {% set subheading = card.subheading %}
+                    {% set heading = card.heading %}
+                    {% set link = card.singleLink %}
+                    <div class="single-card">
+                        <div class="single-card-image">
+                            {% include "_partials/components/_imageVideo.twig" with {
+                                media: media,
+                            } only %}
+                        </div>
+                        <div class="single-card-content">
+                            {% if subheading %}
+                                <div class="subheading">
+                                    {{ subheading }}
+                                </div>
+                            {% endif %}
+                            {% if heading %}
+                                <div class="heading-text">{{ heading }}</div>
+                            {% endif %}
+                            {% if link %}
+                                <a href="{{ link.url }}" target="{{ link.target }}" class="btn btn-arrow {{ link.class }}">
+                                    {{ link.label}}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+    </div>
+</section>

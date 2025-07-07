@@ -15,6 +15,7 @@ $theme-white: #F7F7F7;
 
 // Import globals
 @import "./globals/**/*";
+@import "./globals/_searchResults.scss";
 
 // Import templates
 @import "./templates/**/*";

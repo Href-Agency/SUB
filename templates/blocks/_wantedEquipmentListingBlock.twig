@@ -1,0 +1,85 @@
+{% set className = singleBlock.type %}
+{% set blockId = singleBlock.type ~ '-' ~ singleBlock.id %}
+
+{% set wantedEquipmentList = singleBlock.wantedEquipmentList %}
+
+<section id="{{ blockId }}" class="{{ className }}">
+    <div class="site-container">
+        <div class="left-container">
+            <h5 class="categories-heading">
+                Categories:
+            </h5>
+            <form class="category-form">
+                <div class="category-checkboxes">
+                    {% for category in craft.tags.group('wantedEquipmentCategories') %}
+                        <label class="category-item">
+                            <span>{{ category.title }}</span>
+                            <input type="checkbox" name="category" value="{{ category.title }}">
+                        </label>
+                    {% endfor %}
+                </div>
+                <div class="category-select">
+                    <select id="category-select">
+                        <option value="">All Categories</option>
+                        {% for category in craft.tags.group('wantedEquipmentCategories') %}
+                            <option value="{{ category.title }}">{{ category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="right-container">
+            <div class="equipment-container">
+                <div class="top-container">
+                    <p class="total-showing">
+                        Showing <span class="current-visible">{{ wantedEquipmentList|length }}</span> of <span class="total-results">{{ wantedEquipmentList|length }}</span>
+                    </p>
+                    <div class="sort-dropdown">
+                        <label for="wanted-sort-select">Sort by:</label>
+                        <select id="wanted-sort-select" name="sort">
+                            <option value="default">Default</option>
+                            <option value="title-asc">Title A-Z</option>
+                            <option value="title-desc">Title Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="equipment-list">
+                    {% for equipment in wantedEquipmentList %}
+                        {% set media = equipment.media.one() %}
+                        {% set title = equipment.title %}
+                        {% set subtext = equipment.subtext %}
+                        {% set productPageDetails = equipment.productPageDetails %}
+                        {% set wantedEquipmentTags = equipment.wantedEquipmentTags %}
+                        <div class="single-wanted-equipment" data-number="{{ loop.index }}" data-tags="{{ wantedEquipmentTags|join(',') }}" data-title="{{ title|lower }}">
+                            <div class="image-container">
+                                {% include "_partials/components/_imageVideo.twig" with {
+                                    media: media,
+                                } %}
+                            </div>
+                            <div class="content-container">
+                                <p class="title lg">
+                                    {{ title }}
+                                </p>
+                                <div class="subtext">
+                                    {{ subtext }}
+                                </div>
+                                <div class="product-specs">
+                                    {% for productPageDetail in productPageDetails %}
+                                        <div class="product-spec">
+                                            {{ productPageDetail.label }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="btn-container">
+                                <a href="#" class="btn btn-primary btn-blue">
+                                    I have this item
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

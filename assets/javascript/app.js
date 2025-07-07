@@ -4,7 +4,6 @@ import AOS from 'aos';
 import Swiper from 'swiper/bundle';
 import { gsap } from "gsap";
 import GLightbox from 'glightbox';
-    
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
@@ -21,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         once: false,
         offset: 100,
     });
+
 
     function checkScroll(scrollPos) {
         if (scrollPos > 0) {
@@ -745,6 +745,227 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     })();
+
+    (function wantedEquipmentListingBlock() {
+        const block = $('.wantedEquipmentListingBlock');
+        if (block.length) {
+            const $equipmentList = block.find('.equipment-list');
+            const $equipmentItems = $equipmentList.find('.single-wanted-equipment');
+            const $categoryCheckboxes = block.find('.category-form .category-checkboxes input[type="checkbox"]');
+            const $categorySelect = block.find('#category-select');
+            const $sortSelect = block.find('#wanted-sort-select');
+            const $currentVisible = block.find('.current-visible');
+            const $totalResults = block.find('.total-results');
+            
+            let allEquipment = [];
+            let filteredEquipment = [];
+            
+            // Initialize equipment data
+            function initEquipmentData() {
+                allEquipment = [];
+                $equipmentItems.each(function() {
+                    const $item = $(this);
+                    const tags = $item.data('tags').split(',').map(tag => tag.trim()).filter(tag => tag);
+                    allEquipment.push({
+                        element: $item,
+                        title: $item.data('title'),
+                        tags: tags,
+                        number: $item.data('number')
+                    });
+                });
+                filteredEquipment = [...allEquipment];
+            }
+            
+            // Filter equipment by selected categories
+            function filterEquipment() {
+                const selectedCategories = [];
+                
+                // Get selected categories from checkboxes (desktop)
+                $categoryCheckboxes.each(function() {
+                    if ($(this).is(':checked')) {
+                        selectedCategories.push($(this).val());
+                    }
+                });
+                
+                // Get selected categories from select (mobile)
+                if ($categorySelect.length) {
+                    const selectedOptions = $categorySelect.find('option:selected');
+                    selectedOptions.each(function() {
+                        const value = $(this).val();
+                        if (value && !selectedCategories.includes(value)) {
+                            selectedCategories.push(value);
+                        }
+                    });
+                }
+                
+                // If no categories selected, show all equipment
+                if (selectedCategories.length === 0) {
+                    filteredEquipment = [...allEquipment];
+                } else {
+                    // Filter equipment that has at least one of the selected tags
+                    filteredEquipment = allEquipment.filter(equipment => {
+                        const hasMatchingTag = equipment.tags.some(tag => selectedCategories.includes(tag));
+                        return hasMatchingTag;
+                    });
+                }
+                
+                // Apply current sort after filtering
+                const currentSort = $sortSelect.val();
+                sortEquipment(currentSort);
+            }
+            
+            // Sort equipment by title
+            function sortEquipment(sortType) {
+                if (sortType === 'title-asc') {
+                    filteredEquipment.sort((a, b) => a.title.localeCompare(b.title));
+                } else if (sortType === 'title-desc') {
+                    filteredEquipment.sort((a, b) => b.title.localeCompare(a.title));
+                } else {
+                    filteredEquipment.sort((a, b) => a.number - b.number);
+                }
+                
+                updateDisplay();
+            }
+            
+            // Update the display
+            function updateDisplay() {
+                // Hide all equipment first
+                $equipmentItems.addClass('hidden');
+                
+                // Show filtered and sorted equipment
+                filteredEquipment.forEach(equipment => {
+                    equipment.element.removeClass('hidden');
+                });
+                
+                // Update count
+                $currentVisible.text(filteredEquipment.length);
+                $totalResults.text(allEquipment.length);
+                
+                // Reorder equipment in DOM
+                const $container = $equipmentList;
+                filteredEquipment.forEach(equipment => {
+                    $container.append(equipment.element);
+                });
+            }
+            
+            // Sync checkboxes with select dropdown
+            function syncCheckboxesWithSelect() {
+                const selectedValues = [];
+                $categoryCheckboxes.each(function() {
+                    if ($(this).is(':checked')) {
+                        selectedValues.push($(this).val());
+                    }
+                });
+                
+                // Update select dropdown
+                $categorySelect.find('option').prop('selected', false);
+                selectedValues.forEach(value => {
+                    $categorySelect.find(`option[value="${value}"]`).prop('selected', true);
+                });
+            }
+            
+            // Sync select dropdown with checkboxes
+            function syncSelectWithCheckboxes() {
+                const selectedValues = [];
+                $categorySelect.find('option:selected').each(function() {
+                    const value = $(this).val();
+                    if (value) {
+                        selectedValues.push(value);
+                    }
+                });
+                
+                // Update checkboxes
+                $categoryCheckboxes.prop('checked', false);
+                selectedValues.forEach(value => {
+                    $categoryCheckboxes.filter(`[value="${value}"]`).prop('checked', true);
+                });
+            }
+            
+            // Event listeners
+            $categoryCheckboxes.on('change', function() {
+                syncCheckboxesWithSelect();
+                filterEquipment();
+            });
+            
+            $categorySelect.on('change', function() {
+                syncSelectWithCheckboxes();
+                filterEquipment();
+            });
+            
+            $sortSelect.on('change', function() {
+                const sortType = $(this).val();
+                sortEquipment(sortType);
+            });
+            
+            // Initialize
+            initEquipmentData();
+        }
+    })();
+
+    // Find all file inputs inside .contactPageFormBlock
+    document.querySelectorAll('.contactPageFormBlock input[type="file"]').forEach(function(fileInput) {
+        // Create wrapper div
+        var wrapper = document.createElement('div');
+        wrapper.className = 'custom-file-upload';
+        // Create placeholder div
+        var placeholder = document.createElement('div');
+        placeholder.className = 'file-upload-placeholder';
+        placeholder.textContent = 'Drag file(s) here or click to select from your device';
+        // Insert wrapper before file input
+        fileInput.parentNode.insertBefore(wrapper, fileInput);
+        // Move file input and placeholder into wrapper
+        wrapper.appendChild(fileInput);
+        wrapper.appendChild(placeholder);
+        // Style file input for accessibility
+        fileInput.style.opacity = 0;
+        fileInput.style.position = 'absolute';
+        fileInput.style.width = '100%';
+        fileInput.style.height = '100%';
+        fileInput.style.cursor = 'pointer';
+        fileInput.style.zIndex = 2;
+        fileInput.style.margin = 0;
+        wrapper.style.position = 'relative';
+        wrapper.style.width = '100%';
+        // Update placeholder on file select
+        fileInput.addEventListener('change', function () {
+            if (fileInput.files && fileInput.files.length > 0) {
+                var fileNames = Array.from(fileInput.files).map(function(f) { return f.name; }).join(', ');
+                placeholder.textContent = fileNames;
+            } else {
+                placeholder.textContent = 'Drag file(s) here or click to select from your device';
+            }
+        });
+    });
+
+    $(function() {
+        const $searchToggle = $('#search-toggle');
+        const $searchContainer = $('#search-bar');
+        const $searchInput = $searchContainer.find('input[type="text"]');
+
+        $searchToggle.on('click', function(e) {
+            e.preventDefault();
+            const isActive = $searchContainer.hasClass('is-active');
+            $searchContainer.toggleClass('is-active', !isActive);
+            $searchToggle.toggleClass('is-active', !isActive);
+            if (!isActive) {
+                setTimeout(() => $searchInput.focus(), 300);
+            }
+        });
+
+        // Optional: Close search on ESC
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' && $searchContainer.hasClass('is-active')) {
+                $searchContainer.removeClass('is-active');
+                $searchToggle.removeClass('is-active');
+            }
+        });
+
+        // Hover state for button
+        $searchToggle.hover(
+            function() { $(this).addClass('is-hover'); },
+            function() { $(this).removeClass('is-hover'); }
+        );
+    });
 
 });
 

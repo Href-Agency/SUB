@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: wantedEquipmentTags
+instructions: null
+name: 'Wanted Equipment Tags'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'taggroup:150f8082-44e6-4d6f-98b5-07294c51622e' # Wanted Equipment Categories
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Tags
