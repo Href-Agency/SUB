@@ -400,6 +400,7 @@
         min-width: unset;
         overflow: hidden;
         font-weight: 400;
+        transition: all 0.3s ease-in-out;
         &:hover {
             background-color: unset;
             opacity: 0.5;
