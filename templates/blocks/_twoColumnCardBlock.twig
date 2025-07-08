@@ -21,31 +21,33 @@
                 {% endif %}
             </div>
         {% endif %}
-        <div class="cards-container">
-            {% for card in cards %}
-                {% set backgroundImage = card.backgroundImage.one() %}
-                {% set link = card.singleLink %}
-                {% set logo = card.logo.one() %}
+        {% if cards is not empty %}
+            <div class="cards-container">
+                {% for card in cards %}
+                    {% set backgroundImage = card.backgroundImage.one() %}
+                    {% set link = card.singleLink %}
+                    {% set logo = card.logo.one() %}
 
-                <div class="card">  
-                    <div class="background-container">
-                        {% include '_partials/components/_imageVideo.twig' with { 
-                            media: backgroundImage 
-                        } %}
-                    </div>
-                    <div class="text-container">
-                        <div class="logo-container">
-                            {% include '_partials/components/_imageVideo.twig' with {
-                                media: logo
+                    <div class="card">  
+                        <div class="background-container">
+                            {% include '_partials/components/_imageVideo.twig' with { 
+                                media: backgroundImage 
                             } %}
                         </div>
-                        {% include '_partials/components/_button.twig' with {
-                            button: link,
-                            buttonClasses: 'btn btn-arrow'
-                        } %}
+                        <div class="text-container">
+                            <div class="logo-container">
+                                {% include '_partials/components/_imageVideo.twig' with {
+                                    media: logo
+                                } %}
+                            </div>
+                            {% include '_partials/components/_button.twig' with {
+                                button: link,
+                                buttonClasses: 'btn btn-arrow'
+                            } %}
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </section>
