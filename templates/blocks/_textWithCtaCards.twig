@@ -11,7 +11,7 @@
                 {{ subtext }}
             </div>
         {% endif %}
-        {% if pageCards %}
+        {% if pageCards|length > 0 %}
             <div class="cards-container">
                 {% for card in pageCards %}
                     {% set media = card.media.one() %}
