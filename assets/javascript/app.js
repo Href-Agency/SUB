@@ -21,6 +21,36 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 100,
     });
 
+    // Set minimum height for main content area
+    (function setMainMinHeight() {
+        function updateMainMinHeight() {
+            const main = document.querySelector('.error-page');
+            const header = document.querySelector('.site-header');
+            const footer = document.querySelector('.site-footer');
+            
+            if (main && header && footer) {
+                const viewportHeight = window.innerHeight;
+                const headerHeight = header.offsetHeight;
+                const footerHeight = footer.offsetHeight;
+                
+                // Calculate minimum height: viewport height - header height - footer height
+                const minHeight = viewportHeight - headerHeight - footerHeight;
+                
+                // Set minimum height (ensure it's at least 100px to prevent negative values)
+                main.style.minHeight = Math.max(minHeight, 100) + 'px';
+            }
+        }
+        
+        // Update on page load
+        updateMainMinHeight();
+        
+        // Update on window resize
+        window.addEventListener('resize', updateMainMinHeight);
+        
+        // Update after a short delay to ensure all content is loaded
+        setTimeout(updateMainMinHeight, 100);
+    })();
+
 
     function checkScroll(scrollPos) {
         if (scrollPos > 0) {
