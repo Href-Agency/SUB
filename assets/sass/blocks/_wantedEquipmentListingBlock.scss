@@ -8,12 +8,12 @@
         gap: 60px;
         align-items: flex-start;
         
-        @media only screen and (max-width: 1400px) {
+        @media only screen and (max-width: 1440px) {
             grid-template-columns: 260px 1fr;
             gap: 40px;
         }
         
-        @media only screen and (max-width: 1023px) {
+        @media only screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
             gap: 0;
         }
@@ -21,12 +21,12 @@
         .left-container {
             .categories-heading {
                 font-family: "halyard-display", sans-serif;
-                margin-bottom: 35px;
+                margin-bottom: 27px;
             }
             
             .category-form {
                 .category-checkboxes {
-                    @media only screen and (max-width: 1023px) {
+                    @media only screen and (max-width: 1024px) {
                         display: none;
                     }
                     
@@ -65,14 +65,16 @@
                 .category-select {
                     display: none;
                     
-                    @media only screen and (max-width: 1023px) {
+                    @media only screen and (max-width: 1024px) {
                         display: block;
                     }
                     
                     select {
                         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23041c2a' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-                        background-position: right center;
+                        background-position: 97% center;
                         background-repeat: no-repeat;
+                        appearance: none;
+
                         background-size: 16px;
                         border: 2px solid #E8E8E8;
                         border-radius: 5px;
@@ -124,7 +126,7 @@
                         font-weight: 400;
                         margin: 0;
                         
-                        @media only screen and (max-width: 1023px) {
+                        @media only screen and (max-width: 1024px) {
                             display: none;
                         }
                     }
@@ -181,7 +183,7 @@
                 .equipment-list {
                     display: grid;
                     gap: 4px;
-                    @media only screen and (max-width: 1023px) {
+                    @media only screen and (max-width: 1024px) {
                         gap: 20px;
                     }
                     
@@ -193,7 +195,7 @@
                             background-color: rgba(#E8E8E8, 1);
                         }
                         display: grid;
-                        grid-template-columns: 178px 1fr 161px;
+                        grid-template-columns: 178px 1fr auto;
                         padding-right: 30px;
                         gap: 40px;
                         border-radius: 5px;
@@ -329,7 +331,7 @@
         }
         
         // Responsive layout
-        @media only screen and (max-width: 1023px) {
+        @media only screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
             gap: 0;
             
@@ -385,8 +387,12 @@ body.modal-open {
         margin: 0 auto;
         position: relative;
         width: calc(100% - 60px);
-        height: calc(100% - 60px);
+        height: auto;
+        max-height: calc(100% - 60px);
         overflow-y: auto;
+        @media only screen and (max-width: 767px) {
+            padding: 30px 20px;
+        }
         
         .close-button {
             position: absolute;
@@ -404,6 +410,11 @@ body.modal-open {
             font-weight: 500;
             color: $dark-blue;
         }
+
+        .modal-title {
+            font-family: "halyard-display", sans-serif;
+            margin-bottom: 20px;
+        }
         
         .enquiry-preview {
             background-color: #E8E8E8;
@@ -412,7 +423,7 @@ body.modal-open {
             margin-bottom: 30px;
             
             .preview-label {
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 400;
                 color: $dark-blue;
                 margin-bottom: 15px;
@@ -422,6 +433,10 @@ body.modal-open {
                 display: flex;
                 align-items: center;
                 gap: 20px;
+                @media only screen and (max-width: 767px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
                 
                 .preview-image {
                     width: 80px;

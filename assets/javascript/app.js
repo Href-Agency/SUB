@@ -681,7 +681,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update modal content
             $previewTitle.text(productTitle);
-            $previewReference.text(productReference);
+            if (productReference.length > 0) {
+                $previewReference.text(productReference);
+            }
             if (productImage) {
                 $previewImage.attr('src', productImage);
                 $previewImage.attr('alt', productTitle);
