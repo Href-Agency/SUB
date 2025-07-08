@@ -21,7 +21,7 @@
                 {% endif %}
             </div>
         {% endif %}
-        {% if cards is not empty %}
+        {% if cards is not null %}
             <div class="cards-container">
                 {% for card in cards %}
                     {% set backgroundImage = card.backgroundImage.one() %}
