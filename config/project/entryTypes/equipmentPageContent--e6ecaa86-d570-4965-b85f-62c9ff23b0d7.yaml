@@ -156,6 +156,7 @@ fieldLayouts:
               uid: 812bf1a2-c741-4533-ade5-721055391df1
               values:
                 - productIndividualPage
+                - productListingPage
           elementType: craft\elements\Entry
           fieldContext: global
         elements:
