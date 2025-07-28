@@ -5,8 +5,8 @@
 	<meta name="robots" content="index,follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{% block title %}{% if entry is defined %}{{ entry.title }} | {% endif %}{{ siteName }}{% endblock %}</title>
-	<link rel="icon" type="image/png" href="{{ craft.vite.asset("assets/icons/favicon.png") }}">
-	<link rel="shortcut icon" type="image/png" href="{{ craft.vite.asset("assets/icons/favicon.png") }}">
+	<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="/assets/icons/favicon.png">
 	{# Load our main CSS file in dev mode to avoid FOUC #}
 	{% if craft.vite.devServerRunning() %}
 		<link rel="stylesheet" href="{{ craft.vite.asset("assets/sass/app.scss") }}">
