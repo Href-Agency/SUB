@@ -547,6 +547,11 @@
                 color: $white;
                 opacity: 0.8;
             }
+            &:focus, &:hover {
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
         }
 
         .search-submit {

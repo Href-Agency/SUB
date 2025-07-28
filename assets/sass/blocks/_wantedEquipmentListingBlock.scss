@@ -126,9 +126,9 @@
                         font-weight: 400;
                         margin: 0;
                         
-                        @media only screen and (max-width: 1024px) {
-                            display: none;
-                        }
+                        // @media only screen and (max-width: 1024px) {
+                        //     display: none;
+                        // }
                     }
                     
                     .sort-dropdown {
@@ -284,14 +284,14 @@
                                     &::before {
                                         content: "";
                                         display: block;
-                                        width: 8px;
-                                        height: 8px;
+                                        width: 6px;
+                                        height: 6px;
                                         min-width: 4px;
                                         min-height: 4px;
                                         background-color: $orange;
                                         margin-right: 6px;
                                         border-radius: 50%;
-                                        margin-top: 6px;
+                                        margin-top: 3px;
                                     }
                                 }
                             }
