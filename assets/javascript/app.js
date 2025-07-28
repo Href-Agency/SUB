@@ -507,16 +507,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update enquiry count in navigation
                 this.updateCount();
 
-                // Update equipment list page if we're on it
-                if (window.location.pathname === '/enquiry-list') {
-                    this.updateEquipmentListPage();
-                }
+                            // Update equipment list page if we're on it
+            if (window.location.pathname === '/enquiry-list') {
+                this.updateEquipmentListPage();
+                this.updateMultiEnquiryForm();
+            }
             }
 
             // Update count in navigation
             updateCount() {
                 const count = this.getCount();
                 $('[data-enquiry-count]').text(count);
+                
+                // Update multi enquiry form when count changes
+                if (window.location.pathname === '/enquiry-list') {
+                    this.updateMultiEnquiryForm();
+                }
             }
 
             // Update equipment list page content
@@ -541,6 +547,38 @@ document.addEventListener('DOMContentLoaded', function() {
                     $enquiryActions.hide();
                     $formContainer.hide();
                     $formDisabledMessage.show();
+                }
+            }
+
+            // Update multi enquiry form with current enquiry data
+            updateMultiEnquiryForm() {
+                const $form = $('[data-handle="multiEnquiryForm"]');
+                if ($form.length) {
+                    const enquiries = this.getAllEnquiries();
+                    const productNames = [];
+                    const productReferences = [];
+                    
+                    // Collect product names and references from enquiry list
+                    Object.values(enquiries).forEach(product => {
+                        if (product.title) {
+                            productNames.push(product.title);
+                        }
+                        if (product.reference) {
+                            productReferences.push(product.reference);
+                        }
+                    });
+                    
+                    // Update form fields with comma-separated values
+                    const $productNameInput = $form.find('#form-input-productName');
+                    const $productReferenceInput = $form.find('#form-input-productReference');
+                    
+                    if ($productNameInput.length) {
+                        $productNameInput.val(productNames.join(', '));
+                    }
+                    
+                    if ($productReferenceInput.length) {
+                        $productReferenceInput.val(productReferences.join(', '));
+                    }
                 }
             }
 
@@ -628,8 +666,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
 
+                // Handle multi enquiry form submission
+                $(document).on('submit', '[data-handle="multiEnquiryForm"]', (e) => {
+                    // Clear enquiry list on successful form submission
+                    // Note: We clear immediately here, but in a real scenario you might want to wait for form success
+                    setTimeout(() => {
+                        this.clearAllEnquiries();
+                        // Re-render the enquiry list to show empty state
+                        if (typeof renderEnquiryList === 'function') {
+                            renderEnquiryList();
+                        }
+                    }, 100);
+                });
+
                 // Initialize UI on page load
                 this.updateUI();
+                
+                // Update multi enquiry form on page load
+                this.updateMultiEnquiryForm();
             }
         }
 
@@ -1177,22 +1231,38 @@ function renderEnquiryList() {
         item.appendChild(actionsDiv);
         container.appendChild(item);
     });
+
+    // Update multi enquiry form fields if enquiry manager exists
+    if (typeof enquiryManager !== 'undefined' && enquiryManager) {
+        enquiryManager.updateMultiEnquiryForm();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', renderEnquiryList);
 document.addEventListener('click', function(e) {
     if (e.target.closest('.remove-item-btn')) {
         const productId = e.target.closest('.remove-item-btn').getAttribute('data-product-id');
-        // Remove from cookie
-        const cookie = document.cookie.split('; ').find(row => row.startsWith('enquiries='));
-        let enquiries = {};
-        if (cookie) {
-            try {
-                enquiries = JSON.parse(decodeURIComponent(cookie.split('=')[1]));
-            } catch (e) {}
+        
+        // Use enquiry manager if available, otherwise fallback to direct cookie manipulation
+        if (typeof enquiryManager !== 'undefined' && enquiryManager) {
+            enquiryManager.removeFromEnquiry(productId);
+            // Remove the item from the DOM
+            e.target.closest('.enquiry-item').style.opacity = '0';
+            setTimeout(() => {
+                renderEnquiryList();
+            }, 300);
+        } else {
+            // Fallback to direct cookie manipulation
+            const cookie = document.cookie.split('; ').find(row => row.startsWith('enquiries='));
+            let enquiries = {};
+            if (cookie) {
+                try {
+                    enquiries = JSON.parse(decodeURIComponent(cookie.split('=')[1]));
+                } catch (e) {}
+            }
+            delete enquiries[productId];
+            document.cookie = 'enquiries=' + encodeURIComponent(JSON.stringify(enquiries)) + ';path=/;SameSite=Lax';
+            renderEnquiryList();
         }
-        delete enquiries[productId];
-        document.cookie = 'enquiries=' + encodeURIComponent(JSON.stringify(enquiries)) + ';path=/;SameSite=Lax';
-        renderEnquiryList();
     }
 });

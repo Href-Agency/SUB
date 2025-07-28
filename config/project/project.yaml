@@ -1,4 +1,4 @@
-dateModified: 1752148352
+dateModified: 1753704316
 email:
   fromEmail: dev@in-testing.co.uk
   fromName: Sub
@@ -436,8 +436,9 @@ system:
   edition: solo
   live: true
   name: Sub
+  retryDuration: null
   schemaVersion: 5.7.0.3
-  timeZone: America/Los_Angeles
+  timeZone: Europe/London
 users:
   allowPublicRegistration: false
   defaultGroup: null

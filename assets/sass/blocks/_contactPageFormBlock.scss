@@ -137,6 +137,18 @@
                     font-size: 24px;
                 }
             }
+            form .freeform-form-errors {
+                animation: unset;
+                opacity: 1;
+                grid-row: 7 !important;
+                margin: 0;
+                position: relative;
+                top: unset;
+                left: unset;
+                right: unset;
+                bottom: unset;
+                transform: unset;
+            }
         }
     }
 }
