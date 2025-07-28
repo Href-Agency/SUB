@@ -1,0 +1,257 @@
+{#
+    Universal Admin Form Notification Template
+    
+    This template can be used for all Freeform notifications sent to site administrators.
+    It includes conditionals to check and display each input's value.
+    
+    Available variables:
+    - form: The form object
+    - submission: The submission object
+    - submittedOn: Date/time of submission
+    - fields: Array of all form fields
+#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Form Submission - {{ form.name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .form-details {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .field-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #007bff;
+        }
+        .field-label {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+        .field-value {
+            margin-left: 10px;
+            padding: 5px 0;
+        }
+        .empty-value {
+            font-style: italic;
+            color: #6c757d;
+        }
+        .submission-info {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .field-type {
+            font-size: 12px;
+            color: #868e96;
+            margin-left: 5px;
+        }
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        .file-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .file-item {
+            background-color: #e3f2fd;
+            padding: 5px 10px;
+            margin: 2px 0;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>New Form Submission: {{ form.name }}</h1>
+        <p><strong>Form Handle:</strong> {{ form.handle }}</p>
+        {% if submittedOn %}
+            <p><strong>Submitted On:</strong> {{ submittedOn|date('F j, Y \\a\\t g:i A') }}</p>
+        {% endif %}
+    </div>
+
+    <div class="form-details">
+        <h2>Submission Details</h2>
+        
+        {% for field in fields %}
+            {% if field.type != 'submit' and field.type != 'html' %}
+                <div class="field-group">
+                    <div class="field-label">
+                        {{ field.label }}
+                        <span class="field-type">({{ field.type }})</span>
+                    </div>
+                    
+                    <div class="field-value">
+                        {% set fieldValue = submission[field.handle] %}
+                        
+                        {# Handle different field types with conditionals #}
+                        {% if fieldValue is empty %}
+                            <span class="empty-value">No value provided</span>
+                            
+                        {% elseif field.type == 'email' %}
+                            <a href="mailto:{{ fieldValue }}">{{ fieldValue }}</a>
+                            
+                        {% elseif field.type == 'website' %}
+                            <a href="{{ fieldValue }}" target="_blank">{{ fieldValue }}</a>
+                            
+                        {% elseif field.type == 'phone' %}
+                            <a href="tel:{{ fieldValue }}">{{ fieldValue }}</a>
+                            
+                        {% elseif field.type == 'textarea' %}
+                            <div style="white-space: pre-wrap;">{{ fieldValue }}</div>
+                            
+                        {% elseif field.type == 'checkbox' %}
+                            {% if fieldValue %}
+                                ✓ Yes
+                            {% else %}
+                                ✗ No
+                            {% endif %}
+                            
+                        {% elseif field.type == 'checkbox_group' %}
+                            {% if fieldValue is iterable %}
+                                <ul>
+                                {% for value in fieldValue %}
+                                    <li>{{ value }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% else %}
+                                {{ fieldValue }}
+                            {% endif %}
+                            
+                        {% elseif field.type == 'radio_group' or field.type == 'select' %}
+                            <strong>{{ fieldValue }}</strong>
+                            
+                        {% elseif field.type == 'multiple_select' %}
+                            {% if fieldValue is iterable %}
+                                <ul>
+                                {% for value in fieldValue %}
+                                    <li>{{ value }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% else %}
+                                {{ fieldValue }}
+                            {% endif %}
+                            
+                        {% elseif field.type == 'file' %}
+                            {% if fieldValue is iterable %}
+                                <ul class="file-list">
+                                {% for file in fieldValue %}
+                                    <li class="file-item">
+                                        📎 {{ file.filename }}
+                                        {% if file.size %}
+                                            ({{ (file.size / 1024)|round(1) }} KB)
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% elseif fieldValue %}
+                                <div class="file-item">
+                                    📎 {{ fieldValue.filename ?? fieldValue }}
+                                    {% if fieldValue.size %}
+                                        ({{ (fieldValue.size / 1024)|round(1) }} KB)
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            
+                        {% elseif field.type == 'datetime' %}
+                            {{ fieldValue|date('F j, Y \\a\\t g:i A') }}
+                            
+                        {% elseif field.type == 'date' %}
+                            {{ fieldValue|date('F j, Y') }}
+                            
+                        {% elseif field.type == 'time' %}
+                            {{ fieldValue|date('g:i A') }}
+                            
+                        {% elseif field.type == 'number' or field.type == 'rating' %}
+                            {{ fieldValue|number_format }}
+                            
+                        {% elseif field.type == 'opinion_scale' %}
+                            {{ fieldValue }} / {{ field.maxValue ?? 10 }}
+                            
+                        {% elseif field.type == 'signature' %}
+                            {% if fieldValue %}
+                                <div>✍️ Signature provided</div>
+                            {% else %}
+                                <span class="empty-value">No signature provided</span>
+                            {% endif %}
+                            
+                        {% elseif field.type == 'table' %}
+                            {% if fieldValue is iterable %}
+                                <table style="border-collapse: collapse; width: 100%; margin-top: 10px;">
+                                    {% for row in fieldValue %}
+                                        <tr>
+                                            {% for cell in row %}
+                                                <td style="border: 1px solid #ddd; padding: 8px;">{{ cell }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            {% else %}
+                                {{ fieldValue }}
+                            {% endif %}
+                            
+                        {% else %}
+                            {# Default handling for text, hidden, and other field types #}
+                            {{ fieldValue }}
+                        {% endif %}
+                        
+                        {# Additional field information if available #}
+                        {% if field.required and fieldValue is empty %}
+                            <div style="color: #dc3545; font-size: 12px; margin-top: 5px;">
+                                ⚠️ This field was required but left empty
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="submission-info">
+        <h3>Additional Information</h3>
+        <p><strong>Submission ID:</strong> {{ submission.id ?? 'N/A' }}</p>
+        <p><strong>Form Handle:</strong> {{ form.handle }}</p>
+        <p><strong>Total Fields:</strong> {{ fields|length }}</p>
+        
+        {% if submission.dateCreated %}
+            <p><strong>Submitted:</strong> {{ submission.dateCreated|date('F j, Y \\a\\t g:i:s A T') }}</p>
+        {% endif %}
+        
+        {% if submission.ip %}
+            <p><strong>IP Address:</strong> {{ submission.ip }}</p>
+        {% endif %}
+        
+        {% if submission.userAgent %}
+            <p><strong>User Agent:</strong> {{ submission.userAgent }}</p>
+        {% endif %}
+    </div>
+
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #6c757d;">
+        <p>This is an automated notification from {{ siteName ?? 'your website' }}. Please do not reply to this email.</p>
+    </div>
+</body>
+</html> 

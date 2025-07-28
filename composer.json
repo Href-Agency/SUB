@@ -21,10 +21,10 @@
 	"require": {
 		"clubstudioltd/craft-asset-rev": "8.0.0",
 		"craftcms/ckeditor": "4.9.0",
-		"craftcms/cms": "5.7.11",
+		"craftcms/cms": "5.8.11",
 		"nystudio107/craft-templatecomments": "^5.0.4",
 		"nystudio107/craft-vite": "^5.0",
-		"solspace/craft-freeform": "5.11.3",
+		"solspace/craft-freeform": "5.11.7",
 		"topshelfcraft/environment-label": "^5.0.0",
 		"vlucas/phpdotenv": "^5.6.2",
 		"youandmedigital/breadcrumb": "3.0.0"

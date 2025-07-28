@@ -1,4 +1,4 @@
-dateModified: 1753704316
+dateModified: 1753715774
 email:
   fromEmail: dev@in-testing.co.uk
   fromName: Sub
@@ -92,12 +92,12 @@ plugins:
     edition: lite
     enabled: true
     licenseKey: 4G1UNMER53QINOPYWGLDLNZT
-    schemaVersion: 5.6.1
+    schemaVersion: 5.6.3
     settings:
       alertNotificationRecipients: null
       allowBuilderTemplateCreation: true
       allowDashesInFieldHandles: false
-      allowFileTemplateEdit: true
+      allowFileTemplateEdit: '1'
       autoScroll: true
       autoScrollToErrors: true
       badgeType: all
@@ -380,7 +380,7 @@ plugins:
       displayFeed: true
       emailNotificationToolbarConfiguration: 'blocks bold italic underline forecolor backcolor | align numlist bullist | link image table | removeformat code'
       emailTemplateDefault: database
-      emailTemplateDirectory: null
+      emailTemplateDirectory: notifications
       emailTemplateMethod: global
       emailTemplateStorageType: files_database
       exportHandlesAsNames: false
@@ -390,7 +390,7 @@ plugins:
       formFieldShowOnlyAllowedForms: false
       formSubmitDisable: true
       formSubmitExpiration: null
-      formTemplateDirectory: null
+      formTemplateDirectory: notifications
       formattingTemplate: basic-light/index.twig
       loggingLevel: error
       minimumSubmitTime: null
@@ -420,7 +420,7 @@ plugins:
       spamProtectionBehavior: simulate_success
       submissionThrottlingCount: null
       submissionThrottlingTimeFrame: null
-      successTemplateDirectory: null
+      successTemplateDirectory: notifications/basic-dark-1
       updateSearchIndexes: true
       useQueueForEmailNotifications: false
       useQueueForIntegrations: false
@@ -437,7 +437,7 @@ system:
   live: true
   name: Sub
   retryDuration: null
-  schemaVersion: 5.7.0.3
+  schemaVersion: 5.8.0.3
   timeZone: Europe/London
 users:
   allowPublicRegistration: false

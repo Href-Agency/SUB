@@ -1,0 +1,120 @@
+{#
+    Universal Admin Form Notification Template (Plain Text Version)
+    
+    This is the plain text version of the notification template for all Freeform 
+    notifications sent to site administrators.
+#}
+
+NEW FORM SUBMISSION: {{ form.name }}
+{{ '=' | repeat(50) }}
+
+Form Handle: {{ form.handle }}
+{% if submittedOn %}
+Submitted On: {{ submittedOn|date('F j, Y \\a\\t g:i A') }}
+{% endif %}
+
+SUBMISSION DETAILS
+{{ '-' | repeat(20) }}
+
+{% for field in fields %}
+    {% if field.type != 'submit' and field.type != 'html' %}
+{{ field.label }} ({{ field.type }}):
+        {% set fieldValue = submission[field.handle] %}
+        
+        {# Handle different field types with conditionals #}
+        {% if fieldValue is empty %}
+   [No value provided]
+        {% elseif field.type == 'email' %}
+   {{ fieldValue }}
+        {% elseif field.type == 'website' %}
+   {{ fieldValue }}
+        {% elseif field.type == 'phone' %}
+   {{ fieldValue }}
+        {% elseif field.type == 'textarea' %}
+   {{ fieldValue }}
+        {% elseif field.type == 'checkbox' %}
+            {% if fieldValue %}
+   ✓ Yes
+            {% else %}
+   ✗ No
+            {% endif %}
+        {% elseif field.type == 'checkbox_group' %}
+            {% if fieldValue is iterable %}
+                {% for value in fieldValue %}
+   - {{ value }}
+                {% endfor %}
+            {% else %}
+   {{ fieldValue }}
+            {% endif %}
+        {% elseif field.type == 'radio_group' or field.type == 'select' %}
+   {{ fieldValue }}
+        {% elseif field.type == 'multiple_select' %}
+            {% if fieldValue is iterable %}
+                {% for value in fieldValue %}
+   - {{ value }}
+                {% endfor %}
+            {% else %}
+   {{ fieldValue }}
+            {% endif %}
+        {% elseif field.type == 'file' %}
+            {% if fieldValue is iterable %}
+                {% for file in fieldValue %}
+   📎 {{ file.filename }}{% if file.size %} ({{ (file.size / 1024)|round(1) }} KB){% endif %}
+                {% endfor %}
+            {% elseif fieldValue %}
+   📎 {{ fieldValue.filename ?? fieldValue }}{% if fieldValue.size %} ({{ (fieldValue.size / 1024)|round(1) }} KB){% endif %}
+            {% endif %}
+        {% elseif field.type == 'datetime' %}
+   {{ fieldValue|date('F j, Y \\a\\t g:i A') }}
+        {% elseif field.type == 'date' %}
+   {{ fieldValue|date('F j, Y') }}
+        {% elseif field.type == 'time' %}
+   {{ fieldValue|date('g:i A') }}
+        {% elseif field.type == 'number' or field.type == 'rating' %}
+   {{ fieldValue|number_format }}
+        {% elseif field.type == 'opinion_scale' %}
+   {{ fieldValue }} / {{ field.maxValue ?? 10 }}
+        {% elseif field.type == 'signature' %}
+            {% if fieldValue %}
+   ✍️ Signature provided
+            {% else %}
+   [No signature provided]
+            {% endif %}
+        {% elseif field.type == 'table' %}
+            {% if fieldValue is iterable %}
+                {% for row in fieldValue %}
+   {{ row | join(' | ') }}
+                {% endfor %}
+            {% else %}
+   {{ fieldValue }}
+            {% endif %}
+        {% else %}
+   {{ fieldValue }}
+        {% endif %}
+        
+        {% if field.required and fieldValue is empty %}
+   ⚠️ This field was required but left empty
+        {% endif %}
+
+    {% endif %}
+{% endfor %}
+
+ADDITIONAL INFORMATION
+{{ '-' | repeat(22) }}
+
+Submission ID: {{ submission.id ?? 'N/A' }}
+Form Handle: {{ form.handle }}
+Total Fields: {{ fields|length }}
+{% if submission.dateCreated %}
+Submitted: {{ submission.dateCreated|date('F j, Y \\a\\t g:i:s A T') }}
+{% endif %}
+{% if submission.ip %}
+IP Address: {{ submission.ip }}
+{% endif %}
+{% if submission.userAgent %}
+User Agent: {{ submission.userAgent }}
+{% endif %}
+
+{{ '=' | repeat(50) }}
+This is an automated notification from {{ siteName ?? 'your website' }}.
+Please do not reply to this email. 

@@ -18,9 +18,29 @@
             a {
                 font-weight: 500;
             }
+            ul {
+                padding-left: 15px;
+
+            }
             li {
-                list-style: disc;
-                padding-left: 20px;
+                margin-bottom: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 6px;
+                    height: 6px;
+                    min-width: 4px;
+                    min-height: 4px;
+                    background-color: $orange;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                    left: -15px;
+                    margin-top: 5px;
+                }
             }
         }
     }
