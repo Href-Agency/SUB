@@ -6,7 +6,7 @@
 #}
 
 NEW FORM SUBMISSION: {{ form.name }}
-{{ '=' | repeat(50) }}
+{{ '====================================================' }}
 
 Form Handle: {{ form.handle }}
 {% if submittedOn %}
@@ -14,7 +14,7 @@ Submitted On: {{ submittedOn|date('F j, Y \\a\\t g:i A') }}
 {% endif %}
 
 SUBMISSION DETAILS
-{{ '-' | repeat(20) }}
+{{ '====================================================' }}
 
 {% for field in fields %}
     {% if field.type != 'submit' and field.type != 'html' %}
@@ -100,7 +100,7 @@ SUBMISSION DETAILS
 {% endfor %}
 
 ADDITIONAL INFORMATION
-{{ '------------------------------------------------' }}
+{{ '====================================================' }}
 
 Submission ID: {{ submission.id ?? 'N/A' }}
 Form Handle: {{ form.handle }}
@@ -115,6 +115,6 @@ IP Address: {{ submission.ip }}
 User Agent: {{ submission.userAgent }}
 {% endif %}
 
-{{ '=' | repeat(50) }}
+{{ '====================================================' }}
 This is an automated notification from {{ siteName ?? 'your website' }}.
 Please do not reply to this email. 
