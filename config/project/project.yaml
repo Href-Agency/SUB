@@ -110,8 +110,8 @@ plugins:
       clientDigestFrequency: 1
       clientDigestRecipients: null
       csrfRefresh: none
-      defaultFromEmail: '{{ general.systemEmail }}'
-      defaultFromName: '{{ general.systemName }}'
+      defaultFromEmail: 'dev@in-testing.co.uk'
+      defaultFromName: 'Sub'
       defaultView: forms
       defaults:
         __assoc__:
