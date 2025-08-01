@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
         once: false,
         offset: 100,
     });
+    // Find all links containing "privacy-policy" in href
+
+    $('a[href*="privacy-policy"]').attr('href', '/privacy-policy');
+
 
     // Set minimum height for main content area
     (function setMainMinHeight() {
