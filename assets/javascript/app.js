@@ -725,8 +725,8 @@ document.addEventListener('DOMContentLoaded', function() {
             $modal.addClass('is-active');
             $('body').addClass('modal-open');
 
-            $modal.find('form [name="productName"]').val(productTitle);
-            $modal.find('form [name="productReference"]').val(productReference);
+            $modal.find('form [name="productName"]').attr('value', productTitle);
+            $modal.find('form [name="productReference"]').attr('value', productReference);
         });
 
         // Close modal when close button is clicked

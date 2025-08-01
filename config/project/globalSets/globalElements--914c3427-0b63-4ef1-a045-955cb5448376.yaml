@@ -1,0 +1,81 @@
+fieldLayouts:
+  32bfc7ff-3f44-45f3-9640-24aab800c6fd:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-01T16:37:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46e91064-492e-4832-8b32-9ea816047e2d # Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8ea95c7-83d1-4992-b873-6a6148764d4b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-01T16:37:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31515169-58e5-4fdf-b1f0-0060aba7da2f # Subtext
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 320012c9-b13f-4532-8d98-65b4d7d95b5a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-01T16:37:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 208b59dc-efeb-404c-98f2-6ec660879ee1 # Single Link
+            handle: btn
+            includeInCards: false
+            instructions: null
+            label: Button
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fd3a5508-406f-4588-b562-0bbb3a65ab0f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-01T16:37:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: be4e69f9-a849-4462-896d-3491c097a402
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'CTA Banner Defaults'
+        uid: da5eeb4c-68f1-4391-bf80-3955ebc16eac
+        userCondition: null
+handle: globalElements
+name: 'Global Elements'
+sortOrder: 3

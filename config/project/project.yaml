@@ -1,8 +1,13 @@
-dateModified: 1753715774
+dateModified: 1754068653
 email:
   fromEmail: dev@in-testing.co.uk
   fromName: Sub
-  transportType: craft\mail\transportadapters\Sendmail
+  replyToEmail: null
+  template: null
+  transportSettings:
+    messageStream: ''
+    token: d6d52e4b-9a46-4b24-9de8-1a0ab239badf
+  transportType: craftcms\postmark\Adapter
 fs:
   hardDisk:
     hasUrls: true
@@ -39,6 +44,7 @@ meta:
     674fb744-b160-444b-af35-72f3a327afbf: 'Two Column Card Block' # Two Column Card Block
     741d13d8-7c1b-4440-a507-1b6478eb6736: 'Fifty Fifty Repeater' # Fifty Fifty Repeater
     861d3103-01e5-446c-b19c-8357db15e40d: Header # Header
+    914c3427-0b63-4ef1-a045-955cb5448376: 'Global Elements' # Global Elements
     09043f1e-ea69-4028-8ca3-5f75660d3d3d: Subtext # Subtext
     20033fea-bd0d-4a3e-ad47-9f84788a37db: 'CTA With Background' # CTA With Background
     69332d09-4481-4eaf-9f75-241fbd7f5211: 'Megamenu Content' # Megamenu Content
@@ -110,8 +116,8 @@ plugins:
       clientDigestFrequency: 1
       clientDigestRecipients: null
       csrfRefresh: none
-      defaultFromEmail: 'dev@in-testing.co.uk'
-      defaultFromName: 'Sub'
+      defaultFromEmail: '{{ general.systemEmail }}'
+      defaultFromName: '{{ general.systemName }}'
       defaultView: forms
       defaults:
         __assoc__:
@@ -424,6 +430,10 @@ plugins:
       updateSearchIndexes: true
       useQueueForEmailNotifications: false
       useQueueForIntegrations: false
+  postmark:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.1
   templatecomments:
     edition: standard
     enabled: false

@@ -263,24 +263,30 @@
 
 <section id="ctaWithBackground--project-listing" class="ctaWithBackground">
     <div class="background-image">
+        {% include '_partials/components/_imageVideo.twig' with {
+            media: globalElements.media.one(),
+        } %}
         <div aria-hidden="true" class="overlay"></div>
     </div>
     <div class="site-container">
         <div class="cta-content">
-            <div class="heading-container">
-                <h6>equipment sourcing</h6>
-            </div>
-            <div class="subtext lg">
-                <h2>Can’t see what you’re looking for?</h2>
-                <p>Send us your equipment request and we’ll do the sourcing.</p>
-            </div>
-            <a href="/contact" class="btn btn-arrow">
-                Contact Us
-            </a>
+            {% if globalElements.heading %}
+                <div class="heading-container">
+                    {{ globalElements.heading }}
+                </div>
+            {% endif %}
+            {% if globalElements.subtext %}
+                <div class="subtext lg">{{ globalElements.subtext }}</div>
+            {% endif %}
+            {% if globalElements.btn %}
+                {% include '_partials/components/_button.twig' with {
+                    button: globalElements.btn,
+                    buttonClasses: 'btn btn-arrow'
+                } %}
+            {% endif %}
         </div>
     </div>
 </section>
-
 <section id="newsletterSignupBanner-project-listing" class="newsletterSignupBanner">
     <div class="site-container">
         <div class="subtext">
