@@ -671,7 +671,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Clear enquiry list on successful form submission
                     // Note: We clear immediately here, but in a real scenario you might want to wait for form success
                     setTimeout(() => {
-                        this.clearAllEnquiries();
+                        enquiryManager.clearAllEnquiries();
                         // Re-render the enquiry list to show empty state
                         if (typeof renderEnquiryList === 'function') {
                             renderEnquiryList();
