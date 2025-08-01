@@ -26,6 +26,10 @@ return [
     // Whether the GraphQL API is enabled
     'enableGql' => false,
 
+    // System email settings for notifications
+    'systemEmail' => App::env('SYSTEM_EMAIL') ?: 'noreply@yourdomain.com',
+    'systemName' => App::env('SYSTEM_NAME') ?: 'Sub',
+
     'useEmailAsUsername' => true,
     'generateTransformsBeforePageLoad' => true,
 

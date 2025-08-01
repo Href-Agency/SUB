@@ -24,8 +24,8 @@ A plain text version of the notification template for email clients that don't s
    - **Name**: `Universal Admin Notification`
    - **Handle**: `universal-admin-notification`
    - **Subject**: `New {{ form.name }} Submission`
-   - **From Name**: `{{ siteName }}`
-   - **From Email**: `{{ systemEmail }}`
+   - **From Name**: `{{ general.systemName }}`
+   - **From Email**: `{{ general.systemEmail }}`
 4. Copy the contents of `admin-form-notification.twig` into the **HTML Body** field
 5. Copy the contents of `admin-form-notification-text.twig` into the **Text Body** field
 6. Save the template

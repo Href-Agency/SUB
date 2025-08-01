@@ -24,10 +24,6 @@
             }
             li {
                 margin-bottom: 5px;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                
                 &::before {
                     content: "";
                     display: block;
