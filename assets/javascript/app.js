@@ -660,7 +660,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // Handle clear all button
-                $(document).on('click', '#clear-all-enquiries', (e) => {
+                $('form[data-handle="multiEnquiryForm"]').on('click', '#clear-all-enquiries', (e) => {
                     e.preventDefault();
                     if (confirm('Are you sure you want to clear all items from your enquiry list?')) {
                         this.clearAllEnquiries();
@@ -670,17 +670,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
 
-                // Handle multi enquiry form submission
-                $(document).on('submit', '[data-handle="multiEnquiryForm"]', (e) => {
-                    // Clear enquiry list on successful form submission
-                    // Note: We clear immediately here, but in a real scenario you might want to wait for form success
-                    setTimeout(() => {
-                        enquiryManager.clearAllEnquiries();
-                        // Re-render the enquiry list to show empty state
-                        if (typeof renderEnquiryList === 'function') {
-                            renderEnquiryList();
-                        }
-                    }, 100);
+                // Handle clear all button
+                $('form[data-handle="multiEnquiryForm"]').on('freeform-ajax-success', (e) => {
+                    this.clearAllEnquiries();
+                    $('.enquiry-item').fadeOut(300, function() {
+                        $(this).remove();
+                    });
                 });
 
                 // Initialize UI on page load
