@@ -116,7 +116,7 @@ plugins:
       clientDigestFrequency: 1
       clientDigestRecipients: null
       csrfRefresh: none
-      defaultFromEmail: '{{ general.systemEmail }}'
+      defaultFromEmail: '{{ footer.email }}'
       defaultFromName: '{{ general.systemName }}'
       defaultView: forms
       defaults:

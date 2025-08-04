@@ -29,6 +29,9 @@ return [
     'useEmailAsUsername' => true,
     'generateTransformsBeforePageLoad' => true,
 
+    // System name for email notifications
+    'systemName' => 'Sub',
+
     // By default caches are regenerated daily. This busts cache when content is changed.
     'cacheDuration' => false,
 
