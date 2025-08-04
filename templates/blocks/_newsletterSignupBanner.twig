@@ -11,6 +11,10 @@
         <div class="form-container">
             {{ freeform.form("newsletterForm", {
                     formattingTemplate: "grid/index.twig",
+                    dynamicNotification: {
+                        recipients: general.systemEmail,
+                        template: "admin-form-notification-text.twig"
+                    }
                     
             }).render() }}
         </div>
