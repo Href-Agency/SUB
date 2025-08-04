@@ -1,4 +1,4 @@
-dateModified: 1754068653
+dateModified: 1754300688
 email:
   fromEmail: dev@in-testing.co.uk
   fromName: Sub
@@ -32,6 +32,7 @@ meta:
     25b44531-448b-4689-84e9-8af1f8ebda2a: 'Wanted Equipment Tags' # Wanted Equipment Tags
     27b88dbb-5275-488c-8cb3-86e8daa4b84f: 'Equipment Page Type' # Equipment Page Type
     37bcb295-e211-4822-b8ef-9119df20f58e: 'Page Content' # Page Content
+    38d21f05-a96d-470e-960a-7b7dfd31a762: General # General
     40e39d39-823a-4baa-9f2d-4c0062a61789: 'Category Listing Block' # Category Listing Block
     46e91064-492e-4832-8b32-9ea816047e2d: Heading # Heading
     67dc91f5-0d77-46ec-9598-895f0fcb0153: 'Table with Form Block' # Table with Form Block
@@ -116,7 +117,7 @@ plugins:
       clientDigestFrequency: 1
       clientDigestRecipients: null
       csrfRefresh: none
-      defaultFromEmail: '{{ footer.email }}'
+      defaultFromEmail: '{{ general.systemEmail }}'
       defaultFromName: '{{ general.systemName }}'
       defaultView: forms
       defaults:
