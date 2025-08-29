@@ -17,75 +17,85 @@
     {% set searchResults = searchQuery.status('live').all() %}
 {% endif %}
 
-
 <div class="search-results site-container">
-    <aside class="search-sidebar">
-        <p class="search-query">Search results for</p>
-        <h1 class="search-count">
-            {{ query }}
-            <span class="search-count-number">
-                {% if searchResults is defined %}
-                    ({{ searchResults|length }})
-                {% endif %}
-            </span>
-        </h1>
-    </aside>
-    <section class="search-main">
-        <div class="search-results-header" style="display:none;">{# Hidden, handled in sidebar #}</div>
-        <div class="search-results-content">
-            {% if query %}
-                {% if searchResults|length > 0 %}
-                    <div class="search-results-list">
-                        {% for result in searchResults %}
-                            <a href="{{ result.url }}" class="search-result-card">
-                                <div class="result-tags">
-                                    {# Try to show all tag fields that might exist on the entry #}
-                                    {% set tags = [] %}
-                                    {% if result.listingCardTag is defined and result.listingCardTag|length %}
-                                        {% set tags = tags|merge(result.listingCardTag) %}
-                                    {% endif %}
-                                    {% if result.wantedEquipmentTags is defined and result.wantedEquipmentTags|length %}
-                                        {% set tags = tags|merge(result.wantedEquipmentTags) %}
-                                    {% endif %}
-                                    {% for tag in tags %}
-                                        <span class="tag">{{ tag.title ?? tag }}</span>
-                                    {% endfor %}
-                                </div>
-                                <div class="result-title">{{ result.title }}</div>
-                                <div class="result-excerpt">
-                                    {% if result.productDescription is defined and result.productDescription %}
-                                        {{ result.productDescription|striptags|truncate(120) }}
-                                    {% elseif result.subtext is defined and result.subtext %}
-                                        {{ result.subtext|striptags|truncate(120) }}
-                                    {% elseif result.mainContent is defined and result.mainContent %}
-                                        {% set excerpt = '' %}
-                                        {% for block in result.mainContent %}
-                                            {% if block.type == 'detailText' and block.label and excerpt == '' %}
-                                                {% set excerpt = block.label %}
-                                            {% endif %}
+    <div class="search-content">
+        <aside class="search-sidebar">
+            <div class="back-button">
+                <a href="javascript:history.back()" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                        <path id="arrow_back_FILL0_wght500_GRAD0_opsz24" d="M155.587-800.16l4.666,4.666-1.384,1.363-7-7,7-7,1.384,1.363-4.666,4.666h10.282v1.941Z" transform="translate(-151.869 808.131)" fill="#e9540d"/>
+                    </svg>
+                    Return to previous page
+                </a>
+            </div>
+            <p class="search-query">Search results for</p>
+            <h1 class="search-count">
+                {{ query }}
+                <span class="search-count-number">
+                    {% if searchResults is defined %}
+                        ({{ searchResults|length }})
+                    {% endif %}
+                </span>
+            </h1>
+        </aside>
+        <section class="search-main">
+            <div class="search-results-header" style="display:none;">{# Hidden, handled in sidebar #}</div>
+            <div class="search-results-content">
+                {% if query %}
+                    {% if searchResults|length > 0 %}
+                        <div class="search-results-list">
+                            {% for result in searchResults %}
+                                <a href="{{ result.url }}" class="search-result-card">
+                                {{ dump(result) }}
+                                    <div class="result-tags">
+                                        {# Try to show all tag fields that might exist on the entry #}
+                                        {% set tags = [] %}
+                                        {% if result.listingCardTag is defined and result.listingCardTag|length %}
+                                            {% set tags = tags|merge(result.listingCardTag) %}
+                                        {% endif %}
+                                        {% if result.wantedEquipmentTags is defined and result.wantedEquipmentTags|length %}
+                                            {% set tags = tags|merge(result.wantedEquipmentTags) %}
+                                        {% endif %}
+                                        {% for tag in tags %}
+                                            <span class="tag">{{ tag.title ?? tag }}</span>
                                         {% endfor %}
-                                        {{ excerpt|striptags|truncate(120) }}
-                                    {% endif %}
-                                </div>
-                            </a>
-                        {% endfor %}
-                    </div>
+                                    </div>
+                                    <div class="result-title">{{ result.title }}</div>
+                                    <div class="result-excerpt">
+                                        {% if result.productDescription is defined and result.productDescription %}
+                                            {{ result.productDescription|striptags|truncate(120) }}
+                                        {% elseif result.subtext is defined and result.subtext %}
+                                            {{ result.subtext|striptags|truncate(120) }}
+                                        {% elseif result.mainContent is defined and result.mainContent %}
+                                            {% set excerpt = '' %}
+                                            {% for block in result.mainContent %}
+                                                {% if block.type == 'detailText' and block.label and excerpt == '' %}
+                                                    {% set excerpt = block.label %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {{ excerpt|striptags|truncate(120) }}
+                                        {% endif %}
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no-results" style="padding:40px 0; text-align:center;">
+                            <h2>No results found</h2>
+                            <p>Sorry, we couldn't find any results for "{{ query }}".</p>
+                        </div>
+                    {% endif %}
                 {% else %}
-                    <div class="no-results" style="padding:40px 0; text-align:center;">
-                        <h2>No results found</h2>
-                        <p>Sorry, we couldn't find any results for "{{ query }}".</p>
+                    <div class="no-query" style="padding:40px 0; text-align:center;">
+                        <h2>Enter a search term</h2>
+                        <form method="get" class="search-form">
+                            <input type="text" name="q" placeholder="Search..." value="{{ query }}" required style="padding:10px 18px; border-radius:3px; border:1px solid #ccc;">
+                            <button type="submit" class="btn btn-primary" style="margin-left:10px;">Search</button>
+                        </form>
                     </div>
                 {% endif %}
-            {% else %}
-                <div class="no-query" style="padding:40px 0; text-align:center;">
-                    <h2>Enter a search term</h2>
-                    <form method="get" class="search-form">
-                        <input type="text" name="q" placeholder="Search..." value="{{ query }}" required style="padding:10px 18px; border-radius:3px; border:1px solid #ccc;">
-                        <button type="submit" class="btn btn-primary" style="margin-left:10px;">Search</button>
-                    </form>
-                </div>
-            {% endif %}
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
 </div>
 {% endblock %} 

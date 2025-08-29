@@ -928,7 +928,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const lightbox = GLightbox({
                 selector: '.tableWithFormBlock .glightbox-el',
                 touchNavigation: true,
-                loop: true,
+                loop: false,
                 autoplayVideos: true,
                 plyr: {
                     css: 'https://cdn.plyr.io/3.6.8/plyr.css',
@@ -1170,6 +1170,83 @@ document.addEventListener('DOMContentLoaded', function() {
             function() { $(this).removeClass('is-hover'); }
         );
     });
+
+    // Smart back button functionality
+    (function initSmartBackButton() {
+        const backButton = document.querySelector('.back-link');
+        if (backButton) {
+            // Get the current site's hostname
+            const currentHost = window.location.hostname;
+            
+            // Check if there's a referrer and if it's from the same site
+            const referrer = document.referrer;
+            const fallbackUrl = backButton.getAttribute('href');
+            
+            if (referrer) {
+                try {
+                    const referrerUrl = new URL(referrer);
+                    // Check if referrer is from the same site
+                    if (referrerUrl.hostname === currentHost) {
+                        // Update the back button to go to the previous page
+                        backButton.setAttribute('href', referrer);
+                    }
+                } catch (e) {
+                    // If referrer URL is invalid, keep the fallback
+                    console.log('Invalid referrer URL, using fallback');
+                }
+            }
+            
+            // Add click handler for additional safety
+            backButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Try to go back if there's browser history and referrer is from same site
+                if (referrer && window.history.length > 1) {
+                    try {
+                        const referrerUrl = new URL(referrer);
+                        if (referrerUrl.hostname === currentHost) {
+                            window.history.back();
+                            return;
+                        }
+                    } catch (e) {
+                        // Fallback to parent URL
+                    }
+                }
+                
+                // Fallback to the parent URL
+                window.location.href = fallbackUrl;
+            });
+        }
+    })();
+
+    // Enhanced back button functionality for search results page
+    (function enhanceSearchBackButton() {
+        const searchBackButton = document.querySelector('.search-results .back-button .back-link');
+        if (searchBackButton) {
+            searchBackButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Check if we have history to go back to
+                if (window.history.length > 1 && document.referrer) {
+                    try {
+                        const referrerUrl = new URL(document.referrer);
+                        const currentUrl = new URL(window.location.href);
+                        
+                        // If referrer is from the same site, use browser back
+                        if (referrerUrl.hostname === currentUrl.hostname) {
+                            window.history.back();
+                            return;
+                        }
+                    } catch (e) {
+                        // Fallback if URL parsing fails
+                    }
+                }
+                
+                // Fallback to homepage if no valid referrer
+                window.location.href = '/';
+            });
+        }
+    })();
 
 });
 
