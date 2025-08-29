@@ -1,4 +1,4 @@
-dateModified: 1756464634
+dateModified: 1756479446
 email:
   fromEmail: no-reply@sub-ltd.com
   fromName: Sub
@@ -388,7 +388,7 @@ plugins:
       emailNotificationToolbarConfiguration: 'blocks bold italic underline forecolor backcolor | align numlist bullist | link image table | removeformat code'
       emailTemplateDefault: database
       emailTemplateDirectory: notifications
-      emailTemplateMethod: global
+      emailTemplateMethod: form
       emailTemplateStorageType: files_database
       exportHandlesAsNames: false
       exportLabels: false
