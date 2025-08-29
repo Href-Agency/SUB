@@ -1,8 +1,8 @@
-dateModified: 1754300688
+dateModified: 1756464634
 email:
-  fromEmail: dev@in-testing.co.uk
+  fromEmail: no-reply@sub-ltd.com
   fromName: Sub
-  replyToEmail: null
+  replyToEmail: no-reply@sub-ltd.com
   template: null
   transportSettings:
     messageStream: ''
@@ -117,8 +117,8 @@ plugins:
       clientDigestFrequency: 1
       clientDigestRecipients: null
       csrfRefresh: none
-      defaultFromEmail: '{{ general.systemEmail }}'
-      defaultFromName: '{{ general.systemName }}'
+      defaultFromEmail: '{{ general.systemEmail ?: "no-reply@sub-ltd.com" }}'
+      defaultFromName: '{{ general.systemName ?: "Sub" }}'
       defaultView: forms
       defaults:
         __assoc__:

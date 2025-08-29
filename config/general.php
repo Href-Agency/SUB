@@ -44,6 +44,10 @@ return [
     // Prevent user enumeration attacks
     'preventUserEnumeration' => true,
 
+    // System email configuration for Freeform and other notifications
+    'systemEmail' => 'no-reply@sub-ltd.com',
+    'systemName' => 'Sub',
+
     'aliases' => [
       '@basePath' => CRAFT_BASE_PATH . '/public/',
       '@baseUrl' => App::env('PRIMARY_SITE_URL'),
