@@ -5,6 +5,14 @@
 {% set listingCardTag = product.listingCardTag %}
 {% set productDescription = product.productDescription %}
 
+{# Find Table with Form Block in mainContent #}
+{% set tableWithFormBlock = null %}
+{% for block in product.mainContent.all() %}
+    {% if block.type == 'tableWithFormBlock' %}
+        {% set tableWithFormBlock = block %}
+    {% endif %}
+{% endfor %}
+
 {% if hasAddButton is not defined %}
     {% set hasAddButton = true %}
 {% endif %}
@@ -48,19 +56,32 @@
         {% if referenceNumber %}
             <div class="product-reference">{{ referenceNumber }}</div>
         {% endif %}
-
+        
         {% if productDescription %}
             <div class="product-description">{{ productDescription }}</div>
+        {% elseif tableWithFormBlock and tableWithFormBlock.subtext %}
+            <div class="product-description">{{ tableWithFormBlock.subtext }}</div>
         {% endif %}
         
         <span class="section-end"></span>
         
         <div class="product-specs">
-            {% for productPageDetail in productPageDetails %}
-                <div class="product-spec">
-                    {{ productPageDetail.label }}
-                </div>
-            {% endfor %}
+            
+            {# Display Table with Form Block table data if it exists #}
+            {% if tableWithFormBlock and tableWithFormBlock.table %}
+                {% for row in tableWithFormBlock.table|slice(0,2) %}
+                    <div class="product-spec table-row">
+                        <span class="spec-label"><strong>{{ row.leftColumn }}:</strong></span>
+                        <span class="spec-value">{{ row.rightColumn }}</span>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for productPageDetail in productPageDetails|slice(0,2) %}
+                    <div class="product-spec">
+                        {{ productPageDetail.label }}
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
         
         <div class="product-actions">

@@ -11,7 +11,7 @@ A comprehensive HTML email template that displays form submissions in a clean, p
 - Visual indicators for empty fields and required field violations
 - Formatted display for dates, files, checkboxes, etc.
 
-### 2. `admin-form-notification-text.twig` (Plain Text Version)
+### 2. `.twig` (Plain Text Version)
 A plain text version of the notification template for email clients that don't support HTML or for backup text content.
 
 ## How to Use These Templates

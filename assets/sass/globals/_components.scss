@@ -110,7 +110,12 @@
             margin-bottom: 20px;
             color: $dark-blue;
             margin-bottom: auto;
-            padding-bottom: 12px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
             >* {
                 margin-bottom: 0;
             }
@@ -121,12 +126,12 @@
             height: 1px;
             background-color: #707070;
             margin-bottom: 12px;
+            margin-top: 12px;
         }
         
         .product-specs {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
             margin-bottom: 21px;
             @media only screen and (max-width: 1440px) {
                 grid-template-columns: 1fr;
@@ -139,6 +144,13 @@
                 align-items: flex-start;
                 justify-content: flex-start;
                 line-height: 18px;
+                .spec-value {
+                    &:before {
+                        content: ' ';
+                        display: inline-block;
+                        width: 4px;
+                    }
+                }
                 &::before {
                     content: "";
                     display: block;
