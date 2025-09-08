@@ -144,6 +144,9 @@
                 align-items: flex-start;
                 justify-content: flex-start;
                 line-height: 18px;
+                >* {
+                    display: inline-block;
+                }
                 .spec-value {
                     &:before {
                         content: ' ';
