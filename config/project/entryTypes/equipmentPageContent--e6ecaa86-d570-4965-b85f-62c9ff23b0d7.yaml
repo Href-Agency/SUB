@@ -1,6 +1,8 @@
 color: null
+description: null
 fieldLayouts:
   a5fa8273-9c26-4652-a2dc-7fc9c7ee4168:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -185,35 +187,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 4da7212b-b18b-4781-897d-15da4c3d2e9b
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2025-06-26T10:29:03+00:00'
-            editCondition: null
-            elementCondition:
-              class: craft\elements\conditions\entries\EntryCondition
-              conditionRules:
-                -
-                  class: craft\fields\conditions\OptionsFieldConditionRule
-                  fieldUid: 27b88dbb-5275-488c-8cb3-86e8daa4b84f # Equipment Page Type
-                  layoutElementUid: 9a743120-33d4-4879-96fd-896218a7bd14
-                  operator: in
-                  uid: dd0424f1-c10c-4067-b7c4-847439d84190
-                  values:
-                    - productIndividualPage
-              elementType: craft\elements\Entry
-              fieldContext: global
-            fieldUid: 312021f4-e37c-4cd4-a5cc-948fec2a9862 # Product Page Details
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 67e80838-7d59-49a0-86e2-d6345b1e7594
             userCondition: null
             warning: null
             width: 50
