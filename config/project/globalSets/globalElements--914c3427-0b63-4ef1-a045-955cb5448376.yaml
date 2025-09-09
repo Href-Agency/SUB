@@ -73,6 +73,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2025-09-09T16:40:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62534679-40fc-45ab-9544-cbced2386fe8 # Media
+            handle: favicon
+            includeInCards: false
+            instructions: null
+            label: Favicon
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9e575c98-4fac-4912-a6f7-9f94230eaa7c
+            userCondition: null
+            warning: null
+            width: 100
         name: 'CTA Banner Defaults'
         uid: da5eeb4c-68f1-4391-bf80-3955ebc16eac
         userCondition: null
