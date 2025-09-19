@@ -121,14 +121,14 @@
                         Showing all {{ allProducts|length }} products
                     {% endif %}
                 </div>
-                <div class="sort-dropdown">
+                {# <div class="sort-dropdown">
                     <label for="sort-select">Sort by:</label>
                     <select id="sort-select" name="order">
                         <option value=""{% if not currentOrder %} selected{% endif %}>No Filter</option>
                         <option value="latest"{% if currentOrder == 'latest' %} selected{% endif %}>Latest</option>
                         <option value="oldest"{% if currentOrder == 'oldest' %} selected{% endif %}>Oldest</option>
                     </select>
-                </div>
+                </div> #}
             </div>
             
             <div class="products-grid">
