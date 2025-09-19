@@ -2,7 +2,7 @@ columnSuffix: null
 handle: table
 instructions: null
 name: Table
-searchable: false
+searchable: true
 settings:
   addRowLabel: 'Add a row'
   columns:

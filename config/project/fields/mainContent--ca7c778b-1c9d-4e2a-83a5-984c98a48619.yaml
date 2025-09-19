@@ -13,66 +13,105 @@ settings:
         -
           - uid
           - 20033fea-bd0d-4a3e-ad47-9f84788a37db # CTA With Background
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - 674fb744-b160-444b-af35-72f3a327afbf # Two Column Card Block
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - cdb88818-0242-4279-92e9-21a22e0931cb # 50/50 Image Text Repeater
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - f9651f2a-e0c5-420e-bcd0-60892652fbcd # Newsletter Signup Banner
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - e1d477b7-f94e-41e1-94f9-0a657534d3eb # Equipment Category Grid
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - e2e75496-e9a6-4b2c-9f2f-3e9ea139a3b1 # Hero with Breadcrumbs
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - d4e7a80b-80bb-4ab2-a2f1-c58e7d49ed90 # Product Listing Block
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - cc564f9e-b397-4f24-b3e3-efc92f2ec8e6 # Featured Equipment Carousel
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - 67dc91f5-0d77-46ec-9598-895f0fcb0153 # Table with Form Block
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - 596d6ee6-2460-4cb0-b5ca-5c9470c79049 # Wanted Equipment Listing Block
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - bb77f789-9d4a-4f63-a6a1-dc3102e8e063 # Contact Page Form Block
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - eb464430-cc3f-4bba-8db7-7ba6d63af07e # Text with CTA Cards
+        -
+          - group
+          - General
     -
       __assoc__:
         -
           - uid
           - 0b0b67e9-a4bb-48cf-8316-808106205fec # Single Column Text Block
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

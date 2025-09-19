@@ -60,43 +60,31 @@
                                         {% endfor %}
                                     </div>
                                     <div class="result-title">{{ result.title }}</div>
-                                                                    <div class="result-excerpt">
-                                    {% if result.productDescription is defined and result.productDescription %}
-                                        {{ result.productDescription|striptags|truncate(120) }}
-                                    {% elseif result.subtext is defined and result.subtext %}
-                                        {{ result.subtext|striptags|truncate(120) }}
-                                    {% elseif result.mainContent is defined and result.mainContent %}
-                                        {% set excerpt = '' %}
-                                        {% set tableContent = '' %}
-                                        
-                                        {# First, try to find table content from tableWithFormBlock #}
-                                        {% for block in result.mainContent %}
-                                            {% if block.type == 'tableWithFormBlock' and block.table and tableContent == '' %}
-                                                {% set tableRows = [] %}
-                                                {% for row in block.table %}
-                                                    {% if row.leftColumn and row.rightColumn %}
-                                                        {% set tableRows = tableRows|merge([row.leftColumn ~ ': ' ~ row.rightColumn]) %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                                {% if tableRows|length > 0 %}
-                                                    {% set tableContent = tableRows|join(', ') %}
-                                                {% endif %}
-                                            {% endif %}
-                                        {% endfor %}
-                                        
-                                        {# If we found table content, use it; otherwise look for detailText #}
-                                        {% if tableContent %}
-                                            {{ tableContent|striptags|truncate(120) }}
-                                        {% else %}
-                                            {% for block in result.mainContent %}
-                                                {% if block.type == 'detailText' and block.label and excerpt == '' %}
-                                                    {% set excerpt = block.label %}
-                                                {% endif %}
-                                            {% endfor %}
-                                            {{ excerpt|striptags|truncate(120) }}
+                                    <div class="result-excerpt">
+                                        {% if result.productDescription is defined and result.productDescription %}
+                                            {{ result.productDescription|striptags|truncate(120) }}
+                                        {% elseif result.subtext is defined and result.subtext %}
+                                            {{ result.subtext|striptags|truncate(120) }}
+                                        {% elseif result.mainContent is defined and result.mainContent %}
+                                            {% set excerpt = '' %}
+                                            {% set tableContent = '' %}
                                         {% endif %}
+                                    </div>
+                                    {% set tableWithFormBlock = null %}
+                                    {% for block in result.mainContent.all() %}
+                                        {% if block.type == 'tableWithFormBlock' %}
+                                            {% set tableWithFormBlock = block %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if tableWithFormBlock and tableWithFormBlock.table %}
+                                        <div class="result-specs">
+                                            {% for row in tableWithFormBlock.table|slice(0,2) %}
+                                                <div class="product-spec table-row">
+                                                    <span class="spec-label"><strong>{{ row.leftColumn }}:</strong> {{ row.rightColumn }}</span>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
-                                </div>
                                 </a>
                             {% endfor %}
                         </div>

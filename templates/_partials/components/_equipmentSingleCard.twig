@@ -71,8 +71,7 @@
             {% if tableWithFormBlock and tableWithFormBlock.table %}
                 {% for row in tableWithFormBlock.table|slice(0,2) %}
                     <div class="product-spec table-row">
-                        <span class="spec-label"><strong>{{ row.leftColumn }}:</strong></span>
-                        <span class="spec-value">{{ row.rightColumn }}</span>
+                        <span class="spec-label"><strong>{{ row.leftColumn }}:</strong> {{ row.rightColumn }}</span>
                     </div>
                 {% endfor %}
             {% else %}
